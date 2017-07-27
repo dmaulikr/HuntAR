@@ -2,19 +2,23 @@ import React, { Component } from 'react';
 import {Text, View, TextInput, Button, StyleSheet } from 'react-native';
 import { Redirect } from 'react-router-native'
 
-export default class LoginPage extends Component {
+export default class CharacterCreationPage extends Component {
   constructor() {
   super();
-    this.handleLoginEmailChange = this.handleLoginEmailChange.bind(this);
-    this.handleLoginPasswordChange = this.handleLoginPasswordChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleHealthChange = this.handleHealthChange.bind(this);
+    this.handleDamageChange = this.handleDamageChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleLoginEmailChange(e){
+  handleNameChange(e){
     this.props.actions.updateLoginFormEmail(e)
   }
 
-  handleLoginPasswordChange(e){
+  handleHealthChange(e){
+    this.props.actions.updateLoginFormPassword(e)
+  }
+  handleHealthChange(e){
     this.props.actions.updateLoginFormPassword(e)
   }
 
@@ -22,26 +26,31 @@ export default class LoginPage extends Component {
     this.props.actions.submitLoginForm(this.props.loginForm)
   }
 
-  displayLoginWithRedirect(){
-    if (this.props.user.loggedin === false) {
+
+
+  displayCharacterCreationWithRedirect(){
+    if (this.props.character.length <= 0 ) {
       return(
         <View>
           <View>
-            <Text>Log In</Text>
+            <Text>Character Details</Text>
           </View>
           <View>
-            <Text>Email:</Text>
+            <Text>Name:</Text>
               <TextInput
-                placeholder="Email"
-                onChangeText={this.handleLoginEmailChange}
+                placeholder="Name"
+                onChangeText={this.handleNameChange}
                 >
               </TextInput>
           </View>
           <View>
-            <Text>Password:</Text>
+            <View>
+              <Text>Stats</Text>
+            </View>
+            <Text>Health:</Text>
               <TextInput
-                placeholder="Password"
-                onChangeText={this.handleLoginPasswordChange}
+                placeholder="Health"
+                onChangeText={this.handleHealthChange}
                 >
               </TextInput>
           </View>
@@ -65,7 +74,7 @@ export default class LoginPage extends Component {
 
   render() {
     return (
-      <View>{this.displayLoginWithRedirect()}</View>
+      <View>{this.displayCharacterCreationWithRedirect()}</View>
     )
   }
 }
