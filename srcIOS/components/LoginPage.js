@@ -56,7 +56,7 @@ export default class LoginPage extends Component {
     } else {
       return(
         <Redirect to={{
-      pathname: '/character',
+      pathname: '/characters',
     }}/>
       )
     }

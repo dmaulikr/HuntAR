@@ -1,6 +1,6 @@
 import LoginContainer from '../containers/LoginContainer'
-import CharacterPageContainer from '../containers/CharacterPageContainer'
-import CharacterCreationPage from '../components/CharacterCreationPage'
+import CharactersPageContainer from '../containers/CharactersPageContainer'
+import CharacterCreationPageContainer from '../containers/CharacterCreationPageContainer'
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Switch, Route, StyleSheet } from 'react-router-native'
@@ -10,10 +10,10 @@ export default class Main extends Component {
     return (
       <View >
         <Switch>
-           <Route path="/" exact component={LoginContainer} />
+           <Route path="/" exact component={CharactersPageContainer} />
            <Route path="/login" exact component={LoginContainer}/>
-           <Route path="/character" exact component={CharacterPageContainer}/>
-           <Route path="/charactercreation" exact component={CharacterCreationPage}/>
+           <Route path="/characters" exact component={CharactersPageContainer}/>
+           <Route path="/charactercreation" exact component={CharacterCreationPageContainer}/>
         </Switch>
       </View>
     );

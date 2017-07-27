@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
 import user from './UserReducer';
 import loginForm from './LoginFormReducer';
-import character from './CharacterReducer';
+import characters from './CharactersReducer';
+import characterCreationForm from './CharacterCreationFormReducer';
 
 export default combineReducers({
-   user, loginForm, character
+   user, loginForm, characters, characterCreationForm
 })

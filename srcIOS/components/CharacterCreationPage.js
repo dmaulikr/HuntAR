@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Text, View, TextInput, Button, StyleSheet } from 'react-native';
+import {Text, View, TextInput, Button, Picker } from 'react-native';
 import { Redirect } from 'react-router-native'
 
 export default class CharacterCreationPage extends Component {
@@ -10,26 +10,29 @@ export default class CharacterCreationPage extends Component {
     this.handleDamageChange = this.handleDamageChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
+  componentWillMount(){
+    this.props.actions.resetForm()
+  }
 
   handleNameChange(e){
-    this.props.actions.updateLoginFormEmail(e)
+    this.props.actions.updateName(e)
   }
 
   handleHealthChange(e){
-    this.props.actions.updateLoginFormPassword(e)
+    this.props.actions.updateHealth(e)
   }
-  handleHealthChange(e){
-    this.props.actions.updateLoginFormPassword(e)
+  handleDamageChange(e){
+    this.props.actions.updateDamage(e)
   }
 
   handleClick(){
-    this.props.actions.submitLoginForm(this.props.loginForm)
+    this.props.actions.submitCreateCharacter(this.props.characterCreationForm)
   }
 
 
 
   displayCharacterCreationWithRedirect(){
-    if (this.props.character.length <= 0 ) {
+    if (this.props.characterCreationForm.created === false ) {
       return(
         <View>
           <View>
@@ -53,10 +56,16 @@ export default class CharacterCreationPage extends Component {
                 onChangeText={this.handleHealthChange}
                 >
               </TextInput>
+            <Text>Damage:</Text>
+              <TextInput
+                placeholder="Damage"
+                onChangeText={this.handleDamageChange}
+                >
+              </TextInput>
           </View>
           <View>
             <Button
-              title="Login"
+              title="Create"
               onPress={this.handleClick}
               />
           </View>
@@ -65,7 +74,7 @@ export default class CharacterCreationPage extends Component {
     } else {
       return(
         <Redirect to={{
-      pathname: '/character',
+      pathname: '/characters',
     }}/>
       )
     }
