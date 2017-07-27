@@ -1,4 +1,4 @@
-// import { SUMBIT_LOGIN_FORM_SUCCESS, LOGOUT } from '../actions/users';
+import { SUMBIT_LOGIN_FORM_SUCCESS, LOGOUT } from '../actions/UserActions';
 
 const initialState = {
   email: "",
@@ -7,7 +7,7 @@ const initialState = {
   password: "",
 }
 
-export default function users(state = initialState, action = {}) {
+export default function user(state = initialState, action = {}) {
   switch(action.type) {
     default:
       return state;
