@@ -9,6 +9,11 @@ export default class CharactersPage extends Component {
     this.props.actions.resetForm()
   }
 
+
+  componentWillUnmount(){
+    this.props.saveCharacters(this.props.user.uid, this.props.characters)
+  }
+
   displayCharactersWithRedirect(){
     if ( this.props.characters.length > 0 ) {
       return(

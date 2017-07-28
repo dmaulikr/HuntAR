@@ -23,7 +23,7 @@ export default class CharacterCreationPage extends Component {
   }
 
   handleClick(){
-    this.props.actions.submitCreateCharacter(this.props.characterCreationForm)
+    this.props.actions.submitCreateCharacter({...this.props.characterCreationForm, uid: this.props.user.uid})
   }
 
 

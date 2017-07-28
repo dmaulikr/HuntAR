@@ -2,38 +2,38 @@ import React, { Component } from 'react';
 import {Text, View, TextInput, Button, StyleSheet } from 'react-native';
 import { Redirect, Link } from 'react-router-native'
 
-export default class LoginPage extends Component {
+export default class RegisterPage extends Component {
   constructor() {
   super();
-    this.handleLoginEmailChange = this.handleLoginEmailChange.bind(this);
-    this.handleLoginPasswordChange = this.handleLoginPasswordChange.bind(this);
+    this.handleRegisterEmailChange = this.handleRegisterEmailChange.bind(this);
+    this.handleRegisterPasswordChange = this.handleRegisterPasswordChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleLoginEmailChange(e){
-    this.props.actions.updateLoginFormEmail(e)
+  handleRegisterEmailChange(e){
+    this.props.actions.updateRegisterFormEmail(e)
   }
 
-  handleLoginPasswordChange(e){
-    this.props.actions.updateLoginFormPassword(e)
+  handleRegisterPasswordChange(e){
+    this.props.actions.updateRegisterFormPassword(e)
   }
 
   handleClick(){
-    this.props.actions.submitLoginForm(this.props.loginForm)
+    this.props.actions.submitRegisterForm(this.props.registerForm)
   }
 
-  displayLoginWithRedirect(){
+  displayRegisterWithRedirect(){
     if (this.props.user.loggedin === false) {
       return(
         <View>
           <View>
-            <Text>Log In</Text>
+            <Text>Register</Text>
           </View>
           <View>
             <Text>Email:</Text>
               <TextInput
                 placeholder="Email"
-                onChangeText={this.handleLoginEmailChange}
+                onChangeText={this.handleRegisterEmailChange}
                 >
               </TextInput>
           </View>
@@ -41,17 +41,17 @@ export default class LoginPage extends Component {
             <Text>Password:</Text>
               <TextInput
                 placeholder="Password"
-                onChangeText={this.handleLoginPasswordChange}
+                onChangeText={this.handleRegisterPasswordChange}
                 >
               </TextInput>
           </View>
           <View>
             <Button
-              title="Login"
+              title="Register"
               onPress={this.handleClick}
               />
-            <Link to={'/register'}><Text>Register to start the hunt!</Text></Link>
           </View>
+          <Link to={'/login'}><Text>Return to the sign in page.</Text></Link>
         </View>
       )
     } else {
@@ -66,7 +66,7 @@ export default class LoginPage extends Component {
 
   render() {
     return (
-      <View>{this.displayLoginWithRedirect()}</View>
+      <View>{this.displayRegisterWithRedirect()}</View>
     )
   }
 }
