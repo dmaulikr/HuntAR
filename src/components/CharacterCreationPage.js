@@ -10,9 +10,6 @@ export default class CharacterCreationPage extends Component {
     this.handleDamageChange = this.handleDamageChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
-  componentWillMount(){
-    this.props.actions.resetForm()
-  }
 
   handleNameChange(e){
     this.props.actions.updateName(e)
@@ -36,7 +33,7 @@ export default class CharacterCreationPage extends Component {
       return(
         <View>
           <View>
-            <Text>Character Details</Text>
+            <Text>Hunter Details</Text>
           </View>
           <View>
             <Text>Name:</Text>

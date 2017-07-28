@@ -7,7 +7,7 @@ const initialState = [{
   damage: 100,
   name:"Aaron",
   type:"Hunter",
-  created:false
+  created:true
 }]
 
 export default function characters(state = initialState, action = {}) {
