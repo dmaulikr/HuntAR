@@ -37,7 +37,7 @@ export function submitLoginForm(form){
     apiActions.signin(form).done((res)=> {
     dispatch(dispatchSubmitLoginFormSucess({
       email: form.email,
-      id: res.uid
+      uid: res.uid
     }))
   })
 

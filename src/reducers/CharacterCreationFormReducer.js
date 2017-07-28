@@ -7,11 +7,6 @@ import {
 } from '../actions/CreateCharacterFormActions';
 
 const initialState = {
-  health: 0,
-  damage: 0,
-  name:"",
-  type:"Hunter",
-  created:false
 }
 
 export default function characterCreation(state = initialState, action = {}) {

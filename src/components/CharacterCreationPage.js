@@ -11,10 +11,6 @@ export default class CharacterCreationPage extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentWillUnmount(){
-    
-  }
-
   handleNameChange(e){
     this.props.actions.updateName(e)
   }
@@ -27,7 +23,7 @@ export default class CharacterCreationPage extends Component {
   }
 
   handleClick(){
-    this.props.actions.submitCreateCharacter(this.props.characterCreationForm)
+    this.props.actions.submitCreateCharacter({...this.props.characterCreationForm, uid: this.props.user.uid})
   }
 
 

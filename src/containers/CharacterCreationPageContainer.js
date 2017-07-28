@@ -5,18 +5,19 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { View } from 'react-native';
 
-const CharacterCreationPageContainer = ({CreateCharacterFormActions, characterCreationForm}) => (
+const CharacterCreationPageContainer = ({CreateCharacterFormActions, characterCreationForm, user}) => (
   <View>
     <CharacterCreationPage
       characterCreationForm={characterCreationForm}
       actions={CreateCharacterFormActions}
+      user={user}
     />
   </View>
 )
 
-
 const mapStateToProps = state => ({
-  characterCreationForm: state.characterCreationForm
+  characterCreationForm: state.characterCreationForm,
+  user: state.user
 })
 
 const mapDispatchToProps = dispatch => ({

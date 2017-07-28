@@ -41,9 +41,8 @@ export async function signOut(form) {
 
 
 export async function saveCharacters(uid, characters) {
-
   var database = firebase.database();
   firebase.database().ref('users/' + uid + '/characters').set({
-      characters: characters,
+      characters
     });
 }

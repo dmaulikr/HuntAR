@@ -1,5 +1,6 @@
 import * as CreateCharacterFormActions from '../actions/CreateCharacterFormActions'
 import * as CharacterActions from '../actions/CharacterActions'
+import { saveCharacters } from '../actions/apiActions'
 import CharactersPage from '../components/CharactersPage'
 import React from 'react'
 import { bindActionCreators } from 'redux'
@@ -14,6 +15,7 @@ const CharactersPageContainer = ({ characters, CreateCharacterFormActions, Chara
       actions={CreateCharacterFormActions}
       characterActions={CharacterActions}
       user={user}
+      saveCharacters={saveCharacters}
     />
   </View>
 )

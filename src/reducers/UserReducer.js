@@ -3,7 +3,7 @@ import { SUMBIT_LOGIN_FORM_SUCCESS } from '../actions/LoginFormActions';
 
 const initialState = {
   email: "",
-  id: "",
+  uid: "",
   loggedin: false,
 }
 
@@ -12,7 +12,7 @@ export default function user(state = initialState, action = {}) {
     case SUMBIT_LOGIN_FORM_SUCCESS:
       return  {
         ...state,
-        id: action.user.id,
+        uid: action.user.uid,
         email: action.user.email,
         loggedin: true,
        };
