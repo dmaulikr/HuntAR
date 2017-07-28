@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import user from './UserReducer';
 import loginForm from './LoginFormReducer';
+import registerForm from './RegisterFormReducer';
 import characters from './CharactersReducer';
 import characterCreationForm from './CharacterCreationFormReducer';
 import selectedCharacter from './SelectedCharacterReducer';
@@ -12,5 +13,6 @@ export default combineReducers({
    characters,
    characterCreationForm,
    selectedCharacter,
-   monsters
+   monsters,
+   registerForm
 })

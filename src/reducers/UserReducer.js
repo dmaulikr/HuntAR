@@ -2,10 +2,9 @@ import { LOGOUT } from '../actions/UserActions';
 import { SUMBIT_LOGIN_FORM_SUCCESS } from '../actions/LoginFormActions';
 
 const initialState = {
-  email: "email",
-  id: "1",
-  loggedin: true,
-  password: "password",
+  email: "",
+  id: "",
+  loggedin: false,
 }
 
 export default function user(state = initialState, action = {}) {
@@ -13,7 +12,7 @@ export default function user(state = initialState, action = {}) {
     case SUMBIT_LOGIN_FORM_SUCCESS:
       return  {
         ...state,
-        password: action.user.password,
+        id: action.user.id,
         email: action.user.email,
         loggedin: true,
        };

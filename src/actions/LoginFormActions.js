@@ -1,3 +1,5 @@
+import * as apiActions from './apiActions'
+
 export const UPDATE_LOGIN_FORM_EMAIL = 'UPDATE_LOGIN_FORM_EMAIL'
 export const UPDATE_LOGIN_FORM_PASSWORD = 'UPDATE_LOGIN_FORM_PASSWORD'
 export const SUMBIT_LOGIN_FORM_SUCCESS = 'SUMBIT_LOGIN_FORM_SUCCESS'
@@ -30,9 +32,15 @@ export function dispatchUpdateLoginFormPassword(password){
   }
 }
 
-export function submitLoginForm(user){
+export function submitLoginForm(form){
   return dispatch => {
-      dispatch(dispatchSubmitLoginFormSucess(user))
+    apiActions.signin(form).done((res)=> {
+    dispatch(dispatchSubmitLoginFormSucess({
+      email: form.email,
+      id: res.uid
+    }))
+  })
+
     }
  }
 
