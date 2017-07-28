@@ -1,5 +1,5 @@
-import Main from './srcIOS/components/Main';
-import RootReducer from './srcIOS/reducers/RootReducer';
+import Main from './src/components/Main';
+import RootReducer from './src/reducers/RootReducer';
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, View } from 'react-native';
 import { NativeRouter } from 'react-router-native';

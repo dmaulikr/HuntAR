@@ -2,10 +2,10 @@ import { LOGOUT } from '../actions/UserActions';
 import { SUMBIT_LOGIN_FORM_SUCCESS } from '../actions/LoginFormActions';
 
 const initialState = {
-  email: "",
-  id: "",
-  loggedin: false,
-  password: "",
+  email: "email",
+  id: "1",
+  loggedin: true,
+  password: "password",
 }
 
 export default function user(state = initialState, action = {}) {

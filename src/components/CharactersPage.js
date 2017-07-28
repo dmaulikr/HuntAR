@@ -5,6 +5,9 @@ import { Link } from 'react-router-native';
 import { Redirect } from 'react-router-native'
 
 export default class CharactersPage extends Component {
+  componentDidMount(){
+    this.props.actions.resetForm()
+  }
 
   displayCharactersWithRedirect(){
     if ( this.props.characters.length > 0 ) {
@@ -12,11 +15,16 @@ export default class CharactersPage extends Component {
         <View>
           {this.props.characters.map((character, i) => {
             return(
-            <CharacterShow key={i} character={character}/>
+            <CharacterShow
+              key={i}
+              character={character}
+              characterActions={this.props.characterActions}
+              selectedCharacter={this.props.selectedCharacter}
+              />
             )
           })}
           <View>
-            <Link to={'/charactercreation'}><Text>Create a new Character</Text></Link>
+            <Link to={'/charactercreation'}><Text>Create a new Hunter</Text></Link>
           </View>
         </View>
       )
