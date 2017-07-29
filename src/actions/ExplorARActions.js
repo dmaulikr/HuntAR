@@ -1,4 +1,4 @@
-import { Linking } from 'react-native';
+import { Linking,} from 'react-native';
 
 export function linkingTest(url){
   Linking.canOpenURL(url).then(supported => {

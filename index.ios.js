@@ -10,7 +10,9 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 const store = createStore(
   RootReducer,
-  applyMiddleware(thunk)
+  composeWithDevTools(
+    applyMiddleware(thunk)
+  )
 );
 
 export default class HuntAR extends Component {

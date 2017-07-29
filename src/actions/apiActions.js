@@ -1,6 +1,5 @@
 import * as firebase from "firebase";
-
-
+// start firebase connection if it hasnt been started yet - works
 if (!firebase.apps.length) {
     firebase.initializeApp({
       apiKey: "AIzaSyALfFSMM-r5cVc-GxcUNf0RzvheeUIGr3c",
@@ -9,6 +8,9 @@ if (!firebase.apps.length) {
       storageBucket: "huntar-3db6a.appspot.com"});
 }
 
+const database = firebase.database();
+
+// register - should work untested
 export async function register(form) {
    try {
      let response =  await firebase.auth()
@@ -19,6 +21,7 @@ export async function register(form) {
    }
 }
 
+//signin - works
 export async function signin(form) {
    try {
      let response =  await firebase.auth()
@@ -29,6 +32,7 @@ export async function signin(form) {
    }
 }
 
+//should work not tested
 export async function signOut(form) {
    try {
      let response =  await firebase.auth()
@@ -40,15 +44,29 @@ export async function signOut(form) {
 }
 
 
+//save characters - works
+// needs to tweaked so there isnt that double key
 export async function saveCharacters(uid, characters) {
   var database = firebase.database();
   firebase.database().ref('users/' + uid + '/characters').set({
       characters
     });
 }
+
+// save combat instance - works
 export async function createCombatInstance(uid, combatInstance) {
   var database = firebase.database();
   firebase.database().ref('users/' + uid + '/combat').set({
       combatInstance
+    });
+}
+
+// save position - works
+export async function savePostion(uid) {
+
+  debugger
+  var database = firebase.database();
+  firebase.database().ref('users/' + uid + '/postion').set({
+
     });
 }
