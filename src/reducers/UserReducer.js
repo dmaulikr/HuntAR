@@ -2,9 +2,9 @@ import { LOGOUT } from '../actions/UserActions';
 import { SUMBIT_LOGIN_FORM_SUCCESS } from '../actions/LoginFormActions';
 
 const initialState = {
-  email: "",
-  uid: "",
-  loggedin: false,
+  email: "gbrlxvi@gmail.com",
+  uid: "47Iw8os7WwacnCSiXX3OhRcHGFl1",
+  loggedin: true,
 }
 
 export default function user(state = initialState, action = {}) {
