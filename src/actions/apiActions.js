@@ -46,3 +46,9 @@ export async function saveCharacters(uid, characters) {
       characters
     });
 }
+export async function createCombatInstance(uid, combatInstance) {
+  var database = firebase.database();
+  firebase.database().ref('users/' + uid + '/combat').set({
+      combatInstance
+    });
+}
