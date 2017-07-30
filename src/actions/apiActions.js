@@ -64,7 +64,6 @@ export async function createCombatInstance(uid, combatInstance) {
 // save position - works
 export async function savePostion(uid) {
 
-  debugger
   var database = firebase.database();
   firebase.database().ref('users/' + uid + '/postion').set({
 

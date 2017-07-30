@@ -1,75 +1,41 @@
 import React, { Component } from 'react';
 import {Text, View, Button, Linking } from 'react-native';
+import { Link } from 'react-router-native';
 
 export default class ExploreLaunchPage extends Component {
   constructor() {
   super();
-    this.handleClick = this.handleClick.bind(this);
+    this.handleAttackClick = this.handleAttackClick.bind(this);
   }
-
-  // test for deep link
-  static navigationOptions = {
-    title: 'TEST',
-  };
-
-  // test
 
   componentDidMount() {
     const {
-      selectedCharacter,
+      characters,
       monsters,
       ExplorARActions,
       createCombatInstance,
       user }  = this.props
-    let combatInstance = {selectedCharacter: selectedCharacter, monsters: monsters}
+    let combatInstance = {character: characters[0], monsters: monsters}
     createCombatInstance(user.uid, combatInstance)
-
-    // test
-      Linking.addEventListener('url', this.handleOpenURL);
-        //test
     }
 
-
-
-    //test
-    componentWillUnmount() { // C
-      Linking.removeEventListener('url', this.handleOpenURL);
-    }
-    handleOpenURL = (event) => {
-      console.log(event);
-      this.navigate(event.url);
-    }
-    navigate = (url) => { // E
-      const { navigate } = this.props.navigation;
-      const route = url.replace(/.*?:\/\//g, '');
-      const id = route.match(/\/([^\/]+)\/?$/)[1];
-      const routeName = route.split('/')[0];
-
-      if (routeName === 'test') {
-        console.log('omg this worked');
-      };
-    }
-    //test
-
-
-
-
-  handleClick(){
-    // this.props.ExplorARActions.linkingTest("https://stackoverflow.com/questions/4090491/first-element-in-array-jquery")
-    navigator.geolocation.getCurrentPosition(res=> (res))
+  handleAttackClick(){
+    this.ExplorARActions.launchCombat('combat://')
   }
+
+
 
   render() {
     return (
       <View>
           <Button
-            title="TEST THAT LINK"
-            onPress={this.handleClick}
+            title="Fight!"
+            onPress={this.handleAttackClick}
             />
-          <Button
-            title="TEST THAT GEOLOCATION"
-            onPress={this.handleClick}
-            />
+          <Link to={'/flee'}><Text>Try to run away</Text></Link>
+        <View>
+          <Link to={'/characters'}><Text>Return to Status Page</Text></Link>
+        </View>
       </View>
     )
   }

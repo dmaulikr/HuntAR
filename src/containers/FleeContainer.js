@@ -1,16 +1,16 @@
 import * as ExplorARActions from '../actions/ExplorARActions'
 import * as apiActions from '../actions/apiActions'
-import  ExploreLaunchPage from '../components/ExploreLaunchPage'
+import FleePage from '../components/FleePage'
 import { createCombatInstance } from '../actions/apiActions'
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { View } from 'react-native';
 
-const ExploreLaunchContainer = ({ characters, monsters, user }) => (
+const FleeContainer = ({ selectedCharacter, monsters, user }) => (
   <View>
-    <ExploreLaunchPage
-      characters={characters}
+    <FleePage
+      selectedCharacter={selectedCharacter}
       monsters={monsters}
       ExplorARActions={ExplorARActions}
       createCombatInstance={createCombatInstance}
@@ -22,11 +22,11 @@ const ExploreLaunchContainer = ({ characters, monsters, user }) => (
 
 
 const mapStateToProps = state => ({
-  characters: state.characters,
+  selectedCharacter: state.selectedCharacter,
   monsters: state.monsters,
   user: state.user
 })
 
 export default connect(
   mapStateToProps
-)(ExploreLaunchContainer)
+)(FleeContainer)

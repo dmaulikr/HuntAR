@@ -1,4 +1,5 @@
 import LoginPage from '../components/LoginPage'
+import * as LoginFormActions from "../actions/LoginFormActions"
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'

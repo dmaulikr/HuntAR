@@ -1,19 +1,15 @@
 import * as ExplorARActions from '../actions/ExplorARActions'
 import * as apiActions from '../actions/apiActions'
-import  ExploreLaunchPage from '../components/ExploreLaunchPage'
-import { createCombatInstance } from '../actions/apiActions'
+import  ExploreLandingPage from '../components/ExploreLandingPage'
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { View } from 'react-native';
 
-const ExploreLaunchContainer = ({ characters, monsters, user }) => (
+const ExploreLandingContainer = ({ user }) => (
   <View>
-    <ExploreLaunchPage
-      characters={characters}
-      monsters={monsters}
+    <ExploreLandingPage
       ExplorARActions={ExplorARActions}
-      createCombatInstance={createCombatInstance}
       user={user}
       apiActions={apiActions}
     />
@@ -22,11 +18,9 @@ const ExploreLaunchContainer = ({ characters, monsters, user }) => (
 
 
 const mapStateToProps = state => ({
-  characters: state.characters,
-  monsters: state.monsters,
   user: state.user
 })
 
 export default connect(
   mapStateToProps
-)(ExploreLaunchContainer)
+)(ExploreLandingContainer)
