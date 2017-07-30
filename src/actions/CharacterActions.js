@@ -1,14 +1,37 @@
-export const SELECT_CHARACTER = 'SELECT_CHARACTER'
+import { setCharacter } from './apiActions'
 
-export function selectCharacter(character){
+export const SET_CHARACTER = 'SET_CHARACTER'
+export const SET_LOCATION_HISTORY = 'SET_LOCATION_HISTORY'
+
+export function setUsersCharacter(uid){
   return dispatch => {
-   dispatch(dispatchSelectCharacter(character));
+    setCharacter(uid, function (err, result) {
+          dispatch(dispatchSetCharacter(result))
+    })
+   }
+  }
+
+
+export function dispatchSetCharacter(character){
+  return {
+    type: SET_CHARACTER,
+    character
   }
 }
 
-export function dispatchSelectCharacter(character){
+
+export function setLocationHistory(uid){
+  return dispatch => {
+    setCharacter(uid, function (err, result) {
+          dispatch(dispatchSetLocationHistory(result))
+    })
+   }
+  }
+
+
+export function dispatchSetLocationHistory(locationHistory){
   return {
-    type: SELECT_CHARACTER,
-    character
+    type: SET_LOCATION_HISTORY,
+    locationHistory
   }
 }

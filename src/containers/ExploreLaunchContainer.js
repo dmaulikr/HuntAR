@@ -1,5 +1,4 @@
 import * as ExplorARActions from '../actions/ExplorARActions'
-import * as apiActions from '../actions/apiActions'
 import  ExploreLaunchPage from '../components/ExploreLaunchPage'
 import { createCombatInstance } from '../actions/apiActions'
 import React from 'react'
@@ -15,7 +14,6 @@ const ExploreLaunchContainer = ({ characters, monsters, user }) => (
       ExplorARActions={ExplorARActions}
       createCombatInstance={createCombatInstance}
       user={user}
-      apiActions={apiActions}
     />
   </View>
 )

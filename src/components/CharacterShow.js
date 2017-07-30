@@ -4,6 +4,13 @@ import {Text, View, TouchableHighlight } from 'react-native';
 import { Link } from 'react-router-native';
 
 export default class CharacterShow extends Component {
+    displayAddHomeBaseButton(){
+      if ( this.props.character.hasHomeBase === false ) {
+        return(
+          <Link to={'/homebaseSetup'}><Text>Establish your outpost</Text></Link>
+        )
+      }
+    }
 
   render() {
     let { name, type, damage, health } = this.props.character
@@ -15,6 +22,9 @@ export default class CharacterShow extends Component {
         <View><Text>Health: { health }</Text></View>
         <View>
           <Link to={'explore'}><View><ExploreButtonTextContainer/></View></Link>
+        </View>
+        <View>
+          {this.displayAddHomeBaseButton()}
         </View>
       </View>
     )

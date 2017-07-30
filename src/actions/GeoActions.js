@@ -1,15 +1,16 @@
-export const SET_GEO = 'SET_GEO'
+export const SET_CURRENT_LOCATION = 'SET_CURRENT_LOCATION'
 
 // set postion
 
-export function setGeo(geo){
+export function setCurrentLocation(location){
   return dispatch => {
-   dispatch(dispatchSetGeo(geo));
+   dispatch(dispatchSetCurrentLocation(location));
   }
 }
 
-export function dispatchSetGeo(geo){
+export function dispatchSetCurrentLocation(location){
   return {
-    type: SET_GEO
+    type: SET_CURRENT_LOCATION,
+    location
   }
 }

@@ -1,4 +1,6 @@
 import * as firebase from "firebase";
+
+export const SET_CHARACTER = 'SET_CHARACTER'
 // start firebase connection if it hasnt been started yet - works
 if (!firebase.apps.length) {
     firebase.initializeApp({
@@ -14,7 +16,7 @@ const database = firebase.database();
 export async function register(form) {
    try {
      let response =  await firebase.auth()
-           .createUserWithEmailAndPassword(form.email, form.pass);
+           .createUserWithEmailAndPassword(form.email, form.password);
            return (response)
    } catch (error) {
            return (error)
@@ -45,27 +47,54 @@ export async function signOut(form) {
 
 
 //save characters - works
-// needs to tweaked so there isnt that double key
-export async function saveCharacters(uid, characters) {
+
+export async function saveCharacters(uid, character) {
   var database = firebase.database();
-  firebase.database().ref('users/' + uid + '/characters').set({
-      characters
+  firebase.database().ref('users/' + uid ).set({
+      character
     });
 }
 
 // save combat instance - works
 export async function createCombatInstance(uid, combatInstance) {
   var database = firebase.database();
-  firebase.database().ref('users/' + uid + '/combat').set({
+  firebase.database().ref('users/' + uid ).set({
       combatInstance
     });
 }
 
-// save position - works
-export async function savePostion(uid) {
-
+// save position
+export async function saveLocationHistory(uid, locationhistory) {
   var database = firebase.database();
-  firebase.database().ref('users/' + uid + '/postion').set({
-
+  firebase.database().ref('users/' + uid ).set({
+      locationhistory
     });
 }
+
+
+
+
+// pull characters from firebase
+export async function setCharacter(uid, callback) {
+    var database = firebase.database();
+    test = firebase.database().ref('users/' + uid + '/character')
+    test.once("value", function(snapshot) {
+    temp = snapshot.val()
+    callback(null, temp);
+  }, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  });
+
+};
+
+
+export async function setLocationHistory(uid, callback) {
+    var database = firebase.database();
+    test = firebase.database().ref('users/' + uid + '/locationhistory')
+    test.once("value", function(snapshot) {
+    temp = snapshot.val()
+    callback(null, temp);
+  }, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  });
+};

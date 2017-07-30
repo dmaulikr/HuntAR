@@ -3,12 +3,14 @@ import RegisterPageContainer from '../containers/RegisterPageContainer'
 import CharactersPageContainer from '../containers/CharactersPageContainer'
 import CharacterCreationPageContainer from '../containers/CharacterCreationPageContainer'
 import ExploreLaunchContainer from '../containers/ExploreLaunchContainer'
+import HomebaseSetupContainer from '../containers/HomebaseSetupContainer'
 import FleeContainer from '../containers/FleeContainer'
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Switch, Route, StyleSheet } from 'react-router-native'
 
 export default class Main extends Component {
+
   render() {
     return (
       <View >
@@ -20,6 +22,7 @@ export default class Main extends Component {
            <Route path="/charactercreation" exact component={CharacterCreationPageContainer}/>
            <Route path="/explore" exact component={ExploreLaunchContainer}/>
            <Route path="/flee" exact component={FleeContainer}/>
+           <Route path="/homebasesetup" exact component={HomebaseSetupContainer}/>
         </Switch>
       </View>
     );

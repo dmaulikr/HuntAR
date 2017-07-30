@@ -1,38 +1,43 @@
 import CharacterShow from '../components/CharacterShow'
 import React, { Component } from 'react';
-import {Text, View } from 'react-native';
-import { Redirect } from 'react-router-native'
+import {Text, View, StatusBar } from 'react-native';
+import { Link } from 'react-router-native'
 
 export default class CharactersPage extends Component {
-  componentDidMount(){
-    this.props.actions.resetForm()
+  componentWillMount(){
+    const {
+      actions,
+      user,
+      CharacterActions } = this.props
+    actions.resetForm()
   }
 
-  componentWillUnmount(){
-    this.props.saveCharacters(this.props.user.uid, this.props.characters)
+  componentDidMount(){
+    this.timer = setInterval(()=> {
+      navigator.geolocation.getCurrentPosition((res) => {
+        this.props.GeoActions.setCurrentLocation(res)
+      })
+    }, 120000)
+    this.timer = setInterval(()=> {
+      navigator.geolocation.getCurrentPosition((res) => {
+        this.props.saveLocationHistory(this.props.user.uid)
+      })
+    }, 120100)
   }
+
 
   displayCharactersWithRedirect(){
-    if ( this.props.characters.length > 0 ) {
+    if ( this.props.characters.created === true ) {
       return(
         <View>
-          {this.props.characters.map((character, i) => {
-            return(
             <CharacterShow
-              key={i}
-              character={character}
-              characterActions={this.props.characterActions}
-              selectedCharacter={this.props.selectedCharacter}
+              character={this.props.characters}
               />
-            )
-          })}
         </View>
       )
     } else {
       return(
-        <Redirect to={{
-            pathname: '/charactercreation',
-        }}/>
+      <Link to={'/charactercreation'}><Text>Create a Character</Text></Link>
       )
     }
   }
@@ -40,7 +45,9 @@ export default class CharactersPage extends Component {
 
   render() {
     return (
-      <View>{this.displayCharactersWithRedirect()}</View>
+      <View>
+        {this.displayCharactersWithRedirect()}
+      </View>
     )
   }
 }
