@@ -1,6 +1,7 @@
-import { Linking,} from 'react-native';
+import { Linking } from 'react-native';
 
-export function linkingTest(url){
+// add error handeling
+export function launchCombat(url){
   Linking.canOpenURL(url).then(supported => {
     if (!supported) {
       console.log('Can\'t handle url: ' + url);

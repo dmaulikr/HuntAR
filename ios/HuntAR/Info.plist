@@ -25,7 +25,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>test</string>
+				<string>results</string>
 			</array>
 		</dict>
 	</array>

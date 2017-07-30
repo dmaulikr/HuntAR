@@ -1,14 +1,12 @@
 import CharacterShow from '../components/CharacterShow'
 import React, { Component } from 'react';
 import {Text, View } from 'react-native';
-import { Link } from 'react-router-native';
 import { Redirect } from 'react-router-native'
 
 export default class CharactersPage extends Component {
   componentDidMount(){
     this.props.actions.resetForm()
   }
-
 
   componentWillUnmount(){
     this.props.saveCharacters(this.props.user.uid, this.props.characters)
@@ -28,9 +26,6 @@ export default class CharactersPage extends Component {
               />
             )
           })}
-          <View>
-            <Link to={'/charactercreation'}><Text>Create a new Hunter</Text></Link>
-          </View>
         </View>
       )
     } else {
