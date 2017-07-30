@@ -1,16 +1,21 @@
 import CharacterShow from '../components/CharacterShow'
 import React, { Component } from 'react';
 import {Text, View } from 'react-native';
-import { Redirect } from 'react-router-native'
+import { Link } from 'react-router-native'
 
 export default class CharactersPage extends Component {
-  componentDidMount(){
-    this.props.actions.resetForm()
+  componentWillMount(){
+    const {
+      actions,
+      user,
+      apiActions,
+      CharacterActions }  = this.props
+    actions.resetForm()
+
+    CharacterActions.setUsersCharacter(user.uid)
+    // apiActions.setCharacter(user.uid)
   }
 
-  componentWillUnmount(){
-    this.props.saveCharacters(this.props.user.uid, this.props.characters)
-  }
 
   displayCharactersWithRedirect(){
     if ( this.props.characters.created === true ) {
@@ -18,16 +23,12 @@ export default class CharactersPage extends Component {
         <View>
             <CharacterShow
               character={this.props.characters}
-              characterActions={this.props.characterActions}
-              selectedCharacter={this.props.selectedCharacter}
               />
         </View>
       )
     } else {
       return(
-        <Redirect to={{
-            pathname: '/charactercreation',
-        }}/>
+      <Link to={'/charactercreation'}><Text>Create a Character</Text></Link>
       )
     }
   }

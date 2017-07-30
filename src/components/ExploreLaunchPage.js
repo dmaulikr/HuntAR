@@ -18,7 +18,6 @@ export default class ExploreLaunchPage extends Component {
       user }  = this.props
     let combatInstance = {character: characters, monsters: monsters}
     createCombatInstance(user.uid, combatInstance)
-
     this.props.ExplorARActions.launchCombat('combat://')
   }
 

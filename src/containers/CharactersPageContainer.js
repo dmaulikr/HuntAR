@@ -1,19 +1,20 @@
 import * as CreateCharacterFormActions from '../actions/CreateCharacterFormActions'
-import { saveCharacters, setCharacter } from '../actions/apiActions'
+import * as apiActions from '../actions/apiActions'
+import * as CharacterActions from '../actions/CharacterActions'
 import CharactersPage from '../components/CharactersPage'
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { View } from 'react-native';
 
-const CharactersPageContainer = ({ characters, CreateCharacterFormActions , user }) => (
+const CharactersPageContainer = ({ characters, apiActions, CreateCharacterFormActions , CharacterActions , user }) => (
   <View>
     <CharactersPage
       characters={characters}
       actions={CreateCharacterFormActions}
       user={user}
-      saveCharacters={saveCharacters}
-      setCharacter={setCharacter}
+      apiActions={apiActions}
+      CharacterActions={CharacterActions}
     />
   </View>
 )
@@ -27,6 +28,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     CreateCharacterFormActions: bindActionCreators(CreateCharacterFormActions, dispatch),
+    apiActions: bindActionCreators(apiActions, dispatch),
+    CharacterActions: bindActionCreators(CharacterActions, dispatch),
 })
 
 export default connect(

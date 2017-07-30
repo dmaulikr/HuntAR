@@ -1,4 +1,5 @@
 import { ADD_CHARACTER_SUCCESS } from '../actions/CreateCharacterFormActions';
+import { SET_CHARACTER } from '../actions/CharacterActions';
 
 // remove state intial character
 
@@ -11,7 +12,12 @@ export default function characters(state = initialState, action = {}) {
         ...state,
         ...action.character,
         created: true,
-
+      }
+    case SET_CHARACTER:
+      return  {
+        ...state,
+        ...action.character,
+        created: true,
       }
     default:
       return state;

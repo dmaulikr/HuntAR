@@ -1,3 +1,5 @@
+import { saveCharacters } from './apiActions'
+
 export const UPDATE_CHARACTER_NAME = 'UPDATE_CHARACTER_NAME'
 export const UPDATE_CHARACTER_HEALTH = 'UPDATE_CHARACTER_HEALTH'
 export const UPDATE_CHARACTER_DAMAGE = 'UPDATE_CHARACTER_DAMAGE'
@@ -49,12 +51,14 @@ export function dispatchUpdateDamage(damage){
 //submit
 
 export function submitCreateCharacter(character){
+  saveCharacters(character.uid, character)
   return dispatch => {
       dispatch(dispatchSubmitCreateCharacter(character))
     }
  }
 
 export function dispatchSubmitCreateCharacter(character){
+
   return {
     type: ADD_CHARACTER_SUCCESS,
     character

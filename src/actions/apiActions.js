@@ -1,4 +1,6 @@
 import * as firebase from "firebase";
+
+export const SET_CHARACTER = 'SET_CHARACTER'
 // start firebase connection if it hasnt been started yet - works
 if (!firebase.apps.length) {
     firebase.initializeApp({
@@ -70,18 +72,23 @@ export async function savePostion(uid) {
     });
 }
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 
 
 // pull characters from firebase
-export async function setCharacter(uid) {
+export async function setCharacter(uid, callback) {
   var database = firebase.database();
-  firebase.database().ref('users/' + uid + '/postion').on('value',
-    (snapshot) => {
-      character = {};
-      if (snapshot.val()) {
-        character = snapshot.val().character
-      }
-      callback(character)
-    }
 
-)};
+  test = firebase.database().ref('users/' + uid + '/character')
+
+  test.once("value", function(snapshot) {
+  temp = snapshot.val()
+  callback(null, temp);
+}, function (errorObject) {
+  console.log("The read failed: " + errorObject.code);
+});
+
+};

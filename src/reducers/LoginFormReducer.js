@@ -6,8 +6,8 @@ import {
   LOGOUT } from '../actions/LoginFormActions';
 
 const initialState = {
-  email: "",
-  password: "",
+  email: "Gbrlxvi@gmail.com",
+  password: "Password",
   loggedin: false,
 }
 
