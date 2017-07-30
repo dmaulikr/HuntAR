@@ -45,27 +45,27 @@ export async function signOut(form) {
 
 
 //save characters - works
-// needs to tweaked so there isnt that double key
-export async function saveCharacters(uid, characters) {
+
+export async function saveCharacters(uid, character) {
   var database = firebase.database();
   firebase.database().ref('users/' + uid ).set({
-      characters
+      character
     });
 }
 
 // save combat instance - works
 export async function createCombatInstance(uid, combatInstance) {
   var database = firebase.database();
-  firebase.database().ref('users/' + uid + '/combat').set({
+  firebase.database().ref('users/' + uid ).set({
       combatInstance
     });
 }
 
-// save position - test
+// save position
 export async function savePostion(uid) {
 
   var database = firebase.database();
-  firebase.database().ref('users/' + uid + '/postion').set({
+  firebase.database().ref('users/' + uid ).set({
 
     });
 }
@@ -73,10 +73,15 @@ export async function savePostion(uid) {
 
 
 // pull characters from firebase
-export async function savePostion(uid) {
-
+export async function setCharacter(uid) {
   var database = firebase.database();
-  firebase.database().ref('users/' + uid + '/postion').set({
+  firebase.database().ref('users/' + uid + '/postion').on('value',
+    (snapshot) => {
+      character = {};
+      if (snapshot.val()) {
+        character = snapshot.val().character
+      }
+      callback(character)
+    }
 
-    });
-}
+)};

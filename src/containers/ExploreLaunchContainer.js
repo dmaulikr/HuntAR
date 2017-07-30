@@ -14,7 +14,6 @@ const ExploreLaunchContainer = ({ characters, monsters, user }) => (
       ExplorARActions={ExplorARActions}
       createCombatInstance={createCombatInstance}
       user={user}
-      apiActions={apiActions}
     />
   </View>
 )

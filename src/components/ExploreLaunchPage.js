@@ -8,18 +8,17 @@ export default class ExploreLaunchPage extends Component {
     this.handleAttackClick = this.handleAttackClick.bind(this);
   }
 
-  componentDidMount() {
+
+  handleAttackClick(){
     const {
       characters,
       monsters,
       ExplorARActions,
       createCombatInstance,
       user }  = this.props
-    let combatInstance = {character: characters[0], monsters: monsters}
+    let combatInstance = {character: characters, monsters: monsters}
     createCombatInstance(user.uid, combatInstance)
-    }
 
-  handleAttackClick(){
     this.props.ExplorARActions.launchCombat('combat://')
   }
 
