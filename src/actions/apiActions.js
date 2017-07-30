@@ -64,11 +64,10 @@ export async function createCombatInstance(uid, combatInstance) {
 }
 
 // save position
-export async function savePostion(uid) {
-
+export async function saveLocationHistory(uid, locationhistory) {
   var database = firebase.database();
   firebase.database().ref('users/' + uid ).set({
-
+      locationhistory
     });
 }
 
@@ -77,13 +76,25 @@ export async function savePostion(uid) {
 
 // pull characters from firebase
 export async function setCharacter(uid, callback) {
-  var database = firebase.database();
-  test = firebase.database().ref('users/' + uid + '/character')
-  test.once("value", function(snapshot) {
-  temp = snapshot.val()
-  callback(null, temp);
-}, function (errorObject) {
-  console.log("The read failed: " + errorObject.code);
-});
+    var database = firebase.database();
+    test = firebase.database().ref('users/' + uid + '/character')
+    test.once("value", function(snapshot) {
+    temp = snapshot.val()
+    callback(null, temp);
+  }, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  });
 
+};
+
+
+export async function setLocationHistory(uid, callback) {
+    var database = firebase.database();
+    test = firebase.database().ref('users/' + uid + '/locationhistory')
+    test.once("value", function(snapshot) {
+    temp = snapshot.val()
+    callback(null, temp);
+  }, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  });
 };

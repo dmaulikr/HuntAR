@@ -10,6 +10,12 @@ export default class LoginPage extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentWillUnmount(){
+    this.props.CharacterActions.setUsersCharacter(this.props.user.uid)
+    this.props.CharacterActions.setLocationHistory(this.props.user.uid)
+  }
+
+
   handleLoginEmailChange(e){
     this.props.actions.updateLoginFormEmail(e)
   }

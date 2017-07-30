@@ -10,6 +10,7 @@ import { View } from 'react-native';
 import { Switch, Route, StyleSheet } from 'react-router-native'
 
 export default class Main extends Component {
+
   render() {
     return (
       <View >

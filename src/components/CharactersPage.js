@@ -10,7 +10,19 @@ export default class CharactersPage extends Component {
       user,
       CharacterActions } = this.props
     actions.resetForm()
-    CharacterActions.setUsersCharacter(user.uid)
+  }
+
+  componentDidMount(){
+    this.timer = setInterval(()=> {
+      navigator.geolocation.getCurrentPosition((res) => {
+        this.props.GeoActions.setCurrentLocation(res)
+      })
+    }, 120000)
+    this.timer = setInterval(()=> {
+      navigator.geolocation.getCurrentPosition((res) => {
+        this.props.saveLocationHistory.setCurrentLocation(res)
+      })
+    }, 120100)
   }
 
 

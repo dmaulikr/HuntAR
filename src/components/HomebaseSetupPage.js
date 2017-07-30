@@ -9,6 +9,11 @@ export default class HomebaseSetupPage extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentWillUnmount(){
+    this.props.saveCharacters(this.props.user.uid, this.props.character)
+  }
+
+
   handleClick(){
       navigator.geolocation.getCurrentPosition((res) => {
         this.props.HomebaseActions.setHomebase(res)

@@ -1,5 +1,6 @@
 import * as HomebaseActions from '../actions/HomebaseActions'
 import HomebaseSetupPage from '../components/HomebaseSetupPage'
+import { saveCharacters } from '../actions/apiActions'
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -11,6 +12,7 @@ const HomebaseSetupContainer = ({ user, HomebaseActions, characters }) => (
       HomebaseActions={HomebaseActions}
       user={user}
       character={characters}
+      saveCharacters={saveCharacters}
     />
   </View>
 )
