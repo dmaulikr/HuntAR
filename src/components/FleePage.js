@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Text, View, Button, Linking } from 'react-native';
+import {Text, View } from 'react-native';
 import { Link } from 'react-router-native';
 
 export default class FleePage extends Component {

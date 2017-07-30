@@ -1,6 +1,6 @@
 import CharacterShow from '../components/CharacterShow'
 import React, { Component } from 'react';
-import {Text, View } from 'react-native';
+import {Text, View, StatusBar } from 'react-native';
 import { Link } from 'react-router-native'
 
 export default class CharactersPage extends Component {
@@ -8,10 +8,9 @@ export default class CharactersPage extends Component {
     const {
       actions,
       user,
-      CharacterActions }  = this.props
+      CharacterActions } = this.props
     actions.resetForm()
     CharacterActions.setUsersCharacter(user.uid)
-
   }
 
 
@@ -34,7 +33,9 @@ export default class CharactersPage extends Component {
 
   render() {
     return (
-      <View>{this.displayCharactersWithRedirect()}</View>
+      <View>
+        {this.displayCharactersWithRedirect()}
+      </View>
     )
   }
 }
