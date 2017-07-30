@@ -20,7 +20,7 @@ export default class CharactersPage extends Component {
     }, 120000)
     this.timer = setInterval(()=> {
       navigator.geolocation.getCurrentPosition((res) => {
-        this.props.saveLocationHistory.setCurrentLocation(this.props.user.uid)
+        this.props.saveLocationHistory(this.props.user.uid)
       })
     }, 120100)
   }
