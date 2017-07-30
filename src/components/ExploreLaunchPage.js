@@ -10,12 +10,12 @@ export default class ExploreLaunchPage extends Component {
 
   componentDidMount() {
     const {
-      selectedCharacter,
+      characters,
       monsters,
       ExplorARActions,
       createCombatInstance,
       user }  = this.props
-    let combatInstance = {selectedCharacter: selectedCharacter, monsters: monsters}
+    let combatInstance = {character: characters[0], monsters: monsters}
     createCombatInstance(user.uid, combatInstance)
     }
 
