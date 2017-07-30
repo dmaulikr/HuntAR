@@ -33,10 +33,14 @@ export function dispatchUpdateRegisterFormPassword(password){
 }
 
 export function submitRegisterForm(form){
-  apiActions.register(form)
   return dispatch => {
-      dispatch(dispatchSubmitRegisterFormSucess(form))
-    }
+  apiActions.register(form).done((res)=> {
+      dispatch(dispatchSubmitRegisterFormSucess({
+      uid: res.uid,
+      email: form.email
+    }))
+   })
+  }
  }
 
 export function dispatchSubmitRegisterFormSucess(user){

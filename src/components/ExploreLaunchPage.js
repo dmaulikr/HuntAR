@@ -20,7 +20,7 @@ export default class ExploreLaunchPage extends Component {
     }
 
   handleAttackClick(){
-    this.ExplorARActions.launchCombat('combat://')
+    this.props.ExplorARActions.launchCombat('combat://')
   }
 
 

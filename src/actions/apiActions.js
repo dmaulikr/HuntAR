@@ -14,7 +14,7 @@ const database = firebase.database();
 export async function register(form) {
    try {
      let response =  await firebase.auth()
-           .createUserWithEmailAndPassword(form.email, form.pass);
+           .createUserWithEmailAndPassword(form.email, form.password);
            return (response)
    } catch (error) {
            return (error)
@@ -48,7 +48,7 @@ export async function signOut(form) {
 // needs to tweaked so there isnt that double key
 export async function saveCharacters(uid, characters) {
   var database = firebase.database();
-  firebase.database().ref('users/' + uid + '/characters').set({
+  firebase.database().ref('users/' + uid ).set({
       characters
     });
 }
@@ -61,7 +61,18 @@ export async function createCombatInstance(uid, combatInstance) {
     });
 }
 
-// save position - works
+// save position - test
+export async function savePostion(uid) {
+
+  var database = firebase.database();
+  firebase.database().ref('users/' + uid + '/postion').set({
+
+    });
+}
+
+
+
+// pull characters from firebase
 export async function savePostion(uid) {
 
   var database = firebase.database();

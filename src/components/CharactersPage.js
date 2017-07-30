@@ -13,19 +13,14 @@ export default class CharactersPage extends Component {
   }
 
   displayCharactersWithRedirect(){
-    if ( this.props.characters.length > 0 ) {
+    if ( this.props.characters.created === true ) {
       return(
         <View>
-          {this.props.characters.map((character, i) => {
-            return(
             <CharacterShow
-              key={i}
-              character={character}
+              character={this.props.characters}
               characterActions={this.props.characterActions}
               selectedCharacter={this.props.selectedCharacter}
               />
-            )
-          })}
         </View>
       )
     } else {

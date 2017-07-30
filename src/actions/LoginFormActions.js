@@ -39,9 +39,8 @@ export function submitLoginForm(form){
       email: form.email,
       uid: res.uid
     }))
-  })
-
-    }
+   })
+  }
  }
 
 export function dispatchSubmitLoginFormSucess(user){
