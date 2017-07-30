@@ -17,7 +17,6 @@ export default function characters(state = initialState, action = {}) {
       return  {
         ...state,
         ...action.character,
-        created: true,
       }
     default:
       return state;

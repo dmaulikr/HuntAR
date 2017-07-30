@@ -51,6 +51,7 @@ export function dispatchUpdateDamage(damage){
 //submit
 
 export function submitCreateCharacter(character){
+  character.created = true
   saveCharacters(character.uid, character)
   return dispatch => {
       dispatch(dispatchSubmitCreateCharacter(character))

@@ -72,18 +72,13 @@ export async function savePostion(uid) {
     });
 }
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 
 
 // pull characters from firebase
 export async function setCharacter(uid, callback) {
   var database = firebase.database();
-
   test = firebase.database().ref('users/' + uid + '/character')
-
   test.once("value", function(snapshot) {
   temp = snapshot.val()
   callback(null, temp);

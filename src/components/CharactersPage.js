@@ -8,12 +8,10 @@ export default class CharactersPage extends Component {
     const {
       actions,
       user,
-      apiActions,
       CharacterActions }  = this.props
     actions.resetForm()
-
     CharacterActions.setUsersCharacter(user.uid)
-    // apiActions.setCharacter(user.uid)
+
   }
 
 
