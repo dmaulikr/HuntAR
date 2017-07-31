@@ -5,13 +5,11 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { View } from 'react-native';
 
-const MapPageContainer = ({ characters, locationHistory, CreateCharacterFormActions , CharacterActions , user , GeoActions }) => (
+const MapPageContainer = ({ characters, locationHistory, GeoActions }) => (
   <View>
     <MapPage
-      user={user}
+      characters={characters}
       GeoActions={GeoActions}
-      saveMap={saveMap}
-      savelocationHistory={savelocationHistory}
       locationHistory={locationHistory}
     />
   </View>
@@ -20,16 +18,11 @@ const MapPageContainer = ({ characters, locationHistory, CreateCharacterFormActi
 
 const mapStateToProps = state => ({
   characters: state.characters,
-  selectedCharacter: state.selectedCharacter,
-  selectedCharacter: state.selectedCharacter,
-  user: state.user,
   locationHistory: state.locationHistory
 
 })
 
 const mapDispatchToProps = dispatch => ({
-    CreateCharacterFormActions: bindActionCreators(CreateCharacterFormActions, dispatch),
-    CharacterActions: bindActionCreators(CharacterActions, dispatch),
     GeoActions: bindActionCreators(GeoActions, dispatch),
 })
 
