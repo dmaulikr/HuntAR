@@ -5,10 +5,11 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { View } from 'react-native';
 
-const MapPageContainer = ({ characters, locationHistory, GeoActions }) => (
+const MapPageContainer = ({ user, characters, locationHistory, GeoActions }) => (
   <View>
     <MapPage
       characters={characters}
+      user={user}
       GeoActions={GeoActions}
       locationHistory={locationHistory}
     />
@@ -18,6 +19,7 @@ const MapPageContainer = ({ characters, locationHistory, GeoActions }) => (
 
 const mapStateToProps = state => ({
   characters: state.characters,
+  user: state.user,
   locationHistory: state.locationHistory
 
 })

@@ -10,7 +10,7 @@ export default class ExploreLaunchPage extends Component {
 
 
   handleSearchClick(){
-   this.props.GeoActions.setCurrentLocation()
+   this.props.GeoActions.searchCurrentLocation()
   }
 
 

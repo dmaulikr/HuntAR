@@ -1,11 +1,11 @@
-import { SET_CURRENT_LOCATION } from '../actions/GeoActions';
+import { SEARCH_CURRENT_LOCATION } from '../actions/GeoActions';
 import { SET_LOCATION_HISTORY } from '../actions/CharacterActions';
 
 const initialState = []
 
 export default function locationHistory(state = initialState, action = {}) {
   switch(action.type) {
-    case SET_CURRENT_LOCATION:
+    case SEARCH_CURRENT_LOCATION:
       return  [
         ...state,
         action.exploration

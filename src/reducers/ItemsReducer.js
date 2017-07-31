@@ -1,4 +1,4 @@
-import { SET_CURRENT_LOCATION } from '../actions/GeoActions';
+import { SEARCH_CURRENT_LOCATION } from '../actions/GeoActions';
 import { STORE_ITEM } from '../actions/InventoryActions';
 
 
@@ -86,7 +86,7 @@ function storeItem(items, itemId) {
 
 export default function items(state = initialState, action = {}) {
   switch(action.type) {
-    case SET_CURRENT_LOCATION:
+    case SEARCH_CURRENT_LOCATION:
       if (action.exploration.result.type === "ITEM") {
         return [...state, action.exploration.result.payload]
       }

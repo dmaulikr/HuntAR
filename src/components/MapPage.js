@@ -1,38 +1,45 @@
-import CharacterShow from '../components/CharacterShow'
+import { eventDescriptionHelper } from '../constants/SearchHelper'
+import Map from './Map'
 import React, { Component } from 'react';
 import {Text, View, StyleSheet, Dimensions } from 'react-native';
 import { Link } from 'react-router-native'
-import MapView from 'react-native-maps';
-var { height, width } = Dimensions.get('window')
 
 export default class MapPage extends Component {
 
+
+  makeMarkers(){
+
+    markers = this.props.locationHistory.map((event)=> {
+      return ({
+        latlng: {   latitude: event.location.coords.latitude, longitude: event.location.coords.longitude },
+        title: "Event Log",
+        description: eventDescriptionHelper(event.result)
+      })
+    }
+  )
+
+      if (this.props.characters.hasHomeBase === true) {
+        let homeBaseMarker = {
+          latlng: {
+            latitude: this.props.characters.homebase.coords.latitude,
+            longitude: this.props.characters.homebase.coords.longitude},
+          title: "Home Base",
+          description: "Home sweet home"
+        }
+        markers.push(homeBaseMarker)
+    }
+    return(markers)
+  }
+
   render() {
+    const MARKERS = this.makeMarkers()
     return (
-      <View style={styles.container}>
-        <MapView style={styles.map}
-          initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-          }}
-        />
+      <View>
+        <Map
+          user={this.props.user}
+          markers={MARKERS}/>
+        <Link to={'/characters'}><Text>Character Status</Text></Link>
       </View>
     )
   }
 }
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  map: {
-    width: width,
-    height: height,
-  }
-});

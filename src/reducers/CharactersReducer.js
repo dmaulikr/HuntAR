@@ -1,7 +1,7 @@
 import { ADD_CHARACTER_SUCCESS } from '../actions/CreateCharacterFormActions';
 import { SET_CHARACTER } from '../actions/CharacterActions';
 import { SET_HOME_BASE } from '../actions/HomebaseActions';
-import { SET_CURRENT_LOCATION } from '../actions/GeoActions';
+import { SEARCH_CURRENT_LOCATION } from '../actions/GeoActions';
 
 // remove state intial character
 

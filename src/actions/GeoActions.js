@@ -1,24 +1,37 @@
 import searchHelper from '../constants/SearchHelper'
 
+export const SEARCH_CURRENT_LOCATION = 'SEARCH_CURRENT_LOCATION'
 export const SET_CURRENT_LOCATION = 'SET_CURRENT_LOCATION'
-export const SEARCH_RESULT_MONSTER = 'SEARCH_RESULT_MONSTER'
 
 // set postion
 
-export function setCurrentLocation(){
+export function searchCurrentLocation(){
   return dispatch => {
   navigator.geolocation.getCurrentPosition( (res) => {
     result = {
       location: res,
       result: searchHelper()
      }
-    dispatch(dispatchSetCurrentLocation(result))})
+    dispatch(dispatchSearchCurrentLocation(result))})
   }
 }
 
-export function dispatchSetCurrentLocation(exploration){
+export function dispatchSearchCurrentLocation(exploration){
+  return {
+    type: SEARCH_CURRENT_LOCATION,
+    exploration
+  }
+}
+export function setCurrentLocation(){
+  return dispatch => {
+  navigator.geolocation.getCurrentPosition((res) => {
+    dispatch(dispatchSetCurrentLocation(res))})
+  }
+}
+
+export function dispatchSetCurrentLocation(location){
   return {
     type: SET_CURRENT_LOCATION,
-    exploration
+    location
   }
 }
