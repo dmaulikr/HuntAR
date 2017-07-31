@@ -6,7 +6,9 @@ export const SET_LOCATION_HISTORY = 'SET_LOCATION_HISTORY'
 export function setUsersCharacter(uid){
   return dispatch => {
     setCharacter(uid, function (err, result) {
+      if (result){
           dispatch(dispatchSetCharacter(result.character))
+        }
     })
    }
   }
