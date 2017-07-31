@@ -40,7 +40,7 @@ export default class CharactersPage extends Component {
   }
 
   displayAddHomeBaseButton(){
-    if ( this.props.character && this.props.character.hasHomeBase === false ) {
+    if ( this.props.characters && this.props.characters.hasHomeBase != true ) {
       return(
         <Link to={'/homebaseSetup'}><Text>Establish your outpost</Text></Link>
       )

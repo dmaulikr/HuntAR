@@ -3,7 +3,7 @@ import {Text, View, Button } from 'react-native';
 import { Link, Redirect } from 'react-router-native';
 
 
-export default class HomebaseSetupPage extends Component {
+export default class HomebasePage extends Component {
   constructor() {
   super();
     this.handleClick = this.handleClick.bind(this);

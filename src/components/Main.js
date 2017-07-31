@@ -5,6 +5,7 @@ import InventoryPageContainer from '../containers/InventoryPageContainer'
 import CharacterCreationPageContainer from '../containers/CharacterCreationPageContainer'
 import ExploreLaunchContainer from '../containers/ExploreLaunchContainer'
 import HomebaseSetupContainer from '../containers/HomebaseSetupContainer'
+import HomebaseContainer from '../containers/HomebaseContainer'
 import UnderAttackContainer from '../containers/UnderAttackContainer'
 import FleeContainer from '../containers/FleeContainer'
 import MapPageContainer from '../containers/MapPageContainer'
@@ -27,6 +28,7 @@ export default class Main extends Component {
            <Route path="/explore" exact component={ExploreLaunchContainer}/>
            <Route path="/flee" exact component={FleeContainer}/>
            <Route path="/homebasesetup" exact component={HomebaseSetupContainer}/>
+           <Route path="/homebase" exact component={HomebaseContainer}/>
            <Route path="/underattack" exact component={UnderAttackContainer}/>
            <Route path="/map" exact component={MapPageContainer}/>
         </Switch>
