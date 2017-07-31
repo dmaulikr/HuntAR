@@ -1,4 +1,4 @@
-import { setCharacter } from './apiActions'
+import { setCharacter, setLocationHistory } from './apiActions'
 
 export const SET_CHARACTER = 'SET_CHARACTER'
 export const SET_LOCATION_HISTORY = 'SET_LOCATION_HISTORY'
@@ -6,7 +6,7 @@ export const SET_LOCATION_HISTORY = 'SET_LOCATION_HISTORY'
 export function setUsersCharacter(uid){
   return dispatch => {
     setCharacter(uid, function (err, result) {
-          dispatch(dispatchSetCharacter(result))
+          dispatch(dispatchSetCharacter(result.character))
     })
    }
   }
@@ -20,10 +20,12 @@ export function dispatchSetCharacter(character){
 }
 
 
-export function setLocationHistory(uid){
+export function setUsersLocationHistory(uid){
   return dispatch => {
-    setCharacter(uid, function (err, result) {
-          dispatch(dispatchSetLocationHistory(result))
+    setLocationHistory(uid, function (err, result) {
+      if ( result !== null ){
+          dispatch(dispatchSetLocationHistory(result.locationhistory))
+        }
     })
    }
   }

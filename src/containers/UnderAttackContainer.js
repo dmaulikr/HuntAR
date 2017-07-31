@@ -1,17 +1,18 @@
-import * as GeoActions from '../actions/GeoActions'
-import  ExploreLaunchPage from '../components/ExploreLaunchPage'
+import * as ExplorARActions from '../actions/ExplorARActions'
+import  UnderAttackPage from '../components/UnderAttackPage'
 import { createCombatInstance } from '../actions/apiActions'
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { View } from 'react-native';
 
-const ExploreLaunchContainer = ({ characters, monsters, user, GeoActions }) => (
+const UnderAttackContainer = ({ characters, monsters, user }) => (
   <View>
-    <ExploreLaunchPage
+    <UnderAttackPage
       characters={characters}
       monsters={monsters}
-      GeoActions={GeoActions}
+      ExplorARActions={ExplorARActions}
+      createCombatInstance={createCombatInstance}
       user={user}
     />
   </View>
@@ -24,11 +25,6 @@ const mapStateToProps = state => ({
   user: state.user
 })
 
-const mapDispatchToProps = dispatch => ({
-    GeoActions: bindActionCreators(GeoActions, dispatch),
-})
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ExploreLaunchContainer)
+  mapStateToProps
+)(UnderAttackContainer)

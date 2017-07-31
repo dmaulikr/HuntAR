@@ -5,7 +5,7 @@ import registerForm from './RegisterFormReducer';
 import characters from './CharactersReducer';
 import characterCreationForm from './CharacterCreationFormReducer';
 import monsters from './MonstersReducer';
-import location from './GeoReducer';
+import locationHistory from './GeoReducer';
 
 export default combineReducers({
    user,
@@ -14,5 +14,5 @@ export default combineReducers({
    characterCreationForm,
    monsters,
    registerForm,
-   location
+   locationHistory
 })

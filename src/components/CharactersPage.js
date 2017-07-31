@@ -1,6 +1,6 @@
 import CharacterShow from '../components/CharacterShow'
 import React, { Component } from 'react';
-import {Text, View, StatusBar } from 'react-native';
+import {Text, View } from 'react-native';
 import { Link } from 'react-router-native'
 
 export default class CharactersPage extends Component {
@@ -11,20 +11,6 @@ export default class CharactersPage extends Component {
       CharacterActions } = this.props
     actions.resetForm()
   }
-
-  componentDidMount(){
-    this.timer = setInterval(()=> {
-      navigator.geolocation.getCurrentPosition((res) => {
-        this.props.GeoActions.setCurrentLocation(res)
-      })
-    }, 120000)
-    this.timer = setInterval(()=> {
-      navigator.geolocation.getCurrentPosition((res) => {
-        this.props.saveLocationHistory(this.props.user.uid)
-      })
-    }, 120100)
-  }
-
 
   displayCharactersWithRedirect(){
     if ( this.props.characters.created === true ) {

@@ -1,24 +1,17 @@
-
-import * as CreateCharacterFormActions from '../actions/CreateCharacterFormActions'
-import * as CharacterActions from '../actions/CharacterActions'
 import * as GeoActions from '../actions/GeoActions'
-import { saveCharacters, saveLocationHistory } from '../actions/apiActions'
-import CharactersPage from '../components/CharactersPage'
+import MapPage from '../components/MapPage'
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { View } from 'react-native';
 
-const CharactersPageContainer = ({ characters, locationHistory, CreateCharacterFormActions , CharacterActions , user , GeoActions }) => (
+const MapPageContainer = ({ characters, locationHistory, CreateCharacterFormActions , CharacterActions , user , GeoActions }) => (
   <View>
-    <CharactersPage
-      characters={characters}
-      actions={CreateCharacterFormActions}
+    <MapPage
       user={user}
-      CharacterActions={CharacterActions}
       GeoActions={GeoActions}
-      saveCharacters={saveCharacters}
-      saveLocationHistory={saveLocationHistory}
+      saveMap={saveMap}
+      savelocationHistory={savelocationHistory}
       locationHistory={locationHistory}
     />
   </View>
@@ -43,4 +36,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CharactersPageContainer)
+)(MapPageContainer)
