@@ -3,12 +3,12 @@ import { SET_LOCATION_HISTORY } from '../actions/CharacterActions';
 
 const initialState = []
 
-export default function location(state = initialState, action = {}) {
+export default function locationHistory(state = initialState, action = {}) {
   switch(action.type) {
     case SET_CURRENT_LOCATION:
       return  [
         ...state,
-        action.location
+        action.exploration
       ];
     case SET_LOCATION_HISTORY:
       return  [

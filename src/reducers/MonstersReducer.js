@@ -1,15 +1,16 @@
-// remove state intial character
+import { SET_CURRENT_LOCATION } from '../actions/GeoActions';
 
-const initialState = [{
-  health: 10,
-  damage: 5,
-  name:"Spider",
-  type:"spider",
-  created:true
-}]
+
+const initialState = []
 
 export default function monsters(state = initialState, action = {}) {
   switch(action.type) {
+    case SET_CURRENT_LOCATION:
+    debugger
+      if (action.exploration.result.type === "MONSTER") {
+        return [...state, action.exploration.result.payload]
+      }
+      return [...state]
     default:
       return state;
   }

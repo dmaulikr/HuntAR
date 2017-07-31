@@ -22,6 +22,7 @@ export default class CharacterShow extends Component {
         <View><Text>Health: { health }</Text></View>
         <View>
           <Link to={'explore'}><View><ExploreButtonTextContainer/></View></Link>
+          <Link to={'inventory'}><Text>Inventory</Text></Link>
         </View>
         <View>
           {this.displayAddHomeBaseButton()}

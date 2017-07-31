@@ -50,7 +50,7 @@ export async function signOut(form) {
 
 export async function saveCharacters(uid, character) {
   var database = firebase.database();
-  firebase.database().ref('users/' + uid ).set({
+  firebase.database().ref('users/' + uid + '/character').set({
       character
     });
 }
@@ -58,15 +58,16 @@ export async function saveCharacters(uid, character) {
 // save combat instance - works
 export async function createCombatInstance(uid, combatInstance) {
   var database = firebase.database();
-  firebase.database().ref('users/' + uid ).set({
+  firebase.database().ref('users/' + uid + '/combatInstance').set({
       combatInstance
     });
 }
 
 // save position
 export async function saveLocationHistory(uid, locationhistory) {
+  debugger
   var database = firebase.database();
-  firebase.database().ref('users/' + uid ).set({
+  firebase.database().ref('users/' + uid + '/locationhistory').set({
       locationhistory
     });
 }

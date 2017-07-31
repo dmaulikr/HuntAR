@@ -11,8 +11,10 @@ export default class LoginPage extends Component {
   }
 
   componentWillUnmount(){
-    this.props.CharacterActions.setUsersCharacter(this.props.user.uid)
-    this.props.CharacterActions.setLocationHistory(this.props.user.uid)
+    if (this.props.user.loggedin === true) {
+      this.props.CharacterActions.setUsersCharacter(this.props.user.uid)
+      this.props.CharacterActions.setUsersLocationHistory(this.props.user.uid)
+    }
   }
 
 

@@ -1,39 +1,46 @@
 import React, { Component } from 'react';
 import {Text, View, Button, Linking } from 'react-native';
-import { Link } from 'react-router-native';
+import { Link, Redirect } from 'react-router-native';
 
 export default class ExploreLaunchPage extends Component {
   constructor() {
   super();
-    this.handleAttackClick = this.handleAttackClick.bind(this);
+    this.handleSearchClick = this.handleSearchClick.bind(this);
   }
 
 
-  handleAttackClick(){
-    const {
-      characters,
-      monsters,
-      ExplorARActions,
-      createCombatInstance,
-      user }  = this.props
-    let combatInstance = {character: characters, monsters: monsters}
-    createCombatInstance(user.uid, combatInstance)
-    this.props.ExplorARActions.launchCombat('combat://')
+  handleSearchClick(){
+   this.props.GeoActions.setCurrentLocation()
   }
 
+
+  displayExploreWithCombatRedirect(){
+    if (this.props.monsters.length === 0 ) {
+      return(
+        <View>
+            <Button
+              title="Search the area"
+              onPress={this.handleSearchClick}
+              />
+          <View>
+            <Link to={'/characters'}><Text>Return to Status Page</Text></Link>
+          </View>
+        </View>
+      )
+    } else {
+      return(
+        <Redirect to={{
+      pathname: '/underattack',
+    }}/>
+      )
+    }
+  }
 
 
   render() {
     return (
       <View>
-          <Button
-            title="Fight!"
-            onPress={this.handleAttackClick}
-            />
-          <Link to={'/flee'}><Text>Try to run away</Text></Link>
-        <View>
-          <Link to={'/characters'}><Text>Return to Status Page</Text></Link>
-        </View>
+        {this.displayExploreWithCombatRedirect()}
       </View>
     )
   }
