@@ -8,7 +8,7 @@ export default function locationHistory(state = initialState, action = {}) {
     case SET_CURRENT_LOCATION:
       return  [
         ...state,
-        action.location
+        action.exploration
       ];
     case SET_LOCATION_HISTORY:
       return  [
