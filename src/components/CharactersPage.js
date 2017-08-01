@@ -39,7 +39,7 @@ export default class CharactersPage extends Component {
 
   displayDaysSurvived(){
     let { locationHistory, characters } = this.props
-    if ( characters && locationHistory && locationHistory.length > 0 ) {
+    if ( characters && locationHistory && locationHistory.length > 2 ) {
      time =  TimePassed(locationHistory[0],  locationHistory[(locationHistory.length - 1)])
      if (time.hours > 1){
        return(<Text>You have survived {time.hours}</Text>)
