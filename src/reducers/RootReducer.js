@@ -7,6 +7,8 @@ import characterCreationForm from './CharacterCreationFormReducer';
 import monsters from './MonstersReducer';
 import locationHistory from './GeoReducer';
 import items from './ItemsReducer';
+import base from './BaseReducer';
+import fortificationsFlavor from './FortificationsFlavorReducer';
 
 export default combineReducers({
    user,
@@ -16,5 +18,7 @@ export default combineReducers({
    monsters,
    registerForm,
    locationHistory,
-   items
+   items,
+   base,
+   fortificationsFlavor,
 })

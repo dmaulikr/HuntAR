@@ -8,7 +8,9 @@ const initialState = {
   // email: "Gbrlxvi@gmail.com",
   // uid: "I0be6MxSRzMDf9kTxcf4pJYklbx1",
   loggedin: false,
+  atHomeBase: false,
 }
+
 
 export default function user(state = initialState, action = {}) {
   switch(action.type) {

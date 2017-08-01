@@ -12,6 +12,9 @@ export default class StashGear extends Component {
          <StashGearItem
            key={i}
            item={item}
+           InventoryActions={this.props.InventoryActions}
+           user={this.props.user}
+           character={this.props.character}
          />
       )}))}
   render() {

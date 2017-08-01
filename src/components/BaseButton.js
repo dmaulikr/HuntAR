@@ -4,7 +4,6 @@ import {Text, View } from 'react-native';
 import { Link } from 'react-router-native'
 
 export default class BaseButton extends Component {
-// add flavor text based on health
 
   displayText(){
     if (atHomebase(this.props.user, this.props.characters, .1524)) {

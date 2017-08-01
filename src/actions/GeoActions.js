@@ -1,4 +1,5 @@
 import searchHelper from '../constants/SearchHelper'
+import atHomebase from '../constants/locationHelper';
 
 export const SEARCH_CURRENT_LOCATION = 'SEARCH_CURRENT_LOCATION'
 export const SET_CURRENT_LOCATION = 'SET_CURRENT_LOCATION'

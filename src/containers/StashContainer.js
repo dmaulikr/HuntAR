@@ -6,13 +6,14 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { View } from 'react-native';
 
-const StashContainer = ({ HomebaseActions, InventoryActions, characters, items }) => (
+const StashContainer = ({ HomebaseActions, InventoryActions, characters, items, user }) => (
   <View>
     <StashPage
       HomebaseActions={HomebaseActions}
       InventoryActions={InventoryActions}
       character={characters}
       items={items}
+      user={user}
     />
   </View>
 )
@@ -21,6 +22,7 @@ const StashContainer = ({ HomebaseActions, InventoryActions, characters, items }
 const mapStateToProps = state => ({
   characters: state.characters,
   monsters: state.monsters,
+  user: state.user,
   items: state.items
 })
 

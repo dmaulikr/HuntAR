@@ -2,8 +2,9 @@ import { ADD_CHARACTER_SUCCESS } from '../actions/CreateCharacterFormActions';
 import { SET_CHARACTER } from '../actions/CharacterActions';
 import { SET_HOME_BASE } from '../actions/HomebaseActions';
 import { SEARCH_CURRENT_LOCATION } from '../actions/GeoActions';
+import { CONSUME_ITEM } from '../actions/InventoryActions';
 
-// remove state intial character
+
 
 const initialState = {
   created: false,

@@ -19,7 +19,7 @@ export default class Main extends Component {
     return (
       <View >
         <Switch>
-           <Route path="/" exact component={LoginContainer} />
+           <Route path="/" exact component={CharacterCreationPageContainer} />
            <Route path="/login" exact component={LoginContainer}/>
            <Route path="/register" exact component={RegisterPageContainer}/>
            <Route path="/characters" exact component={CharactersPageContainer}/>

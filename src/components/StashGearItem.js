@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Text, View, Button } from 'react-native';
-import { Link, Redirect } from 'react-router-native';
+import TakeItemButton from './TakeItemButton'
 
 
 export default class StashGearItem extends Component {
@@ -17,6 +17,13 @@ export default class StashGearItem extends Component {
         <Text>Item: {this.props.item.name}</Text>
         {this.displayBonuses()}
         <Text>Weight: {this.props.item.weight}</Text>
+          <TakeItemButton
+            InventoryActions={this.props.InventoryActions}
+            item={this.props.item}
+            user={this.props.user}
+            character={this.props.character}
+            />
+
       </View>
     )
   }

@@ -6,7 +6,7 @@ export default class CharacterShow extends Component {
 
 
   render() {
-    let { name, type, damage, health } = this.props.character
+  let { name, damage, type, health } = this.props.character
     return (
       <View>
         <View><Text>Name: { name }</Text></View>

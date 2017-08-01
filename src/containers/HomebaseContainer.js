@@ -5,12 +5,14 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { View } from 'react-native';
 
-const HomebaseContainer = ({ user, HomebaseActions, characters }) => (
+const HomebaseContainer = ({ user, HomebaseActions, characters, base, fortificationsFlavor }) => (
   <View>
     <HomebasePage
       HomebaseActions={HomebaseActions}
       user={user}
       character={characters}
+      base={base}
+      fortificationsFlavor={fortificationsFlavor}
     />
   </View>
 )
@@ -19,7 +21,10 @@ const HomebaseContainer = ({ user, HomebaseActions, characters }) => (
 const mapStateToProps = state => ({
   characters: state.characters,
   monsters: state.monsters,
-  user: state.user
+  user: state.user,
+  base: state.base,
+  fortificationsFlavor: state.fortificationsFlavor
+
 })
 
 const mapDispatchToProps = dispatch => ({

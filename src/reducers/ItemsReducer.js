@@ -1,5 +1,5 @@
 import { SEARCH_CURRENT_LOCATION } from '../actions/GeoActions';
-import { STORE_ITEM } from '../actions/InventoryActions';
+import { STORE_ITEM, CONSUME_ITEM, FORTIFY, REPAIR } from '../actions/InventoryActions';
 
 
 const initialState = [
@@ -33,34 +33,7 @@ const initialState = [
     consumed:false,
     id:111111122232768341674358974537764536743253678649754532678998765
   },
-  {
-    bonusHealth: 100,
-    name:"Riot Gear",
-    type:"body",
-    inventory:true,
-    stored:false,
-    weight: 30,
-    consumed:false,
-    id:1111122253243589745377645367432545238754232678998765
-  },
-  {
-    name:"Beef Jerky",
-    type:"Provisions",
-    inventory:true,
-    stored:false,
-    weight: 1,
-    consumed:false,
-    id:111111122232768341674358536743254523849754532678998765
-  },
-  {
-    name:"Canned Corn",
-    type:"Provisions",
-    inventory:true,
-    stored:false,
-    weight: 1,
-    consumed:false,
-    id:111111122253278374358974537764536423532678998765
-  },
+
   {
     name:"Peanut Butter",
     type:"Provisions",
@@ -68,6 +41,7 @@ const initialState = [
     stored:false,
     weight: 1,
     consumed:false,
+    healthBoost: 10,
     id:111111122327683416743578649754532678998765
   },
   {
@@ -77,29 +51,67 @@ const initialState = [
     stored:false,
     weight: 1,
     consumed:false,
+    healthBoost: 10,
     id:11111
   },
   {
-    name:"Razor Wire",
+    name:"Barb Wire",
     type:"Fortifications",
+    healthBoost: 10,
+    flavorText: "Barb wire should trip up some baddies.",
     inventory:true,
     stored:false,
     weight: 5,
-    consumed:false,
-    id:111116736743255424532678998765
+    equipped: false,
+    consumed: false,
+    id: 4365375432567875543247898865432536275364367
+  },
+  {
+    name:"Spikes",
+    type:"Fortifications",
+    healthBoost: 10,
+    flavorText:"A good old fashioned spike pit.",
+    inventory:true,
+    stored:false,
+    weight: 10,
+    equipped: false,
+    consumed: false,
+    id: 43653789765378754362738952536275364367
+  },
+  {
+    name:"Corrugated Metal",
+    type:"Fortifications",
+    healthBoost: 10,
+    flavorText:"Some metal around the doors, hopefully this will stop them from getting kicked in",
+    inventory:true,
+    stored:false,
+    weight: 10,
+    equipped: false,
+    consumed: false,
+    id: 43653789765436367326273895898865364367
   },
 ]
 
-function storeItem(items, itemId) {
-  // return todos.map((todo, index) => {
-  //     if (todo._id === updatedTodo.id) {
-  //       // Copy the object before mutating
-  //       return Object.assign({}, todo, {
-  //         todo: updatedTodo.text
-  //       })
-  //     }
-  //     return todo
-  //   })
+function storeItem(items, storedItem) {
+  return items.map((item, index) => {
+      if (item.id === storedItem.id) {
+        return Object.assign({}, item, {
+          stored: !storedItem.stored
+        })
+      }
+      return item
+    })
+}
+
+function consumeItem(items, consumedItem) {
+  return items.map((item, index) => {
+      if (item.id === consumedItem.id) {
+        return Object.assign({}, item, {
+          consumed: true
+        })
+      }
+      return item
+    })
 }
 
 export default function items(state = initialState, action = {}) {
@@ -110,7 +122,13 @@ export default function items(state = initialState, action = {}) {
       }
       return [...state]
     case STORE_ITEM:
-      return storeItem(state, action.id)
+      return storeItem(state, action.item)
+    case CONSUME_ITEM:
+      return consumeItem(state, action.item)
+    case FORTIFY:
+      return consumeItem(state, action.item)
+    case REPAIR:
+      return consumeItem(state, action.item)
     default:
       return state;
   }

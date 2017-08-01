@@ -64,7 +64,8 @@ export const ITEMS = [
     weight: 1,
     equipped: false,
     consumed: false,
-    id: guid()
+    id: guid(),
+    healthBoost: 10
   },
   {
     name:"Apple",
@@ -74,7 +75,8 @@ export const ITEMS = [
     weight: 1,
     equipped: false,
     consumed: false,
-    id: guid()
+    id: guid(),
+    healthBoost: 10
   },
   {
     name:"Water",
@@ -84,7 +86,8 @@ export const ITEMS = [
     weight: 1,
     equipped: false,
     consumed: false,
-    id: guid()
+    id: guid(),
+    healthBoost: 10
   },
   {
     name:"Beef Jerky",
@@ -94,7 +97,8 @@ export const ITEMS = [
     weight: 1,
     equipped: false,
     consumed: false,
-    id: guid()
+    id: guid(),
+    healthBoost: 10
   },
   {
     name:"Canned Corn",
@@ -104,7 +108,8 @@ export const ITEMS = [
     weight: 1,
     equipped: false,
     consumed: false,
-    id: guid()
+    id: guid(),
+    healthBoost: 10
   },
   {
     name:"Peanut Butter",
@@ -114,7 +119,8 @@ export const ITEMS = [
     weight: 1,
     equipped: false,
     consumed: false,
-    id: guid()
+    id: guid(),
+    healthBoost: 10
   },
   {
     name:"Beer",
@@ -124,11 +130,14 @@ export const ITEMS = [
     weight: 1,
     equipped: false,
     consumed: false,
-    id: guid()
+    id: guid(),
+    healthBoost: 10
   },
   {
     name:"Wood Planks",
     type:"Fortifications",
+    healthBoost: 10,
+    flavorText: "Wooden walls surround the boarder.",
     inventory:true,
     stored:false,
     weight: 10,
@@ -139,6 +148,8 @@ export const ITEMS = [
   {
     name:"Barb Wire",
     type:"Fortifications",
+    healthBoost: 10,
+    flavorText: "Barb wire should trip up some baddies.",
     inventory:true,
     stored:false,
     weight: 5,
@@ -149,6 +160,8 @@ export const ITEMS = [
   {
     name:"Bricks",
     type:"Fortifications",
+    healthBoost: 10,
+    flavorText: "The start of a decent brick wall, Could trip someone up?",
     inventory:true,
     stored:false,
     weight: 50,
@@ -159,6 +172,8 @@ export const ITEMS = [
   {
     name:"Spikes",
     type:"Fortifications",
+    healthBoost: 10,
+    flavorText:"A good old fashioned spike pit.",
     inventory:true,
     stored:false,
     weight: 10,
@@ -169,6 +184,8 @@ export const ITEMS = [
   {
     name:"Corrugated Metal",
     type:"Fortifications",
+    healthBoost: 10,
+    flavorText:"Some metal around the doors, hopefully this will stop them from getting kicked in",
     inventory:true,
     stored:false,
     weight: 10,
@@ -179,6 +196,8 @@ export const ITEMS = [
   {
     name:"Razor Wire",
     type:"Fortifications",
+    healthBoost: 10,
+    flavorText: "Razor wire everywhere, ouch...",
     inventory:true,
     stored:false,
     weight: 5,
