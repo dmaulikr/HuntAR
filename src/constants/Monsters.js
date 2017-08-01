@@ -1,38 +1,45 @@
+import guid from './sudoGUID'
+
 export const MONSTERS = [
   {
     health: 100,
     damage: 15,
     name:"Hellelephant",
     type:"Hellelephant",
-    created:true
+    created:true,
+    id: guid()
   },
   {
     health: 50,
     damage: 10,
     name:"Hellbunnny",
     type:"Hellbunnny",
-    created:true
+    created:true,
+    id: guid()
   },
   {
     health: 30,
     damage: 5,
     name:"Zombunny",
     type:"Zombunny",
-    created:true
+    created:true,
+    id: guid()
   },
   {
     health: 80,
     damage: 15,
     name:"Skeleton",
     type:"Skeleton",
-    created:true
+    created:true,
+    id: guid()
   },
   {
     health: 70,
     damage: 10,
     name:"Zombie",
     type:"Zombie",
-    created:true
+    created:true,
+    id: guid()
   },
 ]
 
