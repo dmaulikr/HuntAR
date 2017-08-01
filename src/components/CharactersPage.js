@@ -25,7 +25,7 @@ export default class CharactersPage extends Component {
   }
 
   displayHomeBaseButton(){
-    if ( this.props.characters && this.props.characters.hasHomeBase === true ) {
+    if ( this.props.characters && this.props.characters.hasHomeBase === true && this.props.user && this.props.user.currentLocation ) {
       return(
         <BaseButton
           user={this.props.user}

@@ -9,10 +9,10 @@ export default class BaseButton extends Component {
   displayText(){
     if (atHomebase(this.props.user, this.props.characters, .1524)) {
           return(
-            <Link to={'homebase'}><Text>go home</Text></Link>
+            <Link to={'homebase'}><Text>Outpost</Text></Link>
           )
         } else {
-          <Text>Better get back to base to heal up and rest</Text>
+          <Text>Better get back home to heal up and rest</Text>
         }
       }
 
