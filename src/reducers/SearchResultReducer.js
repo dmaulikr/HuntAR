@@ -1,25 +1,16 @@
-import { SEARCH_CURRENT_LOCATION } from '../actions/GeoActions';
+import { SEARCH_CURRENT_LOCATION, RESET_RESULTS } from '../actions/GeoActions';
+import { eventDescriptionHelper } from '../constants/SearchHelper'
 
-export default function items(state = {text:""}, action = {}) {
+
+export default function SearchResultReducer(state = {text:""}, action = {}) {
   switch(action.type) {
     case SEARCH_CURRENT_LOCATION:
-      if (action.exploration.result.type === "ITEM") {
-        return [...state, action.exploration.result.payload]
+      if (action.exploration.result.type === "ITEM" || action.exploration.result.type === "NOTHING") {
+        return {...state, text: eventDescriptionHelper(action.exploration.result)}
       }
-      return [...state]
-    case STORE_ITEM:
-      return storeItem(state, action.item)
-    case CONSUME_ITEM:
-      return consumeItem(state, action.item)
-    case FORTIFY:
-      return consumeItem(state, action.item)
-    case REPAIR:
-      return consumeItem(state, action.item)
-    case SET_ITEMS:
-      return  [
-        ...state,
-        ...action.items,
-      ]
+      return {...state}
+    case RESET_RESULTS:
+      return {...state, text:""}
     default:
       return state;
   }

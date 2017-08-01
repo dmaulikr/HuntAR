@@ -5,7 +5,21 @@ export const SET_LOCATION = 'SET_LOCATION'
 export const SET_ITEMS = 'SET_ITEMS'
 export const SET_FLAVOR = 'SET_FLAVOR'
 export const SET_DAMAGE = 'SET_DAMAGE'
+export const FLEE = 'FLEE'
 
+
+
+export function flee(){
+  return dispatch => {
+   dispatch(dispatchFlee());
+  }
+}
+
+export function dispatchFlee(){
+  return {
+    type: FLEE
+  }
+}
 
 export function setUsersCharacter(uid){
   return dispatch => {

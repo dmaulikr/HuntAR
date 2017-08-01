@@ -9,7 +9,9 @@ export default class ExploreLaunchPage extends Component {
     this.handleSearchClick = this.handleSearchClick.bind(this);
   }
   componentWillUnmount(){
-    saveLocationHistory(this.props.user.uid, this.props.user.uid)
+    saveLocationHistory(this.props.user.uid, this.props.locationHistory)
+    saveItems(this.props.user.uid, this.props.items)
+    this.props.GeoActions.resetResults()
   }
 
   handleSearchClick(){
@@ -17,10 +19,13 @@ export default class ExploreLaunchPage extends Component {
   }
 
 
+
+
   displayExploreWithCombatRedirect(){
     if (this.props.monsters.length === 0 ) {
       return(
         <View>
+            <Text>{this.props.SearchResult.text}</Text>
             <Button
               title="Search the area"
               onPress={this.handleSearchClick}

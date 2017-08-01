@@ -9,6 +9,7 @@ import locationHistory from './GeoReducer';
 import items from './ItemsReducer';
 import base from './BaseReducer';
 import fortificationsFlavor from './FortificationsFlavorReducer';
+import SearchResult from './SearchResultReducer';
 
 export default combineReducers({
    user,
@@ -21,4 +22,5 @@ export default combineReducers({
    items,
    base,
    fortificationsFlavor,
+   SearchResult
 })

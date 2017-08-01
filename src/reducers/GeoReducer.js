@@ -12,8 +12,7 @@ export default function locationHistory(state = initialState, action = {}) {
       ];
     case SET_LOCATION:
       return  [
-        ...state,
-        ...action.items,
+        ...action.location
       ]
     default:
       return state;

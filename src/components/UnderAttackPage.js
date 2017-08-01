@@ -36,9 +36,6 @@ export default class UnderAttackPage extends Component {
             onPress={this.handleAttackClick}
             />
           <Link to={'/flee'}><Text>Try to run away</Text></Link>
-        <View>
-          <Link to={'/characters'}><Text>Return to Status Page</Text></Link>
-        </View>
       </View>
     )
   }

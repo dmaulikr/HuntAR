@@ -3,6 +3,7 @@ import atHomebase from '../constants/locationHelper';
 
 export const SEARCH_CURRENT_LOCATION = 'SEARCH_CURRENT_LOCATION'
 export const SET_CURRENT_LOCATION = 'SET_CURRENT_LOCATION'
+export const RESET_RESULTS = 'RESET_RESULTS'
 
 // set postion
 
@@ -35,5 +36,17 @@ export function dispatchSetCurrentLocation(location){
   return {
     type: SET_CURRENT_LOCATION,
     location
+  }
+}
+
+export function resetResults(){
+  return dispatch => {
+   dispatch(dispatchResetResults());
+  }
+}
+
+export function dispatchResetResults(){
+  return {
+    type: RESET_RESULTS
   }
 }

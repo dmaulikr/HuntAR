@@ -1,4 +1,5 @@
 import { SEARCH_CURRENT_LOCATION } from '../actions/GeoActions';
+import { FLEE } from '../actions/GeoActions';
 
 
 const initialState = []
@@ -10,6 +11,8 @@ export default function monsters(state = initialState, action = {}) {
         return [...state, action.exploration.result.payload]
       }
       return [...state]
+    case FLEE:
+      return initialState
     default:
       return state;
   }
