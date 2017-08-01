@@ -6,11 +6,10 @@ export default class CharacterShow extends Component {
 
 
   render() {
-  let { name, damage, type, health } = this.props.character
+  let { name, damage, health } = this.props.character
     return (
       <View>
         <View><Text>Name: { name }</Text></View>
-        <View><Text>Type: { type }</Text></View>
         <View><Text>Damage: { damage }</Text></View>
         <View><Text>Health: { health }</Text></View>
       </View>
