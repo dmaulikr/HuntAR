@@ -1,10 +1,16 @@
-import StashContainer from '../containers/StashContainer'
+import { saveBase, saveFortificationsFlavor } from '../actions/apiActions'
 import React, { Component } from 'react';
 import {Text, View, Button } from 'react-native';
 import { Link, Redirect } from 'react-router-native';
+import StashContainer from '../containers/StashContainer';
 
 
 export default class HomebasePage extends Component {
+  componentWillUnmount(){
+    saveBase(this.props.user.uid, this.props.base)
+    saveFortificationsFlavor(this.props.user.uid, this.props.fortificationsFlavor)
+  }
+
   displayStatus(){
     return ( (this.props.base.health / this.props.base.maxHealth)*100)
   }
@@ -35,7 +41,7 @@ export default class HomebasePage extends Component {
           <Text>{this.displayFortifications()}</Text>
         </View>
         <View>
-          <Text>Item Stash</Text>
+
           <StashContainer/>
         </View>
         <View>

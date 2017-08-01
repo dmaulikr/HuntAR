@@ -1,3 +1,4 @@
+import { saveItems } from '../actions/apiActions'
 import React, { Component } from 'react';
 import {Text, View } from 'react-native';
 import StashGear from '../components/StashGear'
@@ -6,6 +7,11 @@ import StashProvisions from '../components/StashProvisions'
 
 
 export default class StashPage extends Component {
+  componentWillUnmount(){
+    saveItems(this.props.user.uid, this.props.items)
+  }
+
+
   displayTotalWeight(){
     total = 0
     this.props.items.forEach((item)=> {

@@ -1,3 +1,4 @@
+import { saveBase, saveItems, saveLocationHistory } from '../actions/apiActions'
 import React, { Component } from 'react';
 import {Text, View, Button, Linking } from 'react-native';
 import { Link, Redirect } from 'react-router-native';
@@ -7,7 +8,9 @@ export default class ExploreLaunchPage extends Component {
   super();
     this.handleSearchClick = this.handleSearchClick.bind(this);
   }
-
+  componentWillUnmount(){
+    saveLocationHistory(this.props.user.uid, this.props.user.uid)
+  }
 
   handleSearchClick(){
    this.props.GeoActions.searchCurrentLocation()

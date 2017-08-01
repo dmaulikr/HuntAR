@@ -1,5 +1,5 @@
 import { SEARCH_CURRENT_LOCATION } from '../actions/GeoActions';
-import { SET_LOCATION_HISTORY } from '../actions/CharacterActions';
+import { SET_LOCATION } from '../actions/CharacterActions';
 
 const initialState = []
 
@@ -10,11 +10,11 @@ export default function locationHistory(state = initialState, action = {}) {
         ...state,
         action.exploration
       ];
-    case SET_LOCATION_HISTORY:
+    case SET_LOCATION:
       return  [
         ...state,
-        action.location
-      ];
+        ...action.items,
+      ]
     default:
       return state;
   }

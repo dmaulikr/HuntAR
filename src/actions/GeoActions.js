@@ -23,6 +23,7 @@ export function dispatchSearchCurrentLocation(exploration){
     exploration
   }
 }
+
 export function setCurrentLocation(){
   return dispatch => {
   navigator.geolocation.getCurrentPosition((res) => {

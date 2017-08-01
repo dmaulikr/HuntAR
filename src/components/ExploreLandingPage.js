@@ -9,10 +9,11 @@ export default class ExploreLandingPage extends Component {
   }
 
   static navigationOptions = {
-    title: 'results',
+    title: 'page',
   };
 
   componentDidMount() {
+    this.props.CharacterActions.setUsersDamage(this.props.user.uid)
     Linking.addEventListener('url', this.handleOpenURL);
   }
 
@@ -20,20 +21,7 @@ export default class ExploreLandingPage extends Component {
     Linking.removeEventListener('url', this.handleOpenURL);
   }
 
-  handleOpenURL = (event) => {
-    debugger
-    // this.navigate(event.url);
-  }
 
-  // navigate = (url) => {
-  //   debugger
-  //   const route = url.replace(/.*?:\/\//g, '');
-  //   const id = route.match(/\/([^\/]+)\/?$/)[1];
-  //   const routeName = route.split('/')[0];
-  //   if (routeName === 'test') {
-  //     console.log('omg this worked');
-  //   };
-  // }
 
 
 

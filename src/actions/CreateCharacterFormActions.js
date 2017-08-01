@@ -67,6 +67,7 @@ export function submitCreateCharacter(character){
   let champion = {
     ...character,
     health: ((character.strength * 10) + (character.fortitude * 30)),
+    maxHealth: ((character.strength * 10) + (character.fortitude * 30)),
     rateoffire: (character.rateoffire - (character.dexterity * .2)),
     created: true
   }

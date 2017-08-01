@@ -1,6 +1,6 @@
 import { SEARCH_CURRENT_LOCATION } from '../actions/GeoActions';
 import { STORE_ITEM, CONSUME_ITEM, FORTIFY, REPAIR } from '../actions/InventoryActions';
-
+import { SET_ITEMS } from '../actions/CharacterActions';
 
 const initialState = [
   {
@@ -129,6 +129,11 @@ export default function items(state = initialState, action = {}) {
       return consumeItem(state, action.item)
     case REPAIR:
       return consumeItem(state, action.item)
+    case SET_ITEMS:
+      return  [
+        ...state,
+        ...action.items,
+      ]
     default:
       return state;
   }

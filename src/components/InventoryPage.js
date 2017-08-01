@@ -1,3 +1,4 @@
+import { saveItems } from '../actions/apiActions'
 import React, { Component } from 'react';
 import {Text, View, Button } from 'react-native';
 import { Link, Redirect } from 'react-router-native';
@@ -8,7 +9,9 @@ import BaseButton from '../components/BaseButton'
 
 
 export default class InventoryPage extends Component {
-
+  componentWillUnmount(){
+    saveItems(this.props.user.uid, this.props.items)
+  }
   displayHomeBaseButton(){
     if ( this.props.character && this.props.character.hasHomeBase === true && this.props.user && this.props.user.currentLocation ) {
       return(

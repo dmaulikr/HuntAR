@@ -20,8 +20,8 @@ export default class UnderAttackPage extends Component {
       user }  = this.props
     let combatInstance = {character: characters, monsters: monsters}
     createCombatInstance(user.uid, {
-      chacterhealth: characters.health,
-      characterfirerate: characters.damage,
+      characterhealth: characters.health,
+      characterfirerate: characters.rateoffire + "f",
       damagepershot: 20
     })
     this.props.ExplorARActions.launchCombat('combat://')

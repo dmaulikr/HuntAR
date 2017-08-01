@@ -6,13 +6,14 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { View } from 'react-native';
 
-const ExploreLaunchContainer = ({ characters, monsters, user, GeoActions }) => (
+const ExploreLaunchContainer = ({ characters, monsters, user, GeoActions, locationHistory }) => (
   <View>
     <ExploreLaunchPage
       characters={characters}
       monsters={monsters}
       GeoActions={GeoActions}
       user={user}
+      locationHistory={locationHistory}
     />
   </View>
 )
@@ -21,6 +22,7 @@ const ExploreLaunchContainer = ({ characters, monsters, user, GeoActions }) => (
 const mapStateToProps = state => ({
   characters: state.characters,
   monsters: state.monsters,
+  locationHistory: state.locationHistory,
   user: state.user
 })
 
