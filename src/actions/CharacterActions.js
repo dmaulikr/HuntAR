@@ -1,4 +1,5 @@
 import { setDamage, setCharacter, setLocationHistory, setFortificationsFlavor, setItemHistory } from './apiActions'
+import { d20 } from '../constants/Dice'
 
 export const SET_CHARACTER = 'SET_CHARACTER'
 export const SET_LOCATION = 'SET_LOCATION'
@@ -9,15 +10,21 @@ export const FLEE = 'FLEE'
 
 
 
-export function flee(){
+export function flee(dex){
+  if ((d20() + dex ) > 15){
+    var escaped = true
+  } else {
+    var escaped = false
+  }
   return dispatch => {
-   dispatch(dispatchFlee());
+   dispatch(dispatchFlee(escaped));
   }
 }
 
-export function dispatchFlee(){
+export function dispatchFlee(escaped){
   return {
-    type: FLEE
+    type: FLEE,
+    escaped
   }
 }
 

@@ -1,4 +1,6 @@
 import { saveBase, saveItems, saveLocationHistory } from '../actions/apiActions'
+import { searchHelper } from '../constants/SearchHelper'
+import { nearMe } from '../constants/locationHelper'
 import React, { Component } from 'react';
 import {Text, View, Button, Linking } from 'react-native';
 import { Link, Redirect } from 'react-router-native';
@@ -15,7 +17,19 @@ export default class ExploreLaunchPage extends Component {
   }
 
   handleSearchClick(){
-   this.props.GeoActions.searchCurrentLocation()
+
+   temp = this.counter(this.props.user, this.props.locationHistory, 0.804672 )
+   this.props.GeoActions.searchCurrentLocation(temp)
+  }
+
+  counter(user, locations, distance){
+    var counter = 0
+    locations.forEach((location)=> {
+      if (nearMe(user, location, (distance - (this.props.characters.intelligence * .1)))){
+        return counter = counter + 1
+      }
+    })
+          return counter
   }
 
 

@@ -2,10 +2,10 @@ import { d20 } from './Dice'
 import * as MonsterHelper from './Monsters'
 import * as ItemHelper from './Items'
 
-export default function searchHelper(){
+export default function searchHelper(counter){
   roll = d20()
   switch(true) {
-    case roll < 5:
+    case roll < counter:
       return  {
         type: 'MONSTER',
         payload: MonsterHelper.randomMonster(MonsterHelper.MONSTERS)

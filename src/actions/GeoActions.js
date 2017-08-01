@@ -7,12 +7,12 @@ export const RESET_RESULTS = 'RESET_RESULTS'
 
 // set postion
 
-export function searchCurrentLocation(){
+export function searchCurrentLocation(counter){
   return dispatch => {
   navigator.geolocation.getCurrentPosition( (res) => {
     result = {
       location: res,
-      result: searchHelper()
+      result: searchHelper(counter)
      }
     dispatch(dispatchSearchCurrentLocation(result))})
   }

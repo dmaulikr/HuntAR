@@ -12,10 +12,6 @@ export default class CharacterShow extends Component {
         <View><Text>Name: { name }</Text></View>
         <View><Text>Health: { health }</Text></View>
         <View><Text>Max Health: { maxHealth }</Text></View>
-        <View><Text>Intelligence: { intelligence }</Text></View>
-        <View><Text>Strength: { strength }</Text></View>
-        <View><Text>Stamina: { stamina }</Text></View>
-        <View><Text>Dexterity: { dexterity }</Text></View>
       </View>
     )
   }

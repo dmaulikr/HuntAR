@@ -14,7 +14,7 @@ export default class StoreItemButton extends Component {
   }
 
   displayButton(){
-    if (atHomebase(this.props.user, this.props.character, .1524)){
+    if (this.props.character.hasHomeBase && atHomebase(this.props.user, this.props.character, .1524)){
       return(<TouchableHighlight onPress={this.handleClick}><Text>Store item</Text></TouchableHighlight>)
      }
   }

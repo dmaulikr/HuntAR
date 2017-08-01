@@ -5,11 +5,11 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { View } from 'react-native';
 
-const FleeContainer = ({ monsters, user, CharacterActions}) => (
+const FleeContainer = ({ monsters, characters, CharacterActions}) => (
   <View>
     <FleePage
       monsters={monsters}
-      user={user}
+      characters={characters}
       CharacterActions={CharacterActions}
     />
   </View>

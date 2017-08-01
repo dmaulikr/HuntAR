@@ -1,5 +1,6 @@
 import { SEARCH_CURRENT_LOCATION } from '../actions/GeoActions';
-import { FLEE } from '../actions/GeoActions';
+import { FLEE } from '../actions/CharacterActions';
+import { d20 } from '../constants/Dice'
 
 
 const initialState = []
@@ -12,7 +13,12 @@ export default function monsters(state = initialState, action = {}) {
       }
       return [...state]
     case FLEE:
-      return initialState
+    if (action.escaped) {
+      return state.filter(monster => monster.name === "" )
+    }
+    return [...state]
+
+      return [...state]
     default:
       return state;
   }
