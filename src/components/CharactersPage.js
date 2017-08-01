@@ -1,4 +1,5 @@
 import CharacterShow from '../components/CharacterShow'
+import BaseButton from '../components/BaseButton'
 import ExploreButtonTextContainer from '../containers/ExploreButtonTextContainer'
 import React, { Component } from 'react';
 import {Text, View } from 'react-native';
@@ -13,6 +14,25 @@ export default class CharactersPage extends Component {
       GeoActions } = this.props
     actions.resetForm()
     GeoActions.setCurrentLocation()
+  }
+
+  displayAddHomeBaseButton(){
+    if ( this.props.characters && this.props.characters.hasHomeBase != true ) {
+      return(
+        <Link to={'/homebaseSetup'}><Text>Establish your outpost</Text></Link>
+      )
+    }
+  }
+
+  displayHomeBaseButton(){
+    if ( this.props.characters && this.props.characters.hasHomeBase === true ) {
+      return(
+        <BaseButton
+          user={this.props.user}
+          characters={this.props.characters}
+          />
+      )
+    }
   }
 
   displayCharactersWithRedirect(){
@@ -30,6 +50,9 @@ export default class CharactersPage extends Component {
               <View>
                 {this.displayAddHomeBaseButton()}
               </View>
+              <View>
+                {this.displayHomeBaseButton()}
+              </View>
         </View>
       )
     } else {
@@ -38,15 +61,6 @@ export default class CharactersPage extends Component {
       )
     }
   }
-
-  displayAddHomeBaseButton(){
-    if ( this.props.characters && this.props.characters.hasHomeBase != true ) {
-      return(
-        <Link to={'/homebaseSetup'}><Text>Establish your outpost</Text></Link>
-      )
-    }
-  }
-
 
   render() {
     return (

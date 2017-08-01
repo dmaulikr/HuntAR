@@ -1,36 +1,35 @@
 import React, { Component } from 'react';
 import {Text, View, Button } from 'react-native';
 import { Link, Redirect } from 'react-router-native';
-import InventoryGear from '../components/InventoryGear'
-import InventoryFortifications from '../components/InventoryFortifications'
-import InventoryProvisions from '../components/InventoryProvisions'
+import StashGear from '../components/StashGear'
+import StashFortifications from '../components/StashFortifications'
+import StashProvisions from '../components/StashProvisions'
 
 
-export default class InventoryPage extends Component {
-
+export default class StashPage extends Component {
   displayTotalWeight(){
     total = 0
     this.props.items.forEach((item)=> {
-      if (item.stored === false && item.consumed === false)
-      {total = item.weight + total}
+      total = item.weight + total
     })
     return(total)
   }
 
   render() {
+
     return (
       <View>
         <View>
           <Text>Weapons and Armor</Text>
-          <InventoryGear items={this.props.items}/>
+          <StashGear items={this.props.items}/>
         </View>
         <View>
           <Text>Fortifications</Text>
-          <InventoryFortifications items={this.props.items}/>
+          <StashFortifications items={this.props.items}/>
         </View>
         <View>
           <Text>Provisions</Text>
-          <InventoryProvisions items={this.props.items}/>
+          <StashProvisions items={this.props.items}/>
         </View>
         <View>
           <Text>Total Weight: {this.displayTotalWeight()}</Text>

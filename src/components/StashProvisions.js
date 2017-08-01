@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import {Text, View, Button } from 'react-native';
-import { Link, Redirect } from 'react-router-native';
-import InventoryItemGear from '../components/InventoryItemGear'
+import StashProvisionsItem from '../components/StashProvisionsItem'
 
-export default class Gear extends Component {
+export default class StashProvisions extends Component {
   displayItems(){
    return(
       this.props.items.map( (item, i) => {
-        if ((item.type === "weapon" || item.type === "head" || item.type === "body") && item.stored === false && item.consumed === false)
+        if (item.type === "Provisions" && item.stored === true)
        return (
-         <InventoryItemGear
+         <StashProvisionsItem
            key={i}
            item={item}
          />

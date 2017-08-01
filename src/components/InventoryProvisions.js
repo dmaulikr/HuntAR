@@ -7,7 +7,7 @@ export default class Provisions extends Component {
   displayItems(){
    return(
       this.props.items.map( (item, i) => {
-        if (item.type === "Provisions" && item.stored === false)
+        if (item.type === "Provisions" && item.stored === false && item.consumed === false)
        return (
          <InventoryItemProvisions
            key={i}

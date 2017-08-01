@@ -9,7 +9,9 @@ const initialState = [
     type:"weapon",
     inventory:true,
     stored:false,
-    weight: 10
+    weight: 10,
+    consumed:false,
+    id:11111112225327832768341674358974537764536743254523875423678649754532
   },
   {
     bonusDamage: 25,
@@ -17,7 +19,9 @@ const initialState = [
     type:"weapon",
     inventory:true,
     stored:false,
-    weight: 5
+    weight: 5,
+    consumed:false,
+    id:11111112225327832768341674358974537764
   },
   {
     bonusHealth: 50,
@@ -25,7 +29,9 @@ const initialState = [
     type:"head",
     inventory:true,
     stored:false,
-    weight: 10
+    weight: 10,
+    consumed:false,
+    id:111111122232768341674358974537764536743253678649754532678998765
   },
   {
     bonusHealth: 100,
@@ -33,42 +39,54 @@ const initialState = [
     type:"body",
     inventory:true,
     stored:false,
-    weight: 30
+    weight: 30,
+    consumed:false,
+    id:1111122253243589745377645367432545238754232678998765
   },
   {
     name:"Beef Jerky",
     type:"Provisions",
     inventory:true,
     stored:false,
-    weight: 1
+    weight: 1,
+    consumed:false,
+    id:111111122232768341674358536743254523849754532678998765
   },
   {
     name:"Canned Corn",
     type:"Provisions",
     inventory:true,
     stored:false,
-    weight: 1
+    weight: 1,
+    consumed:false,
+    id:111111122253278374358974537764536423532678998765
   },
   {
     name:"Peanut Butter",
     type:"Provisions",
     inventory:true,
     stored:false,
-    weight: 1
+    weight: 1,
+    consumed:false,
+    id:111111122327683416743578649754532678998765
   },
   {
     name:"Beer",
     type:"Provisions",
     inventory:true,
     stored:false,
-    weight: 1
+    weight: 1,
+    consumed:false,
+    id:11111
   },
   {
     name:"Razor Wire",
     type:"Fortifications",
     inventory:true,
     stored:false,
-    weight: 5
+    weight: 5,
+    consumed:false,
+    id:111116736743255424532678998765
   },
 ]
 

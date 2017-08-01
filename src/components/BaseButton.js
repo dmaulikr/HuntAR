@@ -1,0 +1,24 @@
+import atHomebase from '../constants/locationHelper';
+import React, { Component } from 'react';
+import {Text, View } from 'react-native';
+import { Link } from 'react-router-native'
+
+export default class BaseButton extends Component {
+// add flavor text based on health
+
+  displayText(){
+    if (atHomebase(this.props.user, this.props.characters, .1524)) {
+          return(
+            <Link to={'homebase'}><Text>go home</Text></Link>
+          )
+        } else {
+          <Text>Better get back to base to heal up and rest</Text>
+        }
+      }
+
+  render() {
+    return (
+      <View>{this.displayText()}</View>
+    )
+  }
+}

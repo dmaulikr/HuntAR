@@ -1,3 +1,4 @@
+import StashContainer from '../containers/StashContainer'
 import React, { Component } from 'react';
 import {Text, View, Button } from 'react-native';
 import { Link, Redirect } from 'react-router-native';
@@ -19,7 +20,8 @@ export default class HomebasePage extends Component {
         </View>
 
         <View>
-          <Text>Camp</Text>
+          <Text>Item Stash</Text>
+          <StashContainer/>
         </View>
 
         <View>

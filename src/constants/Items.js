@@ -1,3 +1,5 @@
+import guid from './sudoGUID'
+
 export const ITEMS = [
   {
     bonusDamage: 50,
@@ -6,7 +8,9 @@ export const ITEMS = [
     inventory:true,
     stored:false,
     weight: 10,
-    equipped: false
+    equipped: false,
+    consumed: false,
+    id: guid()
   },
   {
     bonusDamage: 25,
@@ -15,7 +19,9 @@ export const ITEMS = [
     inventory:true,
     stored:false,
     weight: 5,
-    equipped: false
+    equipped: false,
+    consumed: false,
+    id: guid()
   },
   {
     bonusHealth: 50,
@@ -24,7 +30,9 @@ export const ITEMS = [
     inventory:true,
     stored:false,
     weight: 10,
-    equipped: false
+    equipped: false,
+    consumed: false,
+    id: guid()
   },
   {
     bonusHealth: 100,
@@ -33,7 +41,9 @@ export const ITEMS = [
     inventory:true,
     stored:false,
     weight: 30,
-    equipped: false
+    equipped: false,
+    consumed: false,
+    id: guid()
   },
   {
     bonusHealth: 10,
@@ -42,7 +52,9 @@ export const ITEMS = [
     inventory:true,
     stored:false,
     weight: 1,
-    equipped: false
+    equipped: false,
+    consumed: false,
+    id: guid()
   },
   {
     name:"Canned Tuna",
@@ -50,7 +62,9 @@ export const ITEMS = [
     inventory:true,
     stored:false,
     weight: 1,
-    equipped: false
+    equipped: false,
+    consumed: false,
+    id: guid()
   },
   {
     name:"Apple",
@@ -58,7 +72,9 @@ export const ITEMS = [
     inventory:true,
     stored:false,
     weight: 1,
-    equipped: false
+    equipped: false,
+    consumed: false,
+    id: guid()
   },
   {
     name:"Water",
@@ -66,7 +82,9 @@ export const ITEMS = [
     inventory:true,
     stored:false,
     weight: 1,
-    equipped: false
+    equipped: false,
+    consumed: false,
+    id: guid()
   },
   {
     name:"Beef Jerky",
@@ -74,7 +92,9 @@ export const ITEMS = [
     inventory:true,
     stored:false,
     weight: 1,
-    equipped: false
+    equipped: false,
+    consumed: false,
+    id: guid()
   },
   {
     name:"Canned Corn",
@@ -82,7 +102,9 @@ export const ITEMS = [
     inventory:true,
     stored:false,
     weight: 1,
-    equipped: false
+    equipped: false,
+    consumed: false,
+    id: guid()
   },
   {
     name:"Peanut Butter",
@@ -90,7 +112,9 @@ export const ITEMS = [
     inventory:true,
     stored:false,
     weight: 1,
-    equipped: false
+    equipped: false,
+    consumed: false,
+    id: guid()
   },
   {
     name:"Beer",
@@ -98,7 +122,9 @@ export const ITEMS = [
     inventory:true,
     stored:false,
     weight: 1,
-    equipped: false
+    equipped: false,
+    consumed: false,
+    id: guid()
   },
   {
     name:"Wood Planks",
@@ -106,7 +132,9 @@ export const ITEMS = [
     inventory:true,
     stored:false,
     weight: 10,
-    equipped: false
+    equipped: false,
+    consumed: false,
+    id: guid()
   },
   {
     name:"Barb Wire",
@@ -114,7 +142,9 @@ export const ITEMS = [
     inventory:true,
     stored:false,
     weight: 5,
-    equipped: false
+    equipped: false,
+    consumed: false,
+    id: guid()
   },
   {
     name:"Bricks",
@@ -122,7 +152,9 @@ export const ITEMS = [
     inventory:true,
     stored:false,
     weight: 50,
-    equipped: false
+    equipped: false,
+    consumed: false,
+    id: guid()
   },
   {
     name:"Spikes",
@@ -130,7 +162,9 @@ export const ITEMS = [
     inventory:true,
     stored:false,
     weight: 10,
-    equipped: false
+    equipped: false,
+    consumed: false,
+    id: guid()
   },
   {
     name:"Corrugated Metal",
@@ -138,7 +172,9 @@ export const ITEMS = [
     inventory:true,
     stored:false,
     weight: 10,
-    equipped: false
+    equipped: false,
+    consumed: false,
+    id: guid()
   },
   {
     name:"Razor Wire",
@@ -146,14 +182,16 @@ export const ITEMS = [
     inventory:true,
     stored:false,
     weight: 5,
-    equipped: false
+    equipped: false,
+    consumed: false,
+    id: guid()
   },
 ]
-
 
 
 
 export function randomItem(items){
   item = items[Math.floor(Math.random()*items.length)];
   return item
+  consumed: false
 }

@@ -7,7 +7,7 @@ export default class Fortifications extends Component {
   displayItems(){
    return(
       this.props.items.map( (item, i) => {
-        if (item.type === "Fortifications" && item.stored === false)
+        if (item.type === "Fortifications" && item.stored === false && item.consumed === false)
        return (
          <InventoryItemFortifications
            key={i}
