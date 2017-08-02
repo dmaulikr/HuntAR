@@ -15,7 +15,7 @@ export default class EatItemButton extends Component {
 
   render() {
     return (
-      <View><TouchableHighlight onPress={this.handleClick}><Text>Hungry? Hurting? This might help...</Text></TouchableHighlight></View>
+      <View><TouchableHighlight onPress={this.handleClick}><Text>Eat</Text></TouchableHighlight></View>
     )
   }
 }

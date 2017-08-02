@@ -2,6 +2,7 @@ import guid from './sudoGUID'
 
 export const ITEMS = [
   {
+    healthBoost: 0,
     bonus: .5,
     name:"Machine Gun",
     type:"weapon",
@@ -13,6 +14,7 @@ export const ITEMS = [
     id: guid()
   },
   {
+    healthBoost: 0,
     bonus: 1,
     name:"Pistol",
     type:"weapon",
@@ -24,6 +26,7 @@ export const ITEMS = [
     id: guid()
   },
   {
+    healthBoost: 0,
     bonus: 50,
     name:"Tactical Helmet",
     type:"head",
@@ -35,6 +38,7 @@ export const ITEMS = [
     id: guid()
   },
   {
+    healthBoost: 0,
     bonus: 100,
     name:"Riot Gear",
     type:"body",
@@ -46,6 +50,7 @@ export const ITEMS = [
     id: guid()
   },
   {
+    healthBoost: 0,
     bonus: 10,
     name:"Rags",
     type:"body",
@@ -120,7 +125,7 @@ export const ITEMS = [
     equipped: false,
     consumed: false,
     id: guid(),
-    healthBoost: 10
+    healthBoost: 100
   },
   {
     name:"Beer",
@@ -148,7 +153,7 @@ export const ITEMS = [
   {
     name:"Barb Wire",
     type:"Fortifications",
-    healthBoost: 10,
+    healthBoost: 0,
     flavorText: "Barb wire should trip up some baddies.",
     inventory:true,
     stored:false,
@@ -160,7 +165,7 @@ export const ITEMS = [
   {
     name:"Bricks",
     type:"Fortifications",
-    healthBoost: 10,
+    healthBoost: 0,
     flavorText: "The start of a decent brick wall, Could trip someone up?",
     inventory:true,
     stored:false,
@@ -172,7 +177,7 @@ export const ITEMS = [
   {
     name:"Spikes",
     type:"Fortifications",
-    healthBoost: 10,
+    healthBoost: 0,
     flavorText:"A good old fashioned spike pit.",
     inventory:true,
     stored:false,
@@ -184,7 +189,7 @@ export const ITEMS = [
   {
     name:"Corrugated Metal",
     type:"Fortifications",
-    healthBoost: 10,
+    healthBoost: 0,
     flavorText:"Some metal around the doors, hopefully this will stop them from getting kicked in",
     inventory:true,
     stored:false,
@@ -196,7 +201,7 @@ export const ITEMS = [
   {
     name:"Razor Wire",
     type:"Fortifications",
-    healthBoost: 10,
+    healthBoost: 0,
     flavorText: "Razor wire everywhere, ouch...",
     inventory:true,
     stored:false,

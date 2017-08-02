@@ -36,6 +36,11 @@ export default function characters(state = initialState, action = {}) {
         ...state,
         health: (state.health - 10),
       }
+    case CONSUME_ITEM:
+      return  {
+        ...state,
+        health: (state.health + action.item.healthBoost),
+      }
     case EQUIP_HELM:
       return  {
         ...state,
