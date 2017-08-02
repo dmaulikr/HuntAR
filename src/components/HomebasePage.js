@@ -11,6 +11,7 @@ export default class HomebasePage extends Component {
     saveFortificationsFlavor(this.props.user.uid, this.props.fortificationsFlavor)
   }
 
+
   displayStatus(){
     return ( (this.props.base.health / this.props.base.maxHealth)*100)
   }

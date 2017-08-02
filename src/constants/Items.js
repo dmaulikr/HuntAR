@@ -2,7 +2,7 @@ import guid from './sudoGUID'
 
 export const ITEMS = [
   {
-    bonusDamage: 50,
+    bonus: 1.5,
     name:"Machine Gun",
     type:"weapon",
     inventory:true,
@@ -13,7 +13,7 @@ export const ITEMS = [
     id: guid()
   },
   {
-    bonusDamage: 25,
+    bonus: 1,
     name:"Pistol",
     type:"weapon",
     inventory:true,
@@ -24,7 +24,7 @@ export const ITEMS = [
     id: guid()
   },
   {
-    bonusHealth: 50,
+    bonus: 50,
     name:"Tactical Helmet",
     type:"head",
     inventory:true,
@@ -35,7 +35,7 @@ export const ITEMS = [
     id: guid()
   },
   {
-    bonusHealth: 100,
+    bonus: 100,
     name:"Riot Gear",
     type:"body",
     inventory:true,
@@ -46,7 +46,7 @@ export const ITEMS = [
     id: guid()
   },
   {
-    bonusHealth: 10,
+    bonus: 10,
     name:"Rags",
     type:"body",
     inventory:true,

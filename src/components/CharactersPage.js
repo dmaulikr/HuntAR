@@ -42,7 +42,7 @@ export default class CharactersPage extends Component {
     if ( characters && locationHistory && locationHistory.length > 2 ) {
      time =  TimePassed(locationHistory[0],  locationHistory[(locationHistory.length - 1)])
      if (time.hours > 1){
-       return(<Text>You have survived {time.hours}</Text>)
+       return(<Text>You have survived {time.hours} hours </Text>)
      }
     }
   }
@@ -69,13 +69,23 @@ export default class CharactersPage extends Component {
               <View>
                 {this.displayHomeBaseButton()}
               </View>
+              <View>
+                <Link to={'/login'}><Text>Log Out</Text></Link>
+              </View>
         </View>
       )
-    } else {
+    } else if ( this.props.characters.created === false ){
       return(
       <Link to={'/charactercreation'}><Text>Create a Character</Text></Link>
       )
     }
+    else if ( this.props.characters.health < 0 ){
+      return(  <Link to={'/login'}><Text>YOU DIED</Text></Link>)
+    }
+    else {
+      return(  <Text>Loading</Text>)
+    }
+
   }
 
   render() {

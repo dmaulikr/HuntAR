@@ -2,7 +2,7 @@ import { ADD_CHARACTER_SUCCESS } from '../actions/CreateCharacterFormActions';
 import { SET_CHARACTER, FLEE } from '../actions/CharacterActions';
 import { SET_HOME_BASE } from '../actions/HomebaseActions';
 import { SEARCH_CURRENT_LOCATION } from '../actions/GeoActions';
-import { CONSUME_ITEM } from '../actions/InventoryActions';
+import { CONSUME_ITEM, EQUIP_HELM, EQUIP_BODY, EQUIP_WEP } from '../actions/InventoryActions';
 
 
 
@@ -34,6 +34,21 @@ export default function characters(state = initialState, action = {}) {
       return  {
         ...state,
         health: (state.health - 10),
+      }
+    case EQUIP_HELM:
+      return  {
+        ...state,
+        health: (state.maxHealth + action.item.bonus),
+      }
+    case EQUIP_BODY:
+      return  {
+        ...state,
+        health: (state.maxHealth + action.item.bonus),
+      }
+    case EQUIP_WEP:
+      return  {
+        ...state,
+        health: (state.health - action.item.bonus),
       }
     default:
       return state;

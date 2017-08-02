@@ -10,6 +10,7 @@ import items from './ItemsReducer';
 import base from './BaseReducer';
 import fortificationsFlavor from './FortificationsFlavorReducer';
 import SearchResult from './SearchResultReducer';
+import EquipedItems from './EquipedItemsReducer';
 
 export default combineReducers({
    user,
@@ -22,5 +23,6 @@ export default combineReducers({
    items,
    base,
    fortificationsFlavor,
-   SearchResult
+   SearchResult,
+   EquipedItems
 })

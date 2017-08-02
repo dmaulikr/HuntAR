@@ -1,10 +1,28 @@
 import  StoreItemButton from './StoreItemButton'
 import React, { Component } from 'react';
-import {Text, View, Button } from 'react-native';
+import {Text, View, TouchableHighlight } from 'react-native';
 import { Link, Redirect } from 'react-router-native';
 
-
 export default class InventoryItemGear extends Component {
+  constructor() {
+  super();
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick(){
+    debugger
+    if (this.props.item.type === "weapon") {
+      this.props.InventoryActions.equipWep(this.props.item)
+      this.props.InventoryActions.consumeItem(this.props.item)
+    }
+    if (this.props.item.type === "head") {
+      this.props.InventoryActions.equipHelm(this.props.item)
+      this.props.InventoryActions.consumeItem(this.props.item)
+    }
+    if (this.props.item.type === "body") {
+      this.props.InventoryActions.equipBody(this.props.item)
+      this.props.InventoryActions.consumeItem(this.props.item)
+    }
+  }
   displayBonuses(){
     if (this.props.item.bonusDamage) {
      return(<Text>Bonus Damage: {this.props.item.bonusDamage}</Text>)
@@ -24,6 +42,9 @@ export default class InventoryItemGear extends Component {
             user={this.props.user}
             character={this.props.character}
             />
+          <View><TouchableHighlight onPress={this.handleClick}>
+            <Text>Equip</Text>
+            </TouchableHighlight></View>
       </View>
     )
   }

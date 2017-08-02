@@ -11,7 +11,7 @@ displayText(){
         return(
           <View>
            <Text>This damn {this.props.monsters[0].name} is still after you. You took ten damage</Text>
-           <Link to={'/flee'}><Text>Try to run away</Text></Link>
+           <Link to={'/characters'}><Text>status</Text></Link>
           </View>
         )
         } else {

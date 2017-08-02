@@ -68,7 +68,7 @@ export function submitCreateCharacter(character){
     ...character,
     health: ((character.strength * 10) + (character.fortitude * 30)),
     maxHealth: ((character.strength * 10) + (character.fortitude * 30)),
-    rateoffire: (character.rateoffire - (character.dexterity * .2)),
+    rateoffire: 2,
     created: true
   }
   saveCharacters(character.uid, champion)
