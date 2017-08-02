@@ -16,6 +16,10 @@ export default class ExploreLaunchPage extends Component {
     this.props.GeoActions.resetResults()
   }
 
+
+
+
+
   handleSearchClick(){
 
    temp = this.counter(this.props.user, this.props.locationHistory, 0.804672 )

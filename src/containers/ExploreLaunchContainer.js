@@ -1,4 +1,6 @@
 import * as GeoActions from '../actions/GeoActions'
+import * as CharacterActions from '../actions/CharacterActions'
+
 import  ExploreLaunchPage from '../components/ExploreLaunchPage'
 import { createCombatInstance } from '../actions/apiActions'
 import React from 'react'
@@ -6,7 +8,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { View } from 'react-native';
 
-const ExploreLaunchContainer = ({ characters, monsters, user, GeoActions, locationHistory, SearchResult, items }) => (
+const ExploreLaunchContainer = ({ characters, monsters, user, GeoActions, locationHistory, SearchResult, items, CharacterActions }) => (
   <View>
     <ExploreLaunchPage
       characters={characters}
@@ -16,6 +18,7 @@ const ExploreLaunchContainer = ({ characters, monsters, user, GeoActions, locati
       locationHistory={locationHistory}
       SearchResult={SearchResult}
       items={items}
+      CharacterActions={CharacterActions}
     />
   </View>
 )
@@ -32,6 +35,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     GeoActions: bindActionCreators(GeoActions, dispatch),
+    CharacterActions: bindActionCreators(CharacterActions, dispatch),
 })
 
 export default connect(

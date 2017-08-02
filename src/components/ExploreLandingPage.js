@@ -6,6 +6,7 @@ export default class ExploreLandingPage extends Component {
   constructor() {
   super();
     this.handleClick = this.handleClick.bind(this);
+    this._handleOpenURL = this._handleOpenURL.bind(this);
   }
 
   static navigationOptions = {
@@ -13,12 +14,17 @@ export default class ExploreLandingPage extends Component {
   };
 
   componentDidMount() {
-    this.props.CharacterActions.setUsersDamage(this.props.user.uid)
-    Linking.addEventListener('url', this.handleOpenURL);
+    Linking.addEventListener('url', this._handleOpenURL);
+
   }
 
   componentWillUnmount() {
     Linking.removeEventListener('url', this.handleOpenURL);
+  }
+
+  _handleOpenURL(event) {
+    console.log("sadklfhjkaldfgnhffgnshjkldfs");
+      this.props.CharacterActions.setUsersCharacter(this.props.user.uid)
   }
 
 

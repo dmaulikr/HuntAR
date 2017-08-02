@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { View } from 'react-native';
 
-const ExploreLandingContainer = ({ user }) => (
+const ExploreLandingContainer = ({ user, CharacterActions }) => (
   <View>
     <ExploreLandingPage
       ExplorARActions={ExplorARActions}
@@ -27,5 +27,6 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(ExploreLandingContainer)

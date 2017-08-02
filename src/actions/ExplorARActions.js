@@ -4,7 +4,7 @@ import { Linking } from 'react-native';
 export function launchCombat(url){
   Linking.canOpenURL(url).then(supported => {
     if (!supported) {
-      console.log('Can\'t handle url: ' + url);
+        return Linking.openURL(url);
     } else {
       return Linking.openURL(url);
     }
