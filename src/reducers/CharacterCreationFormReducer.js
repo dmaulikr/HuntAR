@@ -13,6 +13,7 @@ import {
   UPDATE_CHARACTER_NAME,
   RESET_FORM
 } from '../actions/CreateCharacterFormActions';
+import { LOGOUT } from '../actions/CharacterActions';
 
 const initialState = {
   health: 0,
@@ -75,6 +76,21 @@ export default function characterCreation(state = initialState, action = {}) {
     case ADD_CHARACTER_SUCCESS:
       return {...state, created: true}
     case RESET_FORM:
+      return {...state,
+        health: 0,
+        rateoffire: 2,
+        name:"",
+        type:"Hunter",
+        created:false,
+        avaliblePoints: 10,
+        intelligence: 0,
+        strength: 0,
+        stamina: 0,
+        dexterity: 0,
+        fortitude: 0,
+        created: false,
+      }
+    case LOGOUT:
       return {...state,
         health: 0,
         rateoffire: 2,

@@ -3,6 +3,7 @@ import { SET_CHARACTER, FLEE } from '../actions/CharacterActions';
 import { SET_HOME_BASE } from '../actions/HomebaseActions';
 import { SEARCH_CURRENT_LOCATION } from '../actions/GeoActions';
 import { CONSUME_ITEM, EQUIP_HELM, EQUIP_BODY, EQUIP_WEP } from '../actions/InventoryActions';
+import { LOGOUT } from '../actions/CharacterActions';
 
 
 
@@ -38,18 +39,23 @@ export default function characters(state = initialState, action = {}) {
     case EQUIP_HELM:
       return  {
         ...state,
-        health: (state.maxHealth + action.item.bonus),
+        maxHealth: (state.maxHealth + action.item.bonus),
       }
     case EQUIP_BODY:
       return  {
         ...state,
-        health: (state.maxHealth + action.item.bonus),
+        maxHealth: (state.maxHealth + action.item.bonus),
       }
     case EQUIP_WEP:
       return  {
         ...state,
-        health: (state.health - action.item.bonus),
+        rateoffire: action.item.bonus,
       }
+    case LOGOUT:
+      return {
+      ...state,
+      created: false,
+      hasHomeBase: false,}
     default:
       return state;
   }

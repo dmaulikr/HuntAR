@@ -1,6 +1,6 @@
 import { SEARCH_CURRENT_LOCATION, RESET_RESULTS } from '../actions/GeoActions';
 import { eventDescriptionHelper } from '../constants/SearchHelper'
-
+import { LOGOUT } from '../actions/CharacterActions';
 
 export default function SearchResultReducer(state = {text:""}, action = {}) {
   switch(action.type) {
@@ -11,6 +11,10 @@ export default function SearchResultReducer(state = {text:""}, action = {}) {
       return {...state}
     case RESET_RESULTS:
       return {...state, text:""}
+    case LOGOUT:
+      return  {...state,
+        text: "",
+      }
     default:
       return state;
   }

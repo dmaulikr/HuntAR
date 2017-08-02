@@ -9,7 +9,6 @@ export default class InventoryItemGear extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick(){
-    debugger
     if (this.props.item.type === "weapon") {
       this.props.InventoryActions.equipWep(this.props.item)
       this.props.InventoryActions.consumeItem(this.props.item)

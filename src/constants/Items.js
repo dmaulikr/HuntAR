@@ -2,7 +2,7 @@ import guid from './sudoGUID'
 
 export const ITEMS = [
   {
-    bonus: 1.5,
+    bonus: .5,
     name:"Machine Gun",
     type:"weapon",
     inventory:true,

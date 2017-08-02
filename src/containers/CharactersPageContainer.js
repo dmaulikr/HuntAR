@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { View } from 'react-native';
 
-const CharactersPageContainer = ({ characters, locationHistory, CreateCharacterFormActions , CharacterActions , user , GeoActions }) => (
+const CharactersPageContainer = ({ characters, EquipedItems, locationHistory, CreateCharacterFormActions , CharacterActions , user , GeoActions }) => (
   <View>
     <CharactersPage
       characters={characters}
@@ -20,6 +20,7 @@ const CharactersPageContainer = ({ characters, locationHistory, CreateCharacterF
       saveCharacters={saveCharacters}
       saveLocationHistory={saveLocationHistory}
       locationHistory={locationHistory}
+      EquipedItems={EquipedItems}
     />
   </View>
 )
@@ -28,7 +29,7 @@ const CharactersPageContainer = ({ characters, locationHistory, CreateCharacterF
 const mapStateToProps = state => ({
   characters: state.characters,
   selectedCharacter: state.selectedCharacter,
-  selectedCharacter: state.selectedCharacter,
+  EquipedItems: state.EquipedItems,
   user: state.user,
   locationHistory: state.locationHistory
 

@@ -7,7 +7,19 @@ export const SET_ITEMS = 'SET_ITEMS'
 export const SET_FLAVOR = 'SET_FLAVOR'
 export const SET_DAMAGE = 'SET_DAMAGE'
 export const FLEE = 'FLEE'
+export const LOGOUT = 'LOGOUT'
 
+export function logout(){
+  return dispatch => {
+   dispatch(dispatchLogout());
+  }
+}
+
+export function dispatchLogout(){
+  return {
+    type: LOGOUT
+  }
+}
 
 
 export function flee(dex){

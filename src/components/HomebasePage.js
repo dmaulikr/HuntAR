@@ -13,7 +13,7 @@ export default class HomebasePage extends Component {
 
 
   displayStatus(){
-    return ( (this.props.base.health / this.props.base.maxHealth)*100)
+    return ( Math.round((this.props.base.health / this.props.base.maxHealth)*100))
   }
 
   displayFortifications(){
@@ -46,7 +46,7 @@ export default class HomebasePage extends Component {
           <StashContainer/>
         </View>
         <View>
-          <Text>Its much but its all ive got...</Text>
+          <Text>It aint much but its all ive got...</Text>
         </View>
           <View>
             <Link to={'/inventory'}>

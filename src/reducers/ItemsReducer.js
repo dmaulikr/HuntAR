@@ -1,6 +1,7 @@
 import { SEARCH_CURRENT_LOCATION } from '../actions/GeoActions';
 import { STORE_ITEM, CONSUME_ITEM, FORTIFY, REPAIR } from '../actions/InventoryActions';
 import { SET_ITEMS } from '../actions/CharacterActions';
+import { LOGOUT } from '../actions/CharacterActions';
 
 const initialState = []
 
@@ -45,6 +46,8 @@ export default function items(state = initialState, action = {}) {
       return  [
         ...action.items
       ]
+    case LOGOUT:
+      return []
     default:
       return state;
   }

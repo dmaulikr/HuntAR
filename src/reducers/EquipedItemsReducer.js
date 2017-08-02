@@ -1,11 +1,8 @@
 import { EQUIP_HELM, EQUIP_BODY, EQUIP_WEP} from '../actions/InventoryActions';
+import { LOGOUT } from '../actions/CharacterActions';
 
 
-const initialState = {
-  head:{},
-  body:{},
-  weapon:{}
-}
+const initialState = {}
 
 
 
@@ -27,6 +24,8 @@ export default function EquipedItems(state = initialState, action = {}) {
         ...state,
         weapon: action.item
       }
+    case LOGOUT:
+      return {}
     default:
       return state;
   }

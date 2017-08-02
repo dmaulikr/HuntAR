@@ -1,12 +1,23 @@
 import CharacterShow from '../components/CharacterShow'
+import EquippedItems from '../components/EquippedItems'
 import TimePassed from '../constants/timehelper'
 import BaseButton from '../components/BaseButton'
 import ExploreButtonTextContainer from '../containers/ExploreButtonTextContainer'
 import React, { Component } from 'react';
-import {Text, View } from 'react-native';
-import { Link } from 'react-router-native'
+import {Text, View, Button } from 'react-native';
+import { Link, Redirect } from 'react-router-native'
 
 export default class CharactersPage extends Component {
+  constructor() {
+  super();
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(){
+    this.props.CharacterActions.logout()
+  }
+
+
   componentWillMount(){
     const {
       actions,
@@ -42,7 +53,7 @@ export default class CharactersPage extends Component {
     if ( characters && locationHistory && locationHistory.length > 2 ) {
      time =  TimePassed(locationHistory[0],  locationHistory[(locationHistory.length - 1)])
      if (time.hours > 1){
-       return(<Text>You have survived {time.hours} hours </Text>)
+       return(<Text>You have survived { Math.round(time.hours)} hours </Text>)
      }
     }
   }
@@ -58,6 +69,9 @@ export default class CharactersPage extends Component {
             <CharacterShow
               character={this.props.characters}
               />
+            <EquippedItems
+              EquipedItems={this.props.EquipedItems}
+              />
               <View>
                 <Link to={'/explore'}><View><ExploreButtonTextContainer/></View></Link>
                 <Link to={'/inventory'}><Text>Inventory</Text></Link>
@@ -70,11 +84,21 @@ export default class CharactersPage extends Component {
                 {this.displayHomeBaseButton()}
               </View>
               <View>
-                <Link to={'/login'}><Text>Log Out</Text></Link>
+                <Button
+                  title="Logout"
+                  onPress={this.handleClick}
+                  />
               </View>
         </View>
       )
-    } else if ( this.props.characters.created === false ){
+    }
+    else if ( this.props.user && this.props.user.loggedin === false ){
+      return(  <Redirect to={{
+                  pathname: '/login',
+                            }}/> )
+    }
+
+    else if ( this.props.characters.created === false ){
       return(
       <Link to={'/charactercreation'}><Text>Create a Character</Text></Link>
       )
@@ -82,6 +106,7 @@ export default class CharactersPage extends Component {
     else if ( this.props.characters.health < 0 ){
       return(  <Link to={'/login'}><Text>YOU DIED</Text></Link>)
     }
+
     else {
       return(  <Text>Loading</Text>)
     }

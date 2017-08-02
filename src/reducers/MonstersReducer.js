@@ -1,6 +1,7 @@
 import { SEARCH_CURRENT_LOCATION } from '../actions/GeoActions';
 import { FLEE } from '../actions/CharacterActions';
 import { d20 } from '../constants/Dice'
+import { LOGOUT } from '../actions/CharacterActions';
 
 
 const initialState = []
@@ -17,8 +18,8 @@ export default function monsters(state = initialState, action = {}) {
       return state.filter(monster => monster.name === "" )
     }
     return [...state]
-
-      return [...state]
+  case LOGOUT:
+    return  initialState
     default:
       return state;
   }
