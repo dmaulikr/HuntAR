@@ -4,8 +4,9 @@ import TimePassed from '../constants/timehelper'
 import BaseButton from '../components/BaseButton'
 import ExploreButtonTextContainer from '../containers/ExploreButtonTextContainer'
 import React, { Component } from 'react';
-import {Text, View, Button } from 'react-native';
+import {Text, View, TouchableHighlight, StyleSheet, Dimensions } from 'react-native';
 import { Link, Redirect } from 'react-router-native'
+var { height, width } = Dimensions.get('window')
 
 export default class CharactersPage extends Component {
   constructor() {
@@ -31,7 +32,7 @@ export default class CharactersPage extends Component {
   displayAddHomeBaseButton(){
     if ( this.props.characters && this.props.characters.hasHomeBase != true ) {
       return(
-        <Link to={'/homebaseSetup'}><Text>Establish your outpost</Text></Link>
+        <Link to={'/homebaseSetup'}><Text style={styles.green}>Establish your outpost</Text></Link>
       )
     }
   }
@@ -53,7 +54,7 @@ export default class CharactersPage extends Component {
     if ( characters && locationHistory && locationHistory.length > 2 ) {
      time =  TimePassed(locationHistory[0],  locationHistory[(locationHistory.length - 1)])
      if (time.hours > 1){
-       return(<Text>You have survived { Math.round(time.hours)} hours </Text>)
+       return(<Text style={styles.green}>You have survived { Math.round(time.hours)} hours </Text>)
      }
     }
   }
@@ -62,20 +63,22 @@ export default class CharactersPage extends Component {
   displayCharactersWithRedirect(){
     if ( this.props.characters.created === true ) {
       return(
-        <View>
+        <View style={styles.container}>
           <View>
-            <Text>{this.displayDaysSurvived()}</Text>
+          <View>
+            <Text style={styles.green}>{this.displayDaysSurvived()}</Text>
           </View>
             <CharacterShow
               character={this.props.characters}
               />
+          </View>
             <EquippedItems
               EquipedItems={this.props.EquipedItems}
               />
               <View>
                 <Link to={'/explore'}><View><ExploreButtonTextContainer/></View></Link>
-                <Link to={'/inventory'}><Text>Inventory</Text></Link>
-                <Link to={'/map'}><Text>Map</Text></Link>
+                <Link to={'/inventory'}><Text style={styles.green}>Inventory</Text></Link>
+                <Link to={'/map'}><Text style={styles.green}>Map</Text></Link>
               </View>
               <View>
                 {this.displayAddHomeBaseButton()}
@@ -84,10 +87,7 @@ export default class CharactersPage extends Component {
                 {this.displayHomeBaseButton()}
               </View>
               <View>
-                <Button
-                  title="Logout"
-                  onPress={this.handleClick}
-                  />
+                <TouchableHighlight onPress={this.handleClick}><Text style={styles.green} >Logout</Text></TouchableHighlight>
               </View>
         </View>
       )
@@ -100,15 +100,15 @@ export default class CharactersPage extends Component {
 
     else if ( this.props.characters.created === false ){
       return(
-      <Link to={'/charactercreation'}><Text>Create a Character</Text></Link>
+      <Link to={'/charactercreation'}><Text style={styles.green}>Create a Character</Text></Link>
       )
     }
     else if ( this.props.characters.health < 0 ){
-      return(  <Link to={'/login'}><Text>YOU DIED</Text></Link>)
+      return(  <Link to={'/login'}><Text style={styles.green}>YOU DIED</Text></Link>)
     }
 
     else {
-      return(  <Text>Loading</Text>)
+      return(  <Text style={styles.green}>Loading</Text>)
     }
 
   }
@@ -121,3 +121,19 @@ export default class CharactersPage extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 20,
+    paddingLeft: 20,
+    backgroundColor: '#000000',
+    width: (width ),
+    height: (height),
+
+  },
+  green: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900'
+  }
+});

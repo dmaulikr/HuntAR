@@ -1,11 +1,12 @@
 import { saveItems } from '../actions/apiActions'
 import React, { Component } from 'react';
-import {Text, View, Button } from 'react-native';
+import {Text, View, Button, Dimensions, StyleSheet  } from 'react-native';
 import { Link, Redirect } from 'react-router-native';
 import InventoryGear from '../components/InventoryGear'
 import InventoryFortifications from '../components/InventoryFortifications'
 import InventoryProvisions from '../components/InventoryProvisions'
 import BaseButton from '../components/BaseButton'
+var { height, width } = Dimensions.get('window')
 
 
 export default class InventoryPage extends Component {
@@ -35,9 +36,9 @@ export default class InventoryPage extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <View>
-          <Text>Weapons and Armor</Text>
+          <Text style={styles.green}>Weapons and Armor</Text>
           <InventoryGear
             items={this.props.items}
             InventoryActions={this.props.InventoryActions}
@@ -46,7 +47,7 @@ export default class InventoryPage extends Component {
             />
         </View>
         <View>
-          <Text>Fortifications</Text>
+          <Text style={styles.green}>Fortifications</Text>
           <InventoryFortifications
             items={this.props.items}
             InventoryActions={this.props.InventoryActions}
@@ -55,7 +56,7 @@ export default class InventoryPage extends Component {
             />
         </View>
         <View>
-          <Text>Provisions</Text>
+          <Text style={styles.green}>Provisions</Text>
           <InventoryProvisions
             items={this.props.items}
             InventoryActions={this.props.InventoryActions}
@@ -64,10 +65,10 @@ export default class InventoryPage extends Component {
             />
         </View>
         <View>
-          <Text>Total Weight: {this.displayTotalWeight()}</Text>
+          <Text style={styles.green}>Total Weight: {this.displayTotalWeight()}</Text>
         </View>
           <Link to={'/characters'}>
-            <Text>Character Status</Text>
+            <Text style={styles.green}>Character Status</Text>
           </Link>
           <View>
             {this.displayHomeBaseButton()}
@@ -76,3 +77,20 @@ export default class InventoryPage extends Component {
     )
   }
 }
+
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 20,
+    paddingLeft: 20,
+    backgroundColor: '#000000',
+    width: (width ),
+    height: (height),
+
+  },
+  green: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900'
+  }
+});

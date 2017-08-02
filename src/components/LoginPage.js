@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {Text, View, TextInput, Button, StyleSheet } from 'react-native';
+import {Text, View, TextInput, Button, StyleSheet, Dimensions, TouchableHighlight } from 'react-native';
 import { Redirect, Link } from 'react-router-native'
+var { height, width } = Dimensions.get('window')
 
 export default class LoginPage extends Component {
   constructor() {
@@ -37,30 +38,29 @@ export default class LoginPage extends Component {
       return(
         <View>
           <View>
-            <Text>Log In</Text>
+            <Text style={styles.green}>Log In</Text>
           </View>
           <View>
-            <Text>Email:</Text>
+            <Text style={styles.green}>Email:</Text>
               <TextInput
+                style={styles.green}
                 placeholder="Email"
                 onChangeText={this.handleLoginEmailChange}
                 >
               </TextInput>
           </View>
           <View>
-            <Text>Password:</Text>
+            <Text style={styles.green}>Password:</Text>
               <TextInput
+                style={styles.green}
                 placeholder="Password"
                 onChangeText={this.handleLoginPasswordChange}
                 >
               </TextInput>
           </View>
           <View>
-            <Button
-              title="Login"
-              onPress={this.handleClick}
-              />
-            <Link to={'/register'}><Text>Register to start the hunt!</Text></Link>
+            <TouchableHighlight onPress={this.handleClick}><Text style={styles.green} >Login</Text></TouchableHighlight>
+            <Link to={'/register'}><Text style={styles.green}>Register to start the hunt!</Text></Link>
           </View>
         </View>
       )
@@ -76,7 +76,25 @@ export default class LoginPage extends Component {
 
   render() {
     return (
-      <View>{this.displayLoginWithRedirect()}</View>
+      <View style={styles.container} style={styles.container}>{this.displayLoginWithRedirect()}</View>
     )
   }
 }
+
+
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 20,
+    paddingLeft: 20,
+    backgroundColor: '#000000',
+    width: (width ),
+    height: (height),
+
+  },
+  green: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900'
+  }
+});

@@ -1,6 +1,6 @@
 import  StoreItemButton from './StoreItemButton'
 import React, { Component } from 'react';
-import {Text, View, TouchableHighlight } from 'react-native';
+import {Text, View, TouchableHighlight, StyleSheet } from 'react-native';
 import { Link, Redirect } from 'react-router-native';
 
 export default class InventoryItemGear extends Component {
@@ -24,17 +24,17 @@ export default class InventoryItemGear extends Component {
   }
   displayBonuses(){
     if (this.props.item.bonusDamage) {
-     return(<Text>Bonus Damage: {this.props.item.bonusDamage}</Text>)
+     return(<Text style={styles.green}>Bonus Damage: {this.props.item.bonusDamage}</Text>)
    } else if (this.props.item.bonusHealth){
-     return(<Text>Bonus Health: {this.props.item.bonusHealth}</Text>)
+     return(<Text style={styles.green}>Bonus Health: {this.props.item.bonusHealth}</Text>)
    }
   }
   render() {
     return (
       <View>
-        <Text>Item: {this.props.item.name}</Text>
+        <Text style={styles.green}>Item: {this.props.item.name}</Text>
         {this.displayBonuses()}
-        <Text>Weight: {this.props.item.weight}</Text>
+        <Text style={styles.green}>Weight: {this.props.item.weight}</Text>
           <StoreItemButton
             InventoryActions={this.props.InventoryActions}
             item={this.props.item}
@@ -42,9 +42,18 @@ export default class InventoryItemGear extends Component {
             character={this.props.character}
             />
           <View><TouchableHighlight onPress={this.handleClick}>
-            <Text>Equip</Text>
+            <Text style={styles.green}>Equip</Text>
             </TouchableHighlight></View>
       </View>
     )
   }
 }
+
+
+const styles = StyleSheet.create({
+  green: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900'
+  }
+});

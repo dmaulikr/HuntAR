@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {Text, View, TextInput, Button, Picker } from 'react-native';
+import {Text, View, TextInput, Button, Dimensions, StyleSheet } from 'react-native';
 import { Redirect } from 'react-router-native'
+var { height, width } = Dimensions.get('window')
 
 export default class CharacterCreationPage extends Component {
   constructor() {
@@ -179,3 +180,20 @@ export default class CharacterCreationPage extends Component {
     )
   }
 }
+
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 20,
+    paddingLeft: 20,
+    backgroundColor: '#000000',
+    width: (width ),
+    height: (height),
+
+  },
+  green: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900'
+  }
+});

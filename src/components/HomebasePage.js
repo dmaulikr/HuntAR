@@ -1,9 +1,9 @@
 import { saveBase, saveFortificationsFlavor } from '../actions/apiActions'
 import React, { Component } from 'react';
-import {Text, View, Button } from 'react-native';
+import {Text, View, Button, StyleSheet, Dimensions } from 'react-native';
 import { Link, Redirect } from 'react-router-native';
 import StashContainer from '../containers/StashContainer';
-
+var { height, width } = Dimensions.get('window')
 
 export default class HomebasePage extends Component {
   componentWillUnmount(){
@@ -62,3 +62,20 @@ export default class HomebasePage extends Component {
     )
   }
 }
+
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 20,
+    paddingLeft: 20,
+    backgroundColor: '#000000',
+    width: (width ),
+    height: (height),
+
+  },
+  green: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900'
+  }
+});

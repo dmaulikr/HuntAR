@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
-import {Text, View } from 'react-native';
+import {Text, View, StyleSheet, Dimensions  } from 'react-native';
+var { height, width } = Dimensions.get('window')
 
 export default class EquippedItems extends Component {
 
   displayText(){
     if (this.props.EquipedItems.head ) {
           return(
-            <Text>Helm: {this.props.EquipedItems.head.name}</Text>
+            <Text style={styles.green}>Helm: {this.props.EquipedItems.head.name}</Text>
           )
         }
     if (this.props.EquipedItems.body ) {
           return(
-            <Text>Armor: {this.props.EquipedItems.body.name}</Text>
+            <Text style={styles.green}>Armor: {this.props.EquipedItems.body.name}</Text>
           )
         }
     if (this.props.EquipedItems.weapon ) {
           return(
-            <Text>Weapon: {this.props.EquipedItems.weapon.name}</Text>
+            <Text style={styles.green}>Weapon: {this.props.EquipedItems.weapon.name}</Text>
           )
         }
 
@@ -28,3 +29,19 @@ export default class EquippedItems extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 20,
+    paddingLeft: 20,
+    backgroundColor: '#000000',
+    width: (width ),
+    height: (height),
+
+  },
+  green: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900'
+  }
+});

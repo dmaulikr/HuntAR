@@ -1,6 +1,6 @@
 import StoreItemButton from './StoreItemButton'
 import React, { Component } from 'react';
-import {Text, View } from 'react-native';
+import {Text, View, StyleSheet } from 'react-native';
 
 
 export default class InventoryItemFortifications extends Component {
@@ -8,8 +8,8 @@ export default class InventoryItemFortifications extends Component {
   render() {
     return (
       <View>
-        <Text>Item: {this.props.item.name}</Text>
-        <Text>Weight: {this.props.item.weight}</Text>
+        <Text style={styles.green}>Item: {this.props.item.name}</Text>
+        <Text style={styles.green}>Weight: {this.props.item.weight}</Text>
           <StoreItemButton
             InventoryActions={this.props.InventoryActions}
             item={this.props.item}
@@ -20,3 +20,12 @@ export default class InventoryItemFortifications extends Component {
     )
   }
 }
+
+
+const styles = StyleSheet.create({
+  green: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900'
+  }
+});

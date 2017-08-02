@@ -1,7 +1,7 @@
 import Main from './src/components/Main';
 import RootReducer from './src/reducers/RootReducer';
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, View } from 'react-native';
+import { AppRegistry, StyleSheet, View, Text } from 'react-native';
 import { NativeRouter } from 'react-router-native';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
@@ -20,9 +20,9 @@ export default class HuntAR extends Component {
     return (
       <NativeRouter>
         <Provider store={store}>
-          <View style={styles.container}>
-            <Main/>
-          </View>
+            <View>
+               <Main/>
+            </View>
         </Provider>
       </NativeRouter>
     );
@@ -30,13 +30,6 @@ export default class HuntAR extends Component {
 }
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  }
-});
+
 
 AppRegistry.registerComponent('HuntAR', () => HuntAR);
