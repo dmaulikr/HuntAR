@@ -17,6 +17,7 @@ export default class LoginPage extends Component {
       this.props.CharacterActions.setUsersFortificationsFlavor(this.props.user.uid)
       this.props.CharacterActions.setUsersItemHistory(this.props.user.uid)
       this.props.CharacterActions.setUsersLocationHistory(this.props.user.uid)
+      this.props.CharacterActions.setUsersEquipedItems(this.props.user.uid)
     }
   }
 

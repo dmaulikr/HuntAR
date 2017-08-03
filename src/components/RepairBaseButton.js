@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Text, View, TouchableHighlight } from 'react-native';
+import {Text, View, TouchableHighlight, StyleSheet } from 'react-native';
 
 
 export default class RepairBaseButton extends Component {
@@ -14,7 +14,15 @@ export default class RepairBaseButton extends Component {
 
   render() {
     return (
-      <View><TouchableHighlight onPress={this.handleClick}><Text>Repair Base</Text></TouchableHighlight></View>
+      <View><TouchableHighlight onPress={this.handleClick}><Text style={styles.green}>Repair Base</Text></TouchableHighlight></View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  green: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900'
+  }
+});

@@ -1,4 +1,4 @@
-import { saveItems } from '../actions/apiActions'
+import { saveItems, saveEquipedItems } from '../actions/apiActions'
 import React, { Component } from 'react';
 import {Text, View, Button, Dimensions, StyleSheet  } from 'react-native';
 import { Link, Redirect } from 'react-router-native';
@@ -12,6 +12,7 @@ var { height, width } = Dimensions.get('window')
 export default class InventoryPage extends Component {
   componentWillUnmount(){
     saveItems(this.props.user.uid, this.props.items)
+    saveEquipedItems(this.props.user.uid, this.props.EquipedItems)
   }
   displayHomeBaseButton(){
     if ( this.props.character && this.props.character.hasHomeBase === true && this.props.user && this.props.user.currentLocation ) {

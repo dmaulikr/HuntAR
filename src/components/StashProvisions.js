@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Text, View, Button } from 'react-native';
+import {Text, View} from 'react-native';
 import StashProvisionsItem from '../components/StashProvisionsItem'
 
 export default class StashProvisions extends Component {
@@ -19,7 +19,6 @@ export default class StashProvisions extends Component {
   render() {
     return (
       <View>
-
         {this.displayItems()}
       </View>
     )

@@ -11,7 +11,7 @@ import FleeContainer from '../containers/FleeContainer'
 import MapPageContainer from '../containers/MapPageContainer'
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { Switch, Route, StyleSheet } from 'react-router-native'
+import { Switch, Route } from 'react-router-native'
 
 export default class Main extends Component {
 

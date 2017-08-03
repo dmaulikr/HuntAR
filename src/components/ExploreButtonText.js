@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {Text, View, StyleSheet, Dimensions  } from 'react-native';
-var { height, width } = Dimensions.get('window')
+import {Text, View, StyleSheet } from 'react-native';
+
 
 export default class ExploreButtonText extends Component {
   displayText(){
@@ -23,14 +23,7 @@ export default class ExploreButtonText extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: 20,
-    paddingLeft: 20,
-    backgroundColor: '#000000',
-    width: (width ),
-    height: (height),
 
-  },
   green: {
     color: '#33ff66',
     fontFamily: 'Courier New',

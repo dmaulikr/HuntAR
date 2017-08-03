@@ -1,6 +1,6 @@
 import atHomebase from '../constants/locationHelper';
 import React, { Component } from 'react';
-import {Text, View, TouchableHighlight } from 'react-native';
+import {Text, View, TouchableHighlight, StyleSheet } from 'react-native';
 
 
 export default class StoreItemButton extends Component {
@@ -15,12 +15,9 @@ export default class StoreItemButton extends Component {
 
   displayButton(){
     if (atHomebase(this.props.user, this.props.character, .1524)){
-      return(<TouchableHighlight onPress={this.handleClick}><Text>Take item</Text></TouchableHighlight>)
+      return(<TouchableHighlight onPress={this.handleClick}><Text style={styles.green}>Take item</Text></TouchableHighlight>)
      }
   }
-
-
-
 
 
   render() {
@@ -29,3 +26,11 @@ export default class StoreItemButton extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  green: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900'
+  }
+});

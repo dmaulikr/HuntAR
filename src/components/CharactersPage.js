@@ -63,7 +63,7 @@ export default class CharactersPage extends Component {
   displayCharactersWithRedirect(){
     if ( this.props.characters.created === true ) {
       return(
-        <View style={styles.container}>
+        <View >
           <View>
           <View>
             <Text style={styles.green}>{this.displayDaysSurvived()}</Text>
@@ -115,7 +115,7 @@ export default class CharactersPage extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         {this.displayCharactersWithRedirect()}
       </View>
     )

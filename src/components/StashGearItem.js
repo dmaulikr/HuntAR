@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
-import {Text, View, Button } from 'react-native';
+import {Text, View, Button, StyleSheet } from 'react-native';
 import TakeItemButton from './TakeItemButton'
 
 
 export default class StashGearItem extends Component {
   displayBonuses(){
     if (this.props.item.bonusDamage) {
-     return(<Text>Bonus Damage: {this.props.item.bonusDamage}</Text>)
+     return(<Text style={styles.green}>Bonus Damage: {this.props.item.bonusDamage}</Text>)
    } else if (this.props.item.bonusHealth){
-     return(<Text>Bonus Health: {this.props.item.bonusHealth}</Text>)
+     return(<Text style={styles.green}>Bonus Health: {this.props.item.bonusHealth}</Text>)
    }
   }
   render() {
     return (
       <View>
-        <Text>Item: {this.props.item.name}</Text>
+        <Text style={styles.green}>Item: {this.props.item.name}</Text>
         {this.displayBonuses()}
-        <Text>Weight: {this.props.item.weight}</Text>
+        <Text style={styles.green}>Weight: {this.props.item.weight}</Text>
           <TakeItemButton
             InventoryActions={this.props.InventoryActions}
             item={this.props.item}
@@ -28,3 +28,11 @@ export default class StashGearItem extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  green: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900'
+  }
+});

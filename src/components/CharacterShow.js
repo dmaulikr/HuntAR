@@ -18,11 +18,7 @@ export default class CharacterShow extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#000000',
-    marginTop: 400,
-    marginLeft: 400
-  },
+
   green: {
     color: '#33ff66',
     fontFamily: 'Courier New',

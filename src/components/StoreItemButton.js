@@ -7,6 +7,7 @@ export default class StoreItemButton extends Component {
   constructor() {
   super();
     this.handleClick = this.handleClick.bind(this);
+    this.displayButton = this.displayButton.bind(this);
   }
 
   handleClick(){

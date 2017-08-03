@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {Text, View, TextInput, Button, Dimensions, StyleSheet } from 'react-native';
+import {Text, View, TextInput, Button, TouchableHighlight, Dimensions, StyleSheet } from 'react-native';
 import { Redirect } from 'react-router-native'
+import { barHelper } from '../constants/style.js'
 var { height, width } = Dimensions.get('window')
 
 export default class CharacterCreationPage extends Component {
@@ -71,98 +72,57 @@ export default class CharacterCreationPage extends Component {
     if (this.props.characterCreationForm.created === false ) {
       return(
         <View>
-          <View>
-            <Text>Hunter Details</Text>
-          </View>
-          <View>
-            <Text>Name:</Text>
-              <TextInput
-                placeholder="Name"
-                onChangeText={this.handleNameChange}
-                >
-              </TextInput>
-          </View>
-          <View>
-            <View>
-              <Text>Stats</Text>
-            </View>
-            <View>
-              <Text>Avalible Points: {this.props.characterCreationForm.avaliblePoints}</Text>
-            </View>
-            <View>
-              <View>
-                <Text>Strength: {this.props.characterCreationForm.strength}</Text>
-              </View>
-              <Button
-                title="Increase Strength"
-                onPress={this.handleIncreaseStrength}
-                />
-              <Button
-                title="Decrease Strength"
-                onPress={this.handleDecreaseStrength}
-                />
-            </View>
-            <View>
-              <View>
-                <Text>Intelligence: {this.props.characterCreationForm.intelligence}</Text>
-              </View>
-              <Button
-                title="Increase Intelligence"
-                onPress={this.handleIncreaseIntelligence}
-                />
-              <Button
-                title="Decrease Intelligence"
-                onPress={this.handleDecreaseIntelligence}
-                />
-            </View>
-            <View>
-              <View>
-                <Text>Stamina: {this.props.characterCreationForm.stamina}</Text>
-              </View>
-              <Button
-                title="Increase Stamina"
-                onPress={this.handleIncreaseStamina}
-                />
-              <Button
-                title="Decrease Stamina"
-                onPress={this.handleDecreaseStamina}
-                />
-            </View>
-            <View>
-              <View>
-                <Text>Dexterity: {this.props.characterCreationForm.dexterity}</Text>
-              </View>
-              <Button
-                title="Increase Dexterity"
-                onPress={this.handleIncreaseDexterity}
-                />
-              <Button
-                title="Decrease Dexterity"
-                onPress={this.handleDecreaseDexterity}
-                />
-            </View>
-            <View>
-              <View>
-                <Text>Fortitude: {this.props.characterCreationForm.fortitude}</Text>
-              </View>
-              <Button
-                title="Increase Fortitude"
-                onPress={this.handleIncreaseFortitude}
-                />
-              <Button
-                title="Decrease Fortitude"
-                onPress={this.handleDecreaseFortitude}
-                />
+            <Text style={styles.green}>Hunter Details</Text>
+            <Text style={styles.green}>Name:</Text>
+            <TextInput
+              placeholder="Name"
+              onChangeText={this.handleNameChange}
+              style={styles.green}
+              >
+            </TextInput>
+            <Text style={styles.green}>Stats</Text>
+            <Text style={styles.green}>Avalible Points: {this.props.characterCreationForm.avaliblePoints}</Text>
+
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.green}>Strength: </Text>
+              {barHelper(this.props.characterCreationForm.strength)}
+              <TouchableHighlight style={styles.button} onPress={this.handleDecreaseStrength}><Text style={styles.green}>-</Text></TouchableHighlight>
+              <TouchableHighlight style={styles.button} onPress={this.handleIncreaseStrength}><Text style={styles.green}>+</Text></TouchableHighlight>
             </View>
 
-          </View>
-          <View>
-            <Button
-              title="Create"
-              onPress={this.handleClick}
-              />
-          </View>
-        </View>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.green}>Intelligence: </Text>
+              {barHelper(this.props.characterCreationForm.intelligence)}
+              <TouchableHighlight style={styles.button} onPress={this.handleDecreaseIntelligence}><Text style={styles.green}>-</Text></TouchableHighlight>
+              <TouchableHighlight style={styles.button} onPress={this.handleIncreaseIntelligence}><Text style={styles.green}>+</Text></TouchableHighlight>
+            </View>
+
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.green}>Stamina: </Text>
+              {barHelper(this.props.characterCreationForm.stamina)}
+              <TouchableHighlight style={styles.button} onPress={this.handleDecreaseStamina}><Text style={styles.green}>-</Text></TouchableHighlight>
+              <TouchableHighlight style={styles.button} onPress={this.handleIncreaseStamina}><Text style={styles.green}>+</Text></TouchableHighlight>
+            </View>
+
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.green}>Dexterity: </Text>
+              {barHelper(this.props.characterCreationForm.dexterity)}
+              <TouchableHighlight style={styles.button} onPress={this.handleDecreaseDexterity}><Text style={styles.green}>-</Text></TouchableHighlight>
+              <TouchableHighlight style={styles.button} onPress={this.handleIncreaseDexterity}><Text style={styles.green}>+</Text></TouchableHighlight>
+            </View>
+
+
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styles.green}>Fortitude: </Text>
+              {barHelper(this.props.characterCreationForm.fortitude)}
+              <TouchableHighlight style={styles.button} onPress={this.handleDecreaseFortitude}><Text style={styles.green}>-</Text></TouchableHighlight>
+              <TouchableHighlight style={styles.button} onPress={this.handleIncreaseFortitude}><Text style={styles.green}>+</Text></TouchableHighlight>
+
+            </View>
+
+            <TouchableHighlight onPress={this.handleClick}><Text style={styles.green}>Create</Text></TouchableHighlight>
+
+      </View>
       )
     } else {
       return(
@@ -176,7 +136,7 @@ export default class CharacterCreationPage extends Component {
 
   render() {
     return (
-      <View>{this.displayCharacterCreationWithRedirect()}</View>
+      <View style={styles.container}>{this.displayCharacterCreationWithRedirect()}</View>
     )
   }
 }
@@ -189,7 +149,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     width: (width ),
     height: (height),
-
+  },
+  button: {
+    width: 10,
+    height: 15,
+    flexDirection: 'row',
   },
   green: {
     color: '#33ff66',

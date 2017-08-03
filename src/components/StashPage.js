@@ -1,6 +1,6 @@
 import { saveItems } from '../actions/apiActions'
 import React, { Component } from 'react';
-import {Text, View } from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 import StashGear from '../components/StashGear'
 import StashFortifications from '../components/StashFortifications'
 import StashProvisions from '../components/StashProvisions'
@@ -26,8 +26,8 @@ export default class StashPage extends Component {
     return (
       <View>
         <View>
-          <Text>Weapons and Armor</Text>
-          <Text>Cuz everyone out there aint so nice...</Text>
+          <Text style={styles.green}>Weapons and Armor</Text>
+          <Text style={styles.green}>Cuz everyone out there aint so nice...</Text>
           <StashGear
             InventoryActions={this.props.InventoryActions}
             user={this.props.user}
@@ -35,8 +35,8 @@ export default class StashPage extends Component {
             items={this.props.items}/>
         </View>
         <View>
-          <Text>Raw Materials</Text>
-          <Text>Maybe I can use these to fix this place up...</Text>
+          <Text style={styles.green}>Raw Materials</Text>
+          <Text style={styles.green}>Maybe I can use these to fix this place up...</Text>
           <StashFortifications
             InventoryActions={this.props.InventoryActions}
             user={this.props.user}
@@ -44,8 +44,8 @@ export default class StashPage extends Component {
             items={this.props.items}/>
         </View>
         <View>
-          <Text>Provisions</Text>
-          <Text>So hungry...</Text>
+          <Text style={styles.green}>Provisions</Text>
+          <Text style={styles.green}>So hungry...</Text>
           <StashProvisions
             InventoryActions={this.props.InventoryActions}
             user={this.props.user}
@@ -53,9 +53,17 @@ export default class StashPage extends Component {
             items={this.props.items}/>
         </View>
         <View>
-          <Text>Total Weight: {this.displayTotalWeight()}</Text>
+          <Text style={styles.green}>Total Weight: {this.displayTotalWeight()}</Text>
         </View>
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  green: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900'
+  }
+});

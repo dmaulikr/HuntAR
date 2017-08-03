@@ -7,13 +7,14 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { View } from 'react-native';
 
-const InventoryPageContainer = ({ HomebaseActions, InventoryActions, characters, items, user, GeoActions }) => (
+const InventoryPageContainer = ({ HomebaseActions, InventoryActions, characters, items, user, GeoActions, EquipedItems }) => (
   <View>
     <InventoryPage
       HomebaseActions={HomebaseActions}
       InventoryActions={InventoryActions}
       GeoActions={GeoActions}
       character={characters}
+      EquipedItems={EquipedItems}
       user={user}
       items={items}
     />
@@ -24,6 +25,7 @@ const InventoryPageContainer = ({ HomebaseActions, InventoryActions, characters,
 const mapStateToProps = state => ({
   characters: state.characters,
   user: state.user,
+  EquipedItems: state.EquipedItems,
   items: state.items
 })
 

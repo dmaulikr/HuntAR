@@ -21,39 +21,39 @@ export default class HomebasePage extends Component {
       this.props.fortificationsFlavor.map( (fortification, i) => {
         if (true)
        return (
-        <Text key={i}>{fortification}</Text>
+        <Text style={styles.green} key={i}>{fortification}</Text>
       )}))}
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <View>
-          <Text>Home Sweet Home</Text>
+          <Text style={styles.green}>Home Sweet Home</Text>
         </View>
         <View>
-          <Text>Repair Status: {this.displayStatus()}%</Text>
+          <Text style={styles.green}>Repair Status: {this.displayStatus()}%</Text>
         </View>
         <View>
-          <Text>Max Health: {this.props.base.maxHealth}</Text>
+          <Text style={styles.green}>Max Health: {this.props.base.maxHealth}</Text>
         </View>
         <View>
-          <Text>Fortifications:</Text>
+          <Text style={styles.green}>Fortifications:</Text>
         </View>
         <View>
-          <Text>{this.displayFortifications()}</Text>
+          <Text style={styles.green}>{this.displayFortifications()}</Text>
         </View>
         <View>
 
           <StashContainer/>
         </View>
         <View>
-          <Text>It aint much but its all ive got...</Text>
+          <Text style={styles.green}>It aint much but its all ive got...</Text>
         </View>
           <View>
             <Link to={'/inventory'}>
-              <Text>Inventory</Text>
+              <Text style={styles.green}>Inventory</Text>
             </Link>
             <Link to={'/characters'}>
-              <Text>Character Status</Text>
+              <Text style={styles.green}>Character Status</Text>
             </Link>
           </View>
       </View>

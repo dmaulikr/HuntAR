@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Text, View, TextInput, Button, StyleSheet, Dimensions } from 'react-native';
+import {Text, View, TextInput,  StyleSheet, Dimensions } from 'react-native';
 import { Redirect, Link } from 'react-router-native'
 var { height, width } = Dimensions.get('window')
 
@@ -28,31 +28,30 @@ export default class RegisterPage extends Component {
       return(
         <View>
           <View>
-            <Text>Register</Text>
+            <Text style={styles.green}>Register</Text>
           </View>
           <View>
-            <Text>Email:</Text>
+            <Text style={styles.green}>Email:</Text>
               <TextInput
+                style={styles.green}
                 placeholder="Email"
                 onChangeText={this.handleRegisterEmailChange}
                 >
               </TextInput>
           </View>
           <View>
-            <Text>Password:</Text>
+            <Text style={styles.green}>Password:</Text>
               <TextInput
+                style={styles.green}
                 placeholder="Password"
                 onChangeText={this.handleRegisterPasswordChange}
                 >
               </TextInput>
           </View>
           <View>
-            <Button
-              title="Register"
-              onPress={this.handleClick}
-              />
+            <TouchableHighlight onPress={this.handleClick}><Text style={styles.green}>Register</Text></TouchableHighlight>
           </View>
-          <Link to={'/login'}><Text>Return to the sign in page.</Text></Link>
+          <Link to={'/login'}><Text style={styles.green}>Return to the sign in page.</Text></Link>
         </View>
       )
     } else {
@@ -67,7 +66,7 @@ export default class RegisterPage extends Component {
 
   render() {
     return (
-      <View>{this.displayRegisterWithRedirect()}</View>
+      <View style={styles.container}>{this.displayRegisterWithRedirect()}</View>
     )
   }
 }

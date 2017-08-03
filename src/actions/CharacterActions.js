@@ -1,4 +1,4 @@
-import { setDamage, setCharacter, setLocationHistory, setFortificationsFlavor, setItemHistory } from './apiActions'
+import { setDamage, setCharacter, setLocationHistory, setFortificationsFlavor, setItemHistory, setEquipedItems } from './apiActions'
 import { d20 } from '../constants/Dice'
 
 export const SET_CHARACTER = 'SET_CHARACTER'
@@ -8,6 +8,7 @@ export const SET_FLAVOR = 'SET_FLAVOR'
 export const SET_DAMAGE = 'SET_DAMAGE'
 export const FLEE = 'FLEE'
 export const LOGOUT = 'LOGOUT'
+export const SET_EQUIPED_ITEMS = 'SET_EQUIPED_ITEMS'
 
 export function logout(){
   return dispatch => {
@@ -118,6 +119,7 @@ export function dispatchSetFortificationsFlavor(fortificationsFlavor){
   }
 }
 
+// unused
 export function setUsersDamage(uid){
   return dispatch => {
     setDamage(uid, function (err, result) {
@@ -130,9 +132,26 @@ export function setUsersDamage(uid){
 
 
 export function dispatchSetDamage(result){
-  debugger
   return {
     type: SET_DAMAGE,
     result
+  }
+}
+
+export function setUsersEquipedItems(uid){
+  return dispatch => {
+    setEquipedItems(uid, function (err, result) {
+      if (result){
+          dispatch(dispatchSetEquipedItems(result))
+        }
+    })
+   }
+  }
+
+
+export function dispatchSetEquipedItems(EquipedItems){
+  return {
+    type: SET_EQUIPED_ITEMS,
+    EquipedItems
   }
 }

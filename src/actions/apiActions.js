@@ -89,8 +89,26 @@ export async function saveFortificationsFlavor(uid, fortificationsFlavor) {
       fortificationsFlavor
     });
 }
+export async function saveEquipedItems(uid, EquipedItems) {
+  var database = firebase.database();
+  firebase.database().ref('users/' + uid + '/EquipedItems').set({
+      EquipedItems
+    });
+}
 
 
+
+export async function setEquipedItems(uid, callback) {
+    var database = firebase.database();
+    test = firebase.database().ref('users/' + uid + '/EquipedItems')
+    test.once("value", function(snapshot) {
+    temp = snapshot.val()
+    callback(null, temp);
+  }, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  });
+
+};
 
 
 // pull characters from firebase

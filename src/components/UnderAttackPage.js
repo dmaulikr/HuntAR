@@ -1,7 +1,8 @@
 import ExploreButtonTextContainer from '../containers/ExploreButtonTextContainer'
 import React, { Component } from 'react';
-import {Text, View, Button, Linking } from 'react-native';
+import {Text, View, Linking, StyleSheet, Dimensions, TouchableHighlight} from 'react-native';
 import { Link, Redirect } from 'react-router-native';
+var { height, width } = Dimensions.get('window')
 
 export default class UnderAttackPage extends Component {
   constructor() {
@@ -17,6 +18,7 @@ export default class UnderAttackPage extends Component {
 
   componentWillUnmount() {
     Linking.removeEventListener('url', this.handleOpenURL);
+    this.props.CharacterActions.setUsersCharacter(this.props.user.uid)
   }
 
   _handleOpenURL(event) {
@@ -29,11 +31,8 @@ export default class UnderAttackPage extends Component {
       return(
         <View>
           <View><ExploreButtonTextContainer/></View>
-            <Button
-              title="Fight!"
-              onPress={this.handleAttackClick}
-              />
-            <Link to={'/flee'}><Text>Try to run away</Text></Link>
+            <TouchableHighlight onPress={this.handleAttackClick}><Text style={styles.green}>"Fight!"</Text></TouchableHighlight>
+            <Link to={'/flee'}><Text style={styles.green}>Try to run away</Text></Link>
         </View>
       )
     } else {
@@ -64,9 +63,26 @@ export default class UnderAttackPage extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         {this.displayExploreWithCombatRedirect()}
       </View>
     )
   }
 }
+
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 20,
+    paddingLeft: 20,
+    backgroundColor: '#000000',
+    width: (width ),
+    height: (height),
+
+  },
+  green: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900'
+  }
+});

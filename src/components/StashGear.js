@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Text, View, Button } from 'react-native';
+import {Text, View } from 'react-native';
 import { Link, Redirect } from 'react-router-native';
 import StashGearItem from '../components/StashGearItem'
 
