@@ -27,10 +27,7 @@ export default class HomebasePage extends Component {
       return(
       <View>
         <Text style={styles.green}>This looks like a good place to set up camp.</Text>
-          <Button
-            title="Establish camp"
-            onPress={this.handleClick}
-            />
+          <View><TouchableHighlight onPress={this.handleClick}><Text style={styles.green}>Establish camp</Text></TouchableHighlight></View>
         <View>
           <Link to={'/characters'}>
             <Text style={styles.green}>Character Status</Text>
