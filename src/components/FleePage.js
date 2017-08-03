@@ -12,13 +12,15 @@ displayText(){
         return(
           <View>
            <Text style={styles.green}>This damn {this.props.monsters[0].name} is still after you.</Text>
+             <Text style={styles.greenTitle}>Search:</Text>
+             <Text style={styles.green}>---------------------</Text>
            <Link to={'/characters'}><Text style={styles.green}>status</Text></Link>
           </View>
         )
         } else {
           return(
             <View>
-              <Text style={styles.green}>You escaped but you took ten damage hurt</Text>
+              <Text style={styles.green}>You escaped. You are hurt but you lived...</Text>
               <View>
                 <Link to={'/characters'}>
                   <Text style={styles.green}>Character Status</Text>
@@ -51,6 +53,14 @@ const styles = StyleSheet.create({
   green: {
     color: '#33ff66',
     fontFamily: 'Courier New',
-    fontWeight: '900'
-  }
+    fontWeight: '900',
+    fontSize: 20,
+    marginTop: 30,
+  },
+  greenTitle: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900',
+    fontSize: 30,
+  },
 });

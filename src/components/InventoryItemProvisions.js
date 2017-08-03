@@ -23,10 +23,25 @@ export default class InventoryItemProvisions extends Component {
   }
 }
 
+
 const styles = StyleSheet.create({
   green: {
     color: '#33ff66',
     fontFamily: 'Courier New',
-    fontWeight: '900'
-  }
+    fontWeight: '900',
+    fontSize: 15,
+    marginTop: 20,
+  },
+  greenBig: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900',
+    fontSize: 20,
+  },
+  greenTitle: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900',
+    fontSize: 30,
+  },
 });

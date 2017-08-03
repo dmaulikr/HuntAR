@@ -39,7 +39,8 @@ export default class LoginPage extends Component {
       return(
         <View>
           <View>
-            <Text style={styles.green}>Log In</Text>
+            <Text style={styles.greenTitle}>Log In</Text>
+            <Text style={styles.green}>---------------------</Text>
           </View>
           <View>
             <Text style={styles.green}>Email:</Text>
@@ -53,6 +54,7 @@ export default class LoginPage extends Component {
           <View>
             <Text style={styles.green}>Password:</Text>
               <TextInput
+                secureTextEntry={true}
                 style={styles.green}
                 placeholder="Password"
                 onChangeText={this.handleLoginPasswordChange}
@@ -83,19 +85,36 @@ export default class LoginPage extends Component {
 }
 
 
-
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 20,
+    paddingTop: 40,
     paddingLeft: 20,
     backgroundColor: '#000000',
     width: (width ),
     height: (height),
-
+  },
+  button: {
+    width: 20,
+    height: 30,
+    flexDirection: 'row',
   },
   green: {
     color: '#33ff66',
     fontFamily: 'Courier New',
-    fontWeight: '900'
-  }
+    fontWeight: '900',
+    fontSize: 20,
+    height: 30,
+  },
+  greenBig: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900',
+    fontSize: 20,
+  },
+  greenTitle: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900',
+    fontSize: 30,
+  },
 });

@@ -29,9 +29,10 @@ export default class UnderAttackPage extends Component {
   displayExploreWithCombatRedirect(){
     if (this.props.monsters.length > 0 ) {
       return(
-        <View>
-          <View><ExploreButtonTextContainer/></View>
-            <TouchableHighlight onPress={this.handleAttackClick}><Text style={styles.green}>"Fight!"</Text></TouchableHighlight>
+        <View >
+          <View style={styles.padding}><ExploreButtonTextContainer/></View>
+          <Text style={styles.green}>---------------------</Text>
+            <TouchableHighlight onPress={this.handleAttackClick}><Text style={styles.green}>Fight</Text></TouchableHighlight>
             <Link to={'/flee'}><Text style={styles.green}>Try to run away</Text></Link>
         </View>
       )
@@ -73,16 +74,30 @@ export default class UnderAttackPage extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 20,
+    paddingTop: 40,
     paddingLeft: 20,
     backgroundColor: '#000000',
     width: (width ),
     height: (height),
-
   },
+
   green: {
     color: '#33ff66',
     fontFamily: 'Courier New',
-    fontWeight: '900'
-  }
+    fontWeight: '900',
+    fontSize: 20,
+    marginTop: 30,
+  },
+  greenBig: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900',
+    fontSize: 20,
+  },
+  greenTitle: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900',
+    fontSize: 30,
+  },
 });

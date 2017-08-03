@@ -20,7 +20,7 @@ const initialState = {
   rateoffire: 2,
   name:"",
   created:false,
-  avaliblePoints: 10,
+  avaliblePoints: 15,
   intelligence: 0,
   strength: 0,
   stamina: 0,
@@ -38,23 +38,23 @@ export default function characterCreation(state = initialState, action = {}) {
             return ({...state, dexterity: (state.dexterity + 1), avaliblePoints: (state.avaliblePoints -1)})}
             return {...state}
     case DECREASE_CHARACTER_DEXTERITY:
-    if (state.avaliblePoints <= 10){
+    if (state.avaliblePoints <= 15 && state.dexterity > 0){
       return ({...state, dexterity: (state.dexterity - 1), avaliblePoints: (state.avaliblePoints +1)})}
       return {...state}
     case DECREASE_CHARACTER_STRENGTH:
-    if (state.avaliblePoints <= 10){
+    if (state.avaliblePoints <= 15 && state.strength > 0){
       return ({...state, strength: (state.strength - 1), avaliblePoints: (state.avaliblePoints +1)})}
       return {...state}
     case DECREASE_CHARACTER_INTELLIGENCE:
-    if (state.avaliblePoints <= 10){
+    if (state.avaliblePoints <= 15 && state.intelligence > 0){
       return ({...state, intelligence: (state.intelligence - 1), avaliblePoints: (state.avaliblePoints +1)})}
       return {...state}
     case DECREASE_CHARACTER_STAMINA:
-    if (state.avaliblePoints <= 10){
+    if (state.avaliblePoints <= 15 && state.stamina > 0){
       return ({...state, stamina: (state.stamina - 1), avaliblePoints: (state.avaliblePoints +1)})}
       return {...state}
     case DECREASE_CHARACTER_FORTITUDE:
-    if (state.avaliblePoints <= 10){
+    if (state.avaliblePoints <= 15 && state.fortitude > 0){
       return ({...state, fortitude: (state.fortitude - 1), avaliblePoints: (state.avaliblePoints +1)})}
       return {...state}
     case INCREASE_CHARACTER_STRENGTH:
@@ -82,7 +82,7 @@ export default function characterCreation(state = initialState, action = {}) {
         name:"",
         type:"Hunter",
         created:false,
-        avaliblePoints: 10,
+        avaliblePoints: 15,
         intelligence: 0,
         strength: 0,
         stamina: 0,
@@ -97,7 +97,7 @@ export default function characterCreation(state = initialState, action = {}) {
         name:"",
         type:"Hunter",
         created:false,
-        avaliblePoints: 10,
+        avaliblePoints: 15,
         intelligence: 0,
         strength: 0,
         stamina: 0,

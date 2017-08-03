@@ -45,6 +45,6 @@ const styles = StyleSheet.create({
   },
   map: {
     width: (width ),
-    height: (height*.8),
+    height: (height*.97),
   }
 });

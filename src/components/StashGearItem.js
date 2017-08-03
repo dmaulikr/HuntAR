@@ -33,6 +33,8 @@ const styles = StyleSheet.create({
   green: {
     color: '#33ff66',
     fontFamily: 'Courier New',
-    fontWeight: '900'
-  }
+    fontWeight: '900',
+    fontSize: 15,
+    marginTop: 20,
+  },
 });

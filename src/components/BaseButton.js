@@ -21,10 +21,13 @@ export default class BaseButton extends Component {
     )
   }
 }
+
 const styles = StyleSheet.create({
   green: {
     color: '#33ff66',
     fontFamily: 'Courier New',
-    fontWeight: '900'
+    fontWeight: '900',
+    fontSize: 20,
+    marginTop: 30,
   }
 });

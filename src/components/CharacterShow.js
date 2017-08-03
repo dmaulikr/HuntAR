@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Text, View, TouchableHighlight, StyleSheet } from 'react-native';
 import { Link } from 'react-router-native';
+import hpBarHelper from '../constants/style.js'
 
 export default class CharacterShow extends Component {
 
@@ -10,18 +11,20 @@ export default class CharacterShow extends Component {
     return (
       <View>
         <Text style={styles.green}>Name: { name }</Text>
-        <Text style={styles.green}>Health: { health }</Text>
         <Text style={styles.green}>Max Health: { maxHealth }</Text>
+        <Text style={styles.green}>Current Health: { health }</Text>
+        {hpBarHelper(health)}
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-
-  green: {
-    color: '#33ff66',
-    fontFamily: 'Courier New',
-    fontWeight: '900'
-  }
+    green: {
+      color: '#33ff66',
+      fontFamily: 'Courier New',
+      fontWeight: '900',
+      fontSize: 20,
+      height: 30,
+    },
 });

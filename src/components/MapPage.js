@@ -3,6 +3,7 @@ import Map from './Map'
 import React, { Component } from 'react';
 import {Text, View, StyleSheet, Dimensions } from 'react-native';
 import { Link } from 'react-router-native'
+var { height, width } = Dimensions.get('window')
 
 export default class MapPage extends Component {
 
@@ -38,7 +39,7 @@ export default class MapPage extends Component {
         <Map
           user={this.props.user}
           markers={MARKERS}/>
-        <Link to={'/characters'}><Text>Character Status</Text></Link>
+        <Link to={'/characters'}><Text>Back</Text></Link>
       </View>
     )
   }

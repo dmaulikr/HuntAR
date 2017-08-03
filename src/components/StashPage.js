@@ -26,8 +26,7 @@ export default class StashPage extends Component {
     return (
       <View>
         <View>
-          <Text style={styles.green}>Weapons and Armor</Text>
-          <Text style={styles.green}>Cuz everyone out there aint so nice...</Text>
+          <Text style={styles.green}>Weapons and Armor:</Text>
           <StashGear
             InventoryActions={this.props.InventoryActions}
             user={this.props.user}
@@ -35,8 +34,7 @@ export default class StashPage extends Component {
             items={this.props.items}/>
         </View>
         <View>
-          <Text style={styles.green}>Raw Materials</Text>
-          <Text style={styles.green}>Maybe I can use these to fix this place up...</Text>
+          <Text style={styles.green}>Raw Materials:</Text>
           <StashFortifications
             InventoryActions={this.props.InventoryActions}
             user={this.props.user}
@@ -44,8 +42,7 @@ export default class StashPage extends Component {
             items={this.props.items}/>
         </View>
         <View>
-          <Text style={styles.green}>Provisions</Text>
-          <Text style={styles.green}>So hungry...</Text>
+          <Text style={styles.green}>Provisions:</Text>
           <StashProvisions
             InventoryActions={this.props.InventoryActions}
             user={this.props.user}
@@ -64,6 +61,8 @@ const styles = StyleSheet.create({
   green: {
     color: '#33ff66',
     fontFamily: 'Courier New',
-    fontWeight: '900'
-  }
+    fontWeight: '900',
+    fontSize: 15,
+    marginTop: 10,
+  },
 });

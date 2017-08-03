@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 import {Text, View, Button, StyleSheet, Dimensions } from 'react-native';
 import { Link, Redirect } from 'react-router-native';
 import StashContainer from '../containers/StashContainer';
+import hpBarHelper from '../constants/style.js'
 var { height, width } = Dimensions.get('window')
+
 
 export default class HomebasePage extends Component {
   componentWillUnmount(){
@@ -21,32 +23,27 @@ export default class HomebasePage extends Component {
       this.props.fortificationsFlavor.map( (fortification, i) => {
         if (true)
        return (
-        <Text style={styles.green} key={i}>{fortification}</Text>
+        <Text style={styles.green} key={i}> {fortification}</Text>
       )}))}
   render() {
     return (
       <View style={styles.container}>
         <View>
-          <Text style={styles.green}>Home Sweet Home</Text>
+          <Text style={styles.greenTitle}>Home Sweet Home</Text>
+          <Text style={styles.green}>---------------------</Text>
         </View>
         <View>
+          <Text style={styles.green}>Max Repair: {this.props.base.maxHealth}</Text>
           <Text style={styles.green}>Repair Status: {this.displayStatus()}%</Text>
-        </View>
-        <View>
-          <Text style={styles.green}>Max Health: {this.props.base.maxHealth}</Text>
+              {hpBarHelper(this.props.base.health)}
         </View>
         <View>
           <Text style={styles.green}>Fortifications:</Text>
-        </View>
-        <View>
           <Text style={styles.green}>{this.displayFortifications()}</Text>
         </View>
         <View>
 
           <StashContainer/>
-        </View>
-        <View>
-          <Text style={styles.green}>It aint much but its all ive got...</Text>
         </View>
           <View>
             <Link to={'/inventory'}>
@@ -66,16 +63,34 @@ export default class HomebasePage extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 20,
+    paddingTop: 40,
     paddingLeft: 20,
     backgroundColor: '#000000',
     width: (width ),
     height: (height),
-
+  },
+  button: {
+    width: 20,
+    height: 30,
+    flexDirection: 'row',
   },
   green: {
     color: '#33ff66',
     fontFamily: 'Courier New',
-    fontWeight: '900'
-  }
+    fontWeight: '900',
+    fontSize: 15,
+    marginTop: 10,
+  },
+  greenBig: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900',
+    fontSize: 20,
+  },
+  greenTitle: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900',
+    fontSize: 30,
+  },
 });

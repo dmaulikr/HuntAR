@@ -64,32 +64,25 @@ export default class CharactersPage extends Component {
     if ( this.props.characters.created === true ) {
       return(
         <View >
-          <View>
-          <View>
-            <Text style={styles.green}>{this.displayDaysSurvived()}</Text>
-          </View>
-            <CharacterShow
+          <Text style={styles.greenTitle}>Status:</Text>
+          <Text style={styles.green}>---------------------</Text>
+          <Text style={styles.green}>{this.displayDaysSurvived()}</Text>
+
+          <CharacterShow
               character={this.props.characters}
               />
-          </View>
-            <EquippedItems
+
+          <EquippedItems
               EquipedItems={this.props.EquipedItems}
               />
-              <View>
                 <Link to={'/explore'}><View><ExploreButtonTextContainer/></View></Link>
                 <Link to={'/inventory'}><Text style={styles.green}>Inventory</Text></Link>
                 <Link to={'/map'}><Text style={styles.green}>Map</Text></Link>
-              </View>
-              <View>
                 {this.displayAddHomeBaseButton()}
-              </View>
-              <View>
                 {this.displayHomeBaseButton()}
-              </View>
-              <View>
                 <TouchableHighlight onPress={this.handleClick}><Text style={styles.green} >Logout</Text></TouchableHighlight>
-              </View>
-        </View>
+          </View>
+
       )
     }
     else if ( this.props.user && this.props.user.loggedin === false ){
@@ -122,18 +115,37 @@ export default class CharactersPage extends Component {
   }
 }
 
+
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 20,
+    paddingTop: 40,
     paddingLeft: 20,
     backgroundColor: '#000000',
     width: (width ),
     height: (height),
-
+  },
+  button: {
+    width: 20,
+    height: 30,
+    flexDirection: 'row',
   },
   green: {
     color: '#33ff66',
     fontFamily: 'Courier New',
-    fontWeight: '900'
-  }
+    fontWeight: '900',
+    fontSize: 20,
+    marginTop: 30,
+  },
+  greenBig: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900',
+    fontSize: 20,
+  },
+  greenTitle: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900',
+    fontSize: 30,
+  },
 });

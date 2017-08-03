@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Text, View, TextInput,  StyleSheet, Dimensions } from 'react-native';
+import {Text, View, TextInput,  StyleSheet, Dimensions, TouchableHighlight } from 'react-native';
 import { Redirect, Link } from 'react-router-native'
 var { height, width } = Dimensions.get('window')
 
@@ -43,6 +43,7 @@ export default class RegisterPage extends Component {
             <Text style={styles.green}>Password:</Text>
               <TextInput
                 style={styles.green}
+                secureTextEntry={true}
                 placeholder="Password"
                 onChangeText={this.handleRegisterPasswordChange}
                 >

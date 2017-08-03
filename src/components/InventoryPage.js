@@ -39,6 +39,10 @@ export default class InventoryPage extends Component {
     return (
       <View style={styles.container}>
         <View>
+          <Text style={styles.greenTitle}>Inventory</Text>
+          <Text style={styles.green}>---------------------</Text>
+        </View>
+        <View>
           <Text style={styles.green}>Weapons and Armor</Text>
           <InventoryGear
             items={this.props.items}
@@ -80,18 +84,37 @@ export default class InventoryPage extends Component {
 }
 
 
+
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 20,
+    paddingTop: 40,
     paddingLeft: 20,
     backgroundColor: '#000000',
     width: (width ),
     height: (height),
-
+  },
+  button: {
+    width: 20,
+    height: 30,
+    flexDirection: 'row',
   },
   green: {
     color: '#33ff66',
     fontFamily: 'Courier New',
-    fontWeight: '900'
-  }
+    fontWeight: '900',
+    fontSize: 15,
+    marginTop: 20,
+  },
+  greenBig: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900',
+    fontSize: 20,
+  },
+  greenTitle: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900',
+    fontSize: 30,
+  },
 });

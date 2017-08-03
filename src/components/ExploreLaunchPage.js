@@ -42,10 +42,12 @@ export default class ExploreLaunchPage extends Component {
     if (this.props.monsters.length === 0 ) {
       return(
         <View>
+          <Text style={styles.greenTitle}>Search:</Text>
+          <Text style={styles.green}>---------------------</Text>
             <Text style={styles.green}>{this.props.SearchResult.text}</Text>
             <TouchableHighlight onPress={this.handleSearchClick}><Text style={styles.green}>Search the area</Text></TouchableHighlight>
           <View>
-            <Link to={'/characters'}><Text style={styles.green}>Return to Status Page</Text></Link>
+            <Link to={'/characters'}><Text style={styles.green}>Return to status page</Text></Link>
           </View>
         </View>
       )
@@ -81,6 +83,14 @@ const styles = StyleSheet.create({
   green: {
     color: '#33ff66',
     fontFamily: 'Courier New',
-    fontWeight: '900'
-  }
+    fontWeight: '900',
+    fontSize: 20,
+    marginTop: 30,
+  },
+  greenTitle: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900',
+    fontSize: 30,
+  },
 });
