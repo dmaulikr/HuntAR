@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Text, View, TextInput, Button, StyleSheet, Dimensions, TouchableHighlight } from 'react-native';
 import { Redirect, Link } from 'react-router-native'
 var { height, width } = Dimensions.get('window')
+import TypeWriter from 'react-native-typewriter'
 
 export default class LoginPage extends Component {
   constructor() {
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Courier New',
     fontWeight: '900',
     fontSize: 20,
-    height: 30,
+    marginTop: 20,
   },
   greenBig: {
     color: '#33ff66',

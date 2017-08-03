@@ -153,15 +153,15 @@ const styles = StyleSheet.create({
   },
   button: {
     width: 20,
-    height: 30,
+    height: 25,
     flexDirection: 'row',
   },
   green: {
     color: '#33ff66',
     fontFamily: 'Courier New',
     fontWeight: '900',
-    fontSize: 20,
-    height: 30,
+    fontSize:15,
+    marginTop: 4,
   },
   greenBig: {
     color: '#33ff66',

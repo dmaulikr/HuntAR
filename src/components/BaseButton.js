@@ -28,6 +28,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Courier New',
     fontWeight: '900',
     fontSize: 20,
-    marginTop: 30,
+    marginTop: 20,
   }
 });

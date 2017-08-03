@@ -1,4 +1,5 @@
 import LoginContainer from '../containers/LoginContainer'
+import SplashPage from '../components/SplashPage'
 import RegisterPageContainer from '../containers/RegisterPageContainer'
 import CharactersPageContainer from '../containers/CharactersPageContainer'
 import InventoryPageContainer from '../containers/InventoryPageContainer'
@@ -19,7 +20,7 @@ export default class Main extends Component {
     return (
       <View >
         <Switch>
-           <Route path="/" exact component={LoginContainer} />
+           <Route path="/" exact component={SplashPage} />
            <Route path="/login" exact component={LoginContainer}/>
            <Route path="/register" exact component={RegisterPageContainer}/>
            <Route path="/characters" exact component={CharactersPageContainer}/>
