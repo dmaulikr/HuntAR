@@ -1,9 +1,11 @@
 import { ADD_CHARACTER_SUCCESS } from '../actions/CreateCharacterFormActions';
-import { SET_CHARACTER } from '../actions/CharacterActions';
+import { SET_CHARACTER, FLEE } from '../actions/CharacterActions';
 import { SET_HOME_BASE } from '../actions/HomebaseActions';
-import { SET_CURRENT_LOCATION } from '../actions/GeoActions';
+import { SEARCH_CURRENT_LOCATION } from '../actions/GeoActions';
+import { CONSUME_ITEM, EQUIP_HELM, EQUIP_BODY, EQUIP_WEP } from '../actions/InventoryActions';
+import { LOGOUT } from '../actions/CharacterActions';
 
-// remove state intial character
+
 
 const initialState = {
   created: false,
@@ -29,6 +31,36 @@ export default function characters(state = initialState, action = {}) {
         homebase: action.location,
         hasHomeBase: true,
       }
+    case FLEE:
+      return  {
+        ...state,
+        health: (state.health - 10),
+      }
+    case CONSUME_ITEM:
+      return  {
+        ...state,
+        health: (state.health + action.item.healthBoost),
+      }
+    case EQUIP_HELM:
+      return  {
+        ...state,
+        maxHealth: (state.maxHealth + action.item.bonus),
+      }
+    case EQUIP_BODY:
+      return  {
+        ...state,
+        maxHealth: (state.maxHealth + action.item.bonus),
+      }
+    case EQUIP_WEP:
+      return  {
+        ...state,
+        rateoffire: action.item.bonus,
+      }
+    case LOGOUT:
+      return {
+      ...state,
+      created: false,
+      hasHomeBase: false,}
     default:
       return state;
   }

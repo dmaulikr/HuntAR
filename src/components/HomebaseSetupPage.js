@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import {Text, View, Button } from 'react-native';
+import {Text, View, Button, StyleSheet, Dimensions, TouchableHighlight  } from 'react-native';
 import { Link, Redirect } from 'react-router-native';
+var { height, width } = Dimensions.get('window')
 
-
-export default class HomebaseSetupPage extends Component {
+export default class HomebasePage extends Component {
   constructor() {
   super();
     this.handleClick = this.handleClick.bind(this);
@@ -26,14 +26,11 @@ export default class HomebaseSetupPage extends Component {
     if (this.props.character.hasHomeBase === false) {
       return(
       <View>
-        <Text>This looks like a good place to set up camp.</Text>
-          <Button
-            title="Establish camp"
-            onPress={this.handleClick}
-            />
+        <Text style={styles.green}>This looks like a good place to set up camp.</Text>
+          <View><TouchableHighlight onPress={this.handleClick}><Text style={styles.green}>Establish camp</Text></TouchableHighlight></View>
         <View>
           <Link to={'/characters'}>
-            <Text>Character Status</Text>
+            <Text style={styles.green}>Character Status</Text>
           </Link>
         </View>
       </View>
@@ -49,9 +46,29 @@ export default class HomebaseSetupPage extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
           {this.displayHomeBaseSetupWithRedirect()}
       </View>
     )
   }
 }
+
+
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 20,
+    paddingLeft: 20,
+    backgroundColor: '#000000',
+    width: (width ),
+    height: (height),
+
+  },
+  green: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900',
+    fontSize: 20,
+    marginTop: 20,
+  },
+});

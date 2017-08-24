@@ -65,14 +65,50 @@ export async function createCombatInstance(uid, combatInstance) {
 
 // save position
 export async function saveLocationHistory(uid, locationhistory) {
-  debugger
   var database = firebase.database();
   firebase.database().ref('users/' + uid + '/locationhistory').set({
       locationhistory
     });
 }
 
+export async function saveBase(uid, base) {
+  var database = firebase.database();
+  firebase.database().ref('users/' + uid + '/base').set({
+      base
+    });
+}
+export async function saveItems(uid, items) {
+  var database = firebase.database();
+  firebase.database().ref('users/' + uid + '/items').set({
+      items
+    });
+}
+export async function saveFortificationsFlavor(uid, fortificationsFlavor) {
+  var database = firebase.database();
+  firebase.database().ref('users/' + uid + '/fortificationsFlavor').set({
+      fortificationsFlavor
+    });
+}
+export async function saveEquipedItems(uid, EquipedItems) {
+  var database = firebase.database();
+  firebase.database().ref('users/' + uid + '/EquipedItems').set({
+      EquipedItems
+    });
+}
 
+
+
+export async function setEquipedItems(uid, callback) {
+    var database = firebase.database();
+    test = firebase.database().ref('users/' + uid + '/EquipedItems')
+    test.once("value", function(snapshot) {
+    temp = snapshot.val()
+    callback(null, temp);
+  }, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  });
+
+};
 
 
 // pull characters from firebase
@@ -92,6 +128,38 @@ export async function setCharacter(uid, callback) {
 export async function setLocationHistory(uid, callback) {
     var database = firebase.database();
     test = firebase.database().ref('users/' + uid + '/locationhistory')
+    test.once("value", function(snapshot) {
+    temp = snapshot.val()
+    callback(null, temp);
+  }, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  });
+};
+
+export async function setItemHistory(uid, callback) {
+    var database = firebase.database();
+    test = firebase.database().ref('users/' + uid + '/items')
+    test.once("value", function(snapshot) {
+    temp = snapshot.val()
+    callback(null, temp);
+  }, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  });
+};
+
+export async function setFortificationsFlavor(uid, callback) {
+    var database = firebase.database();
+    test = firebase.database().ref('users/' + uid + '/fortificationsFlavor')
+    test.once("value", function(snapshot) {
+    temp = snapshot.val()
+    callback(null, temp);
+  }, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  });
+};
+export async function setDamage(uid, callback) {
+    var database = firebase.database();
+    test = firebase.database().ref('users/' + uid + '/combatInstance/combatInstance/characterhealth')
     test.once("value", function(snapshot) {
     temp = snapshot.val()
     callback(null, temp);

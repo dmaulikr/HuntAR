@@ -1,0 +1,79 @@
+
+
+
+
+
+ DECREASE_CHARACTER_DEXTERITY,
+ DECREASE_CHARACTER_STRENGTH,
+ DECREASE_CHARACTER_INTELLIGENCE,
+ DECREASE_CHARACTER_STAMINA,
+ DECREASE_CHARACTER_FORTITUDE,
+ INCREASE_CHARACTER_STRENGTH,
+ INCREASE_CHARACTER_INTELLIGENCE,
+ INCREASE_CHARACTER_STAMINA,
+ INCREASE_CHARACTER_FORTITUDE,
+ INCREASE_CHARACTER_DEXTERITY,
+
+
+
+
+
+const initialState = {
+  health: 0,
+  rateoffire: 2,
+  name:"",
+  type:"Hunter",
+  created:false,
+  avaliblePoints: 10,
+  intelligence: 0,
+  strength: 0,
+  stamina: 0,
+  dexterity: 0,
+  fortitude: 0,
+}
+
+
+
+
+
+
+
+
+
+
+      IncreaseStrength
+
+
+      DecreaseStrength
+
+
+
+    IncreaseIntelligence
+
+
+
+    DecreaseIntelligence
+
+
+
+
+    IncreaseStamina
+
+
+    DecreaseStamina
+
+
+
+
+        IncreaseDexterity
+
+
+        DecreaseDexterity
+
+
+
+
+        IncreaseFortitude
+
+
+        DecreaseFortitude

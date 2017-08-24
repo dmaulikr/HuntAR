@@ -2,10 +2,10 @@ import { d20 } from './Dice'
 import * as MonsterHelper from './Monsters'
 import * as ItemHelper from './Items'
 
-export default function searchHelper(){
+export default function searchHelper(counter){
   roll = d20()
   switch(true) {
-    case roll < 5:
+    case roll < counter:
       return  {
         type: 'MONSTER',
         payload: MonsterHelper.randomMonster(MonsterHelper.MONSTERS)
@@ -19,5 +19,18 @@ export default function searchHelper(){
       return {
         type: 'NOTHING'
     };
+  }
+}
+
+export function eventDescriptionHelper(result){
+  switch(result.type) {
+    case "ITEM":
+      return `You searched this area and found ${result.payload.name.toLowerCase()}`;
+    case "NOTHING":
+    return  `You searched this area and found nothing. It is a wasteland out there...`;
+    case "MONSTER":
+    return  `AVOID THIS AREA! I got attacked by some sort of ${result.payload.name.toLowerCase()}`;
+    default:
+      return "";
   }
 }

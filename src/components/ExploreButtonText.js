@@ -1,22 +1,33 @@
 import React, { Component } from 'react';
-import {Text, View } from 'react-native';
+import {Text, View, StyleSheet } from 'react-native';
+
 
 export default class ExploreButtonText extends Component {
   displayText(){
     if ( this.props.monsters.length > 0 ) {
           return(
-            <Text>Your being attacked by a {this.props.monsters[0].name}</Text>
+            <Text style={styles.green}>Your being attacked by a {this.props.monsters[0].name}</Text>
           )
           } else {
             return(
-            <Text>Explore</Text>
+            <Text style={styles.green}>Explore</Text>
             )
           }
         }
 
   render() {
     return (
-      <Text>{this.displayText()}</Text>
+      <Text style={styles.green}>{this.displayText()}</Text>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  green: {
+    color: '#33ff66',
+    fontFamily: 'Courier New',
+    fontWeight: '900',
+    fontSize: 20,
+    marginTop: 20,
+  },
+});

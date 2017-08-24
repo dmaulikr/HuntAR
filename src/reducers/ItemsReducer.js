@@ -1,98 +1,53 @@
-import { SET_CURRENT_LOCATION } from '../actions/GeoActions';
-import { STORE_ITEM } from '../actions/InventoryActions';
+import { SEARCH_CURRENT_LOCATION } from '../actions/GeoActions';
+import { STORE_ITEM, CONSUME_ITEM, FORTIFY, REPAIR } from '../actions/InventoryActions';
+import { SET_ITEMS } from '../actions/CharacterActions';
+import { LOGOUT } from '../actions/CharacterActions';
 
+const initialState = []
 
-const initialState = [
-  {
-    bonusDamage: 50,
-    name:"Machine Gun",
-    type:"weapon",
-    inventory:true,
-    stored:false,
-    weight: 10
-  },
-  {
-    bonusDamage: 25,
-    name:"Pistol",
-    type:"weapon",
-    inventory:true,
-    stored:false,
-    weight: 5
-  },
-  {
-    bonusHealth: 50,
-    name:"Tactical Helmet",
-    type:"head",
-    inventory:true,
-    stored:false,
-    weight: 10
-  },
-  {
-    bonusHealth: 100,
-    name:"Riot Gear",
-    type:"body",
-    inventory:true,
-    stored:false,
-    weight: 30
-  },
-  {
-    name:"Beef Jerky",
-    type:"Provisions",
-    inventory:true,
-    stored:false,
-    weight: 1
-  },
-  {
-    name:"Canned Corn",
-    type:"Provisions",
-    inventory:true,
-    stored:false,
-    weight: 1
-  },
-  {
-    name:"Peanut Butter",
-    type:"Provisions",
-    inventory:true,
-    stored:false,
-    weight: 1
-  },
-  {
-    name:"Beer",
-    type:"Provisions",
-    inventory:true,
-    stored:false,
-    weight: 1
-  },
-  {
-    name:"Razor Wire",
-    type:"Fortifications",
-    inventory:true,
-    stored:false,
-    weight: 5
-  },
-]
+function storeItem(items, storedItem) {
+  return items.map((item, index) => {
+      if (item.id === storedItem.id) {
+        return Object.assign({}, item, {
+          stored: !storedItem.stored
+        })
+      }
+      return item
+    })
+}
 
-function storeItem(items, itemId) {
-  // return todos.map((todo, index) => {
-  //     if (todo._id === updatedTodo.id) {
-  //       // Copy the object before mutating
-  //       return Object.assign({}, todo, {
-  //         todo: updatedTodo.text
-  //       })
-  //     }
-  //     return todo
-  //   })
+function consumeItem(items, consumedItem) {
+  return items.map((item, index) => {
+      if (item.id === consumedItem.id) {
+        return Object.assign({}, item, {
+          consumed: true
+        })
+      }
+      return item
+    })
 }
 
 export default function items(state = initialState, action = {}) {
   switch(action.type) {
-    case SET_CURRENT_LOCATION:
+    case SEARCH_CURRENT_LOCATION:
       if (action.exploration.result.type === "ITEM") {
         return [...state, action.exploration.result.payload]
       }
       return [...state]
     case STORE_ITEM:
-      return storeItem(state, action.id)
+      return storeItem(state, action.item)
+    case CONSUME_ITEM:
+      return consumeItem(state, action.item)
+    case FORTIFY:
+      return consumeItem(state, action.item)
+    case REPAIR:
+      return consumeItem(state, action.item)
+    case SET_ITEMS:
+      return  [
+        ...action.items
+      ]
+    case LOGOUT:
+      return []
     default:
       return state;
   }

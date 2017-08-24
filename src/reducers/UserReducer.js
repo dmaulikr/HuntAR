@@ -1,13 +1,13 @@
-import { LOGOUT } from '../actions/UserActions';
 import { SUMBIT_LOGIN_FORM_SUCCESS } from '../actions/LoginFormActions';
 import { SUMBIT_REGISTER_FORM_SUCCESS } from '../actions/RegisterFormActions';
-
+import { SET_CURRENT_LOCATION } from '../actions/GeoActions';
+import { LOGOUT } from '../actions/CharacterActions';
 
 const initialState = {
-  // email: "Gbrlxvi@gmail.com",
-  // uid: "I0be6MxSRzMDf9kTxcf4pJYklbx1",
   loggedin: false,
+  atHomeBase: false,
 }
+
 
 export default function user(state = initialState, action = {}) {
   switch(action.type) {
@@ -25,6 +25,16 @@ export default function user(state = initialState, action = {}) {
         email: action.user.email,
         loggedin: true,
        };
+    case SET_CURRENT_LOCATION:
+      return  {
+        ...state,
+        currentLocation: action.location
+       };
+    case LOGOUT:
+      return  {...state,
+        loggedin: false,
+        atHomeBase: false,
+      }
     default:
       return state;
   }

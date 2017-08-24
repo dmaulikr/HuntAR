@@ -1,33 +1,30 @@
-import ExploreButtonTextContainer from '../containers/ExploreButtonTextContainer'
 import React, { Component } from 'react';
-import {Text, View, TouchableHighlight } from 'react-native';
+import {Text, View, TouchableHighlight, StyleSheet } from 'react-native';
 import { Link } from 'react-router-native';
+import hpBarHelper from '../constants/style.js'
 
 export default class CharacterShow extends Component {
-    displayAddHomeBaseButton(){
-      if ( this.props.character.hasHomeBase === false ) {
-        return(
-          <Link to={'/homebaseSetup'}><Text>Establish your outpost</Text></Link>
-        )
-      }
-    }
+
 
   render() {
-    let { name, type, damage, health } = this.props.character
+  let { name, health, maxHealth, intelligence, strength, stamina, dexterity } = this.props.character
     return (
       <View>
-        <View><Text>Name: { name }</Text></View>
-        <View><Text>Type: { type }</Text></View>
-        <View><Text>Damage: { damage }</Text></View>
-        <View><Text>Health: { health }</Text></View>
-        <View>
-          <Link to={'explore'}><View><ExploreButtonTextContainer/></View></Link>
-          <Link to={'inventory'}><Text>Inventory</Text></Link>
-        </View>
-        <View>
-          {this.displayAddHomeBaseButton()}
-        </View>
+        <Text style={styles.green}>Name: { name }</Text>
+        <Text style={styles.green}>Max Health: { maxHealth }</Text>
+        <Text style={styles.green}>Current Health: { health }</Text>
+        {hpBarHelper(health)}
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+    green: {
+      color: '#33ff66',
+      fontFamily: 'Courier New',
+      fontWeight: '900',
+      fontSize: 20,
+      height: 30,
+    },
+});

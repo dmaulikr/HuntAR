@@ -1,14 +1,45 @@
-import CharacterShow from '../components/CharacterShow'
+import { eventDescriptionHelper } from '../constants/SearchHelper'
+import Map from './Map'
 import React, { Component } from 'react';
-import {Text, View } from 'react-native';
+import {Text, View, StyleSheet, Dimensions } from 'react-native';
 import { Link } from 'react-router-native'
+var { height, width } = Dimensions.get('window')
 
 export default class MapPage extends Component {
 
+
+  makeMarkers(){
+
+    markers = this.props.locationHistory.map((event)=> {
+      return ({
+        latlng: {   latitude: event.location.coords.latitude, longitude: event.location.coords.longitude },
+        title: "Event Log",
+        description: eventDescriptionHelper(event.result)
+      })
+    }
+  )
+
+      if (this.props.characters.hasHomeBase === true) {
+        let homeBaseMarker = {
+          latlng: {
+            latitude: this.props.characters.homebase.coords.latitude,
+            longitude: this.props.characters.homebase.coords.longitude},
+          title: "Home Base",
+          description: "Home sweet home"
+        }
+        markers.push(homeBaseMarker)
+    }
+    return(markers)
+  }
+
   render() {
+    const MARKERS = this.makeMarkers()
     return (
       <View>
-        <Text>This is the map page</Text>
+        <Map
+          user={this.props.user}
+          markers={MARKERS}/>
+        <Link to={'/characters'}><Text>Back</Text></Link>
       </View>
     )
   }
